@@ -1,10 +1,13 @@
 // Libs
 import React from 'react'
 
+// Components
+import Box from 'components/Box'
+
 
 const App = () => (
   <div className="app">
-    15 Puzzle
+    <Box />
   </div>
 )
 
