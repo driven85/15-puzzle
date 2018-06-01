@@ -5,11 +5,11 @@ import React from 'react'
 import './styles.sass'
 
 
-const Cover = () => (
-  <div className="cover">
+const Lid = () => (
+  <div className="lid">
     <span className="play">Play!</span>
   </div>
 )
 
-export default Cover
+export default Lid
 

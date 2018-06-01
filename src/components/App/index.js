@@ -3,7 +3,7 @@ import React from 'react'
 
 // Components
 import Box from 'components/Box'
-import Cover from 'components/Cover'
+import Lid from 'components/Lid'
 
 // CSS
 import './styles.sass'
@@ -12,7 +12,7 @@ import './styles.sass'
 const App = () => (
   <div className="app">
     <Box />
-    <Cover />
+    <Lid />
   </div>
 )
 
