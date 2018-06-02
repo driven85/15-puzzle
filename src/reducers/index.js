@@ -2,11 +2,11 @@
 import { combineReducers } from 'redux'
 
 // Reducers
-import open from './open'
+import layout from './layout'
 
 
 const reducer = combineReducers({
-  open
+  layout
 })
 
 export default reducer
