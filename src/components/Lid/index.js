@@ -1,6 +1,7 @@
 // Libs
 import React from 'react'
 import { connect } from 'react-redux'
+import classNames from 'classnames'
 
 // CSS
 import './styles.sass'
@@ -17,23 +18,19 @@ const mapDispatchToProps = dispatch => ({
   onOpen: (e) => dispatch(lidOpen())
 })
 
-const Lid = ({ lidOpen, onOpen }) => {
-  const klass = lidOpen ? 'open' : ''
-
-  return (
-    <React.Fragment>
-      <div className={`lid back ${klass}`}></div>
-      <div className={`lid front ${klass}`}>
-        <span 
-          className="play"
-          onClick={onOpen}
-        >
-          Play!
-        </span>
-      </div>
-    </React.Fragment>
-  )
-}
+const Lid = ({ lidOpen, onOpen }) => (
+  <React.Fragment>
+    <div className={classNames('lid back', { open: lidOpen })} />
+    <div className={classNames('lid front', { open: lidOpen })}>
+      <span 
+        className="play"
+        onClick={onOpen}
+      >
+        Play!
+      </span>
+    </div>
+  </React.Fragment>
+)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Lid)
 
