@@ -1,5 +1,6 @@
 // Libs
 import React from 'react'
+import { connect } from 'react-redux'
 
 // CSS
 import './styles.sass'
@@ -9,11 +10,11 @@ import EmptySpace from 'components/EmptySpace'
 import Tile from 'components/Tile'
 
 
-const state = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0]
+const mapStateToProps = ({ tiles }) => ({ tiles })
 
-const Box = () => (
+const Box = ({ tiles }) => (
   <div className="box">
-    {state.map(tile => 
+    {tiles.map(tile => 
       tile 
         ? <Tile
             key={tile}
@@ -24,5 +25,5 @@ const Box = () => (
   </div>
 )
 
-export default Box
+export default connect(mapStateToProps)(Box)
 
