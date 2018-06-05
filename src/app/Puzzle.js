@@ -1,4 +1,4 @@
-const initialState = [...Array.from(new Array(15), (v, i) => i + 1), 0]
+export const initialState = [...Array.from(new Array(15), (v, i) => i + 1), 0]
 
 function Puzzle(puzzle = initialState) {
   this._puzzleStates = [puzzle]
@@ -77,23 +77,12 @@ Puzzle.prototype = {
       isOdd(pos) && isEven(count)
   },
 
-  reset: function() {
-    this._puzzleStates = [initialState]
+  reset: function(puzzle = initialState) {
+    this._puzzleStates = [puzzle]
+
+    return this
   }
-
-  // shuffle: function() {
-  //   while (this._shuffles--) {
-  //     const movableTiles = this._getMovableTiles()
-  //     const tile = Shuffler.pickRandomTile(movableTiles)
-  //     const newState = this._moveTile(tile)
-  //     this._puzzleStates.push(newState)
-  //   }
-  // }
 }
-
-// Shuffler.pickRandomTile = function(tiles) {
-//   return tiles[Math.floor(Math.random() * tiles.length)]
-// }
 
 export default Puzzle
 

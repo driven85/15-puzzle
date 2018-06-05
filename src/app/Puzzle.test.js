@@ -1,6 +1,33 @@
 import test from 'tape'
-import Puzzle from './Puzzle'
+import Puzzle, { initialState } from './Puzzle'
 
+
+test('Puzzle.prototype.currentState', t => {
+  let puzzle
+
+  puzzle = new Puzzle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0])
+  t.deepEqual(
+    puzzle.currentState(),
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0],
+    'Should return the puzzle\'s current state'
+  )
+
+  puzzle.moveTile(15)
+  t.deepEqual(
+    puzzle.currentState(),
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 0, 15],
+    'Should return the puzzle\'s current state'
+  )
+
+  puzzle.moveTile(11)
+  t.deepEqual(
+    puzzle.currentState(),
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 12, 13, 14, 11, 15],
+    'Should return the puzzle\'s current state'
+  )
+
+  t.end()
+})
 
 test('Puzzle.prototype.getMovableTiles', t => {
   let puzzle
@@ -86,22 +113,7 @@ test('Puzzle.prototype.moveTile', t => {
   t.end()
 })
 
-//test('Puzzle.prototype.shuffle', t => {
-//  t.fail('TODO: should be solvable') 
-//
-//  t.end()
-//})
-
-// test('Puzzle.pickRandomTile', t => {
-//   const tiles = [1, 2, 3, 4, 5]
-// 
-//   t.ok(tiles.includes(Puzzle.pickRandomTile(tiles)),
-//     'Should pick a random tile correctly')
-// 
-//   t.end()
-// })
-
-test('Puzzle.isSolvable', t => {
+test('Puzzle.prototype.isSolvable', t => {
   let puzzle
 
   puzzle = new Puzzle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0])
@@ -115,6 +127,26 @@ test('Puzzle.isSolvable', t => {
 
   puzzle = new Puzzle([3, 9, 1, 15, 14, 11, 4, 6, 13, 0, 10, 12, 2, 7, 8, 5])
   t.notOk(puzzle.isSolvable(), 'Should be unsolvable')
+
+  t.end()
+})
+
+test('Puzzle.prototype.reset', t => {
+  let puzzle,
+      randomState = [0, 1, 3, 5, 7, 9, 11, 13, 15, 2, 4, 6, 8, 10, 12, 14]
+
+  puzzle = new Puzzle(randomState)
+  t.deepEqual(
+    puzzle.reset().currentState(),
+    initialState,
+    'Should reset the puzzle to the initial state'
+  )
+
+  t.deepEqual(
+    puzzle.reset(randomState).currentState(),
+    randomState,
+    'Should reset the puzzle to a certain state'
+  )
 
   t.end()
 })
