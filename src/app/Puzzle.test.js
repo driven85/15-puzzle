@@ -29,6 +29,23 @@ test('Puzzle.prototype.currentState', t => {
   t.end()
 })
 
+test('Puzzle.prototype.allStates', t => {
+  let puzzle
+
+  puzzle = new Puzzle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0])
+  puzzle.moveTile(15)
+  puzzle.moveTile(11)
+  t.deepEqual(
+    puzzle.allStates(),
+    [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0],
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 0, 15],
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 12, 13, 14, 11, 15]],
+    'Should return all puzzle\'s states'
+  )
+
+  t.end()
+})
+
 test('Puzzle.prototype.getMovableTiles', t => {
   let puzzle
    

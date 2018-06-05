@@ -9,6 +9,10 @@ Puzzle.prototype = {
     return this._puzzleStates[this._puzzleStates.length - 1]
   },
 
+  allStates: function() {
+    return this._puzzleStates
+  },
+
   getMovableTiles:  function() {
     const movableTiles = []
     const puzzle = this.currentState()

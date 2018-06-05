@@ -1,16 +1,17 @@
+function Shuffler(puzzle) {
+  this._puzzle = puzzle 
+}
 
-// shuffle: function() {
-//   while (this._shuffles--) {
-//     const movableTiles = this._getMovableTiles()
-//     const tile = Shuffler.pickRandomTile(movableTiles)
-//     const newState = this._moveTile(tile)
-//     this._puzzleStates.push(newState)
-//   }
-// }
-//
+Shuffler.prototype.shuffle = function(n) {
+  while (n--) {
+    const movableTiles = this._puzzle.getMovableTiles()
+    const tile = Shuffler.pickRandomTile(movableTiles)
+    this._puzzle.moveTile(tile)
+  } 
+}
 
+Shuffler.pickRandomTile = tiles =>
+  tiles[Math.floor(Math.random() * tiles.length)]
 
-// Shuffler.pickRandomTile = function(tiles) {
-//   return tiles[Math.floor(Math.random() * tiles.length)]
-// }
+export default Shuffler
 
