@@ -8,7 +8,7 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server --mode=development --inline --progress --output-public-path=/build",
-    "test": "babel-node src/helpers/Shuffler.test.js | tap-spec"
+    "test:helpers": "babel-node src/helpers/*.test.js | tap-spec"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
