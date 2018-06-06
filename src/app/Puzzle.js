@@ -81,6 +81,10 @@ Puzzle.prototype = {
       isOdd(pos) && isEven(count)
   },
 
+  isSolved: function() {
+    // TODO
+  },
+
   reset: function(puzzle = initialState) {
     this._puzzleStates = [puzzle]
 

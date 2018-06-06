@@ -3,9 +3,11 @@ function Shuffler(puzzle) {
 }
 
 Shuffler.prototype.shuffle = function(n) {
+  let tile
+
   while (n--) {
     const movableTiles = this._puzzle.getMovableTiles()
-    const tile = Shuffler.pickRandomTile(movableTiles)
+    tile = Shuffler.pickRandomTile(movableTiles.filter(t => t !== tile))
     this._puzzle.moveTile(tile)
   } 
 }

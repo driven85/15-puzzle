@@ -3,12 +3,12 @@ import { combineReducers } from 'redux'
 
 // Reducers
 import layout from './layout'
-import tiles from './tiles'
+import puzzle from './puzzle'
 
 
 const reducer = combineReducers({
   layout,
-  tiles
+  puzzle
 })
 
 export default reducer
