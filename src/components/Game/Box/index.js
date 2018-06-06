@@ -6,15 +6,15 @@ import { connect } from 'react-redux'
 import './styles.sass'
 
 // Components
-import EmptySpace from 'components/EmptySpace'
-import Tile from 'components/Tile'
+import EmptySpace from '../EmptySpace'
+import Tile from '../Tile'
 
 
-const mapStateToProps = ({ tiles }) => ({ tiles })
+const mapStateToProps = ({ puzzle }) => ({ puzzle })
 
-const Box = ({ tiles }) => (
+const Box = ({ puzzle }) => (
   <div className="box">
-    {tiles.map(tile => 
+    {puzzle.map(tile => 
       tile 
         ? <Tile
             key={tile}

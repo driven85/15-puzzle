@@ -2,8 +2,9 @@
 import React from 'react'
 
 // Components
-import Box from 'components/Box'
-import Lid from 'components/Lid'
+import Monitor from 'components/Monitor'
+import Game from 'components/Game'
+import RemoteControl from 'components/RemoteControl'
 
 // CSS
 import './styles.sass'
@@ -11,8 +12,9 @@ import './styles.sass'
 
 const App = () => (
   <div className="app">
-    <Box />
-    <Lid />
+    <Monitor />
+    <Game />
+    <RemoteControl />
   </div>
 )
 
