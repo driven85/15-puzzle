@@ -9,12 +9,12 @@ import MoveCounter from './MoveCounter'
 import './styles.sass'
 
 
-const Monitor = () => (
-  <div className="monitor">
+const Display = () => (
+  <div className="display">
     <Clock />
     <MoveCounter />
   </div>
 )
 
-export default Monitor
+export default Display
 

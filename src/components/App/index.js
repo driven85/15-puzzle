@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Components
-import Monitor from 'components/Monitor'
+import Display from 'components/Display'
 import Game from 'components/Game'
 import RemoteControl from 'components/RemoteControl'
 
@@ -12,7 +12,7 @@ import './styles.sass'
 
 const App = () => (
   <div className="app">
-    <Monitor />
+    <Display />
     <Game />
     <RemoteControl />
   </div>
