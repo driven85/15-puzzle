@@ -15,8 +15,8 @@ const mapDispatchToProps = dispatch => ({
 
 const RemoteControl = ({ onStartGame }) => (
   <div className="remote-control">
+    <button>Switch</button>
     <button onClick={onStartGame}>Start</button>
-    <button>Pause</button>
     <button>Reset</button>
   </div>
 )

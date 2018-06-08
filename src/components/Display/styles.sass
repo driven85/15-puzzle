@@ -2,5 +2,19 @@
   border: 2px solid #D5D8DC
   border-radius: 10px
   box-shadow: 0 0 5px #B2BABB
-  padding: 20px 40px
+  padding: 10px 40px
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+  .clock
+    margin-bottom: 15px
+
+@media screen and (min-width: 500px)
+  .display
+    padding-left: 20px
+    padding-right: 20px
+
+    .clock, .move-counter
+      width: 125px
 
