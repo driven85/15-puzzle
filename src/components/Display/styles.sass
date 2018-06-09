@@ -18,3 +18,21 @@
     .clock, .move-counter
       width: 125px
 
+@media screen and (min-width: 768px)
+  .display
+    .clock, .move-counter
+      height: 50px
+
+@media screen and (min-width: 1024px)
+  .display
+    flex-direction: row
+    align-items: center
+    justify-content: space-around
+
+    .clock
+      margin-bottom: 0
+
+    .clock, .move-counter
+      width: 250px
+      height: 70px
+
