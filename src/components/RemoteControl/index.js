@@ -6,16 +6,18 @@ import { connect } from 'react-redux'
 import './styles.sass'
 
 // Actions
+import { lidOpen } from 'actions/layout/lidOpen'
 import { startGame } from 'actions/puzzle'
 
 
 const mapDispatchToProps = dispatch => ({
+  onOpen: (e) => dispatch(lidOpen()),
   onStartGame: () => dispatch(startGame())
 })
 
-const RemoteControl = ({ onStartGame }) => (
+const RemoteControl = ({ onOpen, onStartGame }) => (
   <div className="remote-control">
-    <button>Switch</button>
+    <button onClick={onOpen}>Switch</button>
     <button onClick={onStartGame}>Start</button>
     <button>Reset</button>
   </div>
