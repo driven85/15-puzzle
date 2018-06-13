@@ -5,8 +5,14 @@ import React from 'react'
 import './styles.sass'
 
 
-const Switch = () => (
-  <div className="switch" />
+const Switch = ({ width, height, onChange }) => (
+  <label 
+    className="switch"
+    style={{ width, height }}
+  >
+    <input type="checkbox" onChange={onChange} />
+    <span className="slider" />
+  </label>
 )
 
 export default Switch
