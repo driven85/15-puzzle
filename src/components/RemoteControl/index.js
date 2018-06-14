@@ -2,6 +2,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+// Components
+import Switch from './Switch'
+
 // CSS
 import './styles.sass'
 
@@ -17,7 +20,7 @@ const mapDispatchToProps = dispatch => ({
 
 const RemoteControl = ({ onOpen, onStartGame }) => (
   <div className="remote-control">
-    <button onClick={onOpen}>Switch</button>
+    <Switch onChange={onOpen} />
     <button onClick={onStartGame}>Start</button>
     <button>Reset</button>
   </div>
