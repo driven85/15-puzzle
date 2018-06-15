@@ -13,18 +13,33 @@ import { lidOpen } from 'actions/layout/lidOpen'
 import { startGame } from 'actions/puzzle'
 
 
+const mapStateToProps = ({ layout: { lidOpen, startClicked } }) => ({
+  resetDisabled: !lidOpen || !startClicked,
+  startDisabled: !lidOpen || startClicked
+})
+
 const mapDispatchToProps = dispatch => ({
   onOpen: (e) => dispatch(lidOpen()),
   onStartGame: () => dispatch(startGame())
 })
 
-const RemoteControl = ({ onOpen, onStartGame }) => (
+const RemoteControl = ({ 
+  resetDisabled,
+  startDisabled,
+  onOpen, 
+  onStartGame 
+}) => (
   <div className="remote-control">
     <Switch onChange={onOpen} />
-    <button onClick={onStartGame}>Start</button>
-    <button>Reset</button>
+    <button
+      disabled={startDisabled}
+      onClick={onStartGame}
+    >
+      Start
+    </button>
+    <button disabled={resetDisabled}>Reset</button>
   </div>
 )
 
-export default connect(() => ({}), mapDispatchToProps)(RemoteControl)
+export default connect(mapStateToProps, mapDispatchToProps)(RemoteControl)
 

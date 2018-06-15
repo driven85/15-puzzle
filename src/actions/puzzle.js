@@ -1,5 +1,6 @@
 import Puzzle from 'app/Puzzle'
 import Shuffler from 'app/Shuffler'
+import { startClicked } from 'actions/layout/start'
 
 
 const PUZZLE = new Puzzle()
@@ -13,6 +14,8 @@ export const setPuzzle = puzzle => ({
 })
 
 export const startGame = () => dispatch => {
+  dispatch(startClicked(true))
+
   // Show loader
 
   // Shuffle the puzzle
