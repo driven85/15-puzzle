@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 // Components
-import Switch from './Switch'
+import Switch from 'components/UI/Switch'
 
 // CSS
 import './styles.sass'
