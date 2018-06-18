@@ -13,7 +13,7 @@ import './styles.sass'
 const Game = () => (
   <div className="game">
     <Box />
-    <GameLoader width={358} height={358} />
+    <GameLoader />
     <Lid />
   </div>
 )

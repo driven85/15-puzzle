@@ -5,6 +5,9 @@ import { connect } from 'react-redux'
 // Components
 import Loader from 'components/UI/Loader'
 
+// CSS
+import './styles.sass'
+
 
 const mapStateToProps = ({ layout: { loader } }) => ({
   show: loader
