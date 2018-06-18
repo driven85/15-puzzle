@@ -5,8 +5,14 @@ import React from 'react'
 import './styles.sass'
 
 
-const Loader = () =>
-  <div className="loader" />
+const Loader = ({ width, height }) => (
+  <div 
+    className="loader"
+    style={{ width, height }}
+  >
+    <div className="spinner" />
+  </div>
+)
 
 export default Loader
 

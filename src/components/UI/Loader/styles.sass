@@ -1,10 +1,20 @@
 .loader
-  width: 150px
-  height: 150px
-  border: 15px solid #FADBD8
-  border-top: 15px solid #EC7063
-  border-radius: 50%
-  animation: spin 2s linear infinite
+  width: 200px
+  height: 200px
+  border-radius: 10px
+  display: flex
+  align-items: center
+  justify-content: center
+  background: white
+  background: rgba(255,255,255,0.65)
+
+  .spinner
+    width: 50%
+    height: 50%
+    border: 20px solid #F5B7B1
+    border-top: 20px solid #EC7063
+    border-radius: 50%
+    animation: spin 2s linear infinite
 
 @keyframes spin
   0% { transform: rotate(0deg) }
