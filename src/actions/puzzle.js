@@ -1,5 +1,9 @@
+// App
 import Puzzle from 'app/Puzzle'
 import Shuffler from 'app/Shuffler'
+
+// Actions
+import { setLoader } from 'actions/layout/loader'
 import { startClicked } from 'actions/layout/start'
 
 
@@ -14,12 +18,11 @@ export const setPuzzle = puzzle => ({
 })
 
 export const startGame = () => dispatch => {
+  dispatch(setLoader(true))
   dispatch(startClicked(true))
 
-  // Show loader
-
   // Shuffle the puzzle
-  const N = 20
+  const N = 50
   const shuffler = new Shuffler(PUZZLE)
   shuffler.shuffle(N)
 
@@ -28,11 +31,14 @@ export const startGame = () => dispatch => {
   (function display(n) {
     setTimeout(() => {
       dispatch(setPuzzle(shuffledStates[n]))
-      if (n++ < N) display(n)
-    }, 200)
-  })(1)
 
-  // Hide loader
+      if (n++ < N) {
+        display(n)
+      } else { 
+        dispatch(setLoader(false))
+      }
+    }, 30)
+  })(1)
   
   // Start timer
 }
