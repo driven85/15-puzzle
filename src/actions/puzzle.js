@@ -3,8 +3,7 @@ import Puzzle from 'app/Puzzle'
 import Shuffler from 'app/Shuffler'
 
 // Actions
-import { setLoader } from 'actions/layout/loader'
-import { startClicked } from 'actions/layout/start'
+import { setLoader, startClicked } from 'actions/layout'
 
 
 const PUZZLE = new Puzzle()

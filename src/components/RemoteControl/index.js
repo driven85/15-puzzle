@@ -9,7 +9,7 @@ import Switch from 'components/UI/Switch'
 import './styles.sass'
 
 // Actions
-import { lidOpen } from 'actions/layout/lidOpen'
+import { lidOpen } from 'actions/layout'
 import { startGame } from 'actions/puzzle'
 
 
