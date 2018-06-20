@@ -15,9 +15,7 @@ const Lid = ({ lidOpen }) => (
   <React.Fragment>
     <div className={classNames('lid back', { open: lidOpen })} />
     <div className={classNames('lid front', { open: lidOpen })}>
-      <span className="play">
-        Play!
-      </span>
+      <label>15 Puzzle</label>
     </div>
   </React.Fragment>
 )
