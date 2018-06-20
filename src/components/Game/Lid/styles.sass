@@ -10,35 +10,40 @@
   left: 0
   z-index: 1000
   backface-visibility: hidden
-  transition: transform 2s cubic-bezier(0, 0, 0.96, 0.3), visibility 0s 2s, width 1s 2s, height 1s 2s
+  transition: transform 2s cubic-bezier(0, 0, 0.96, 0.3), visibility 2s
+  //, width 1s 2s, height 1s 2s
 
 .lid.back
   background: #F4F6F6
+
+.lid.back.entered
   transform: rotate(0deg) translateX(0%) translateY(0%) rotateY(-180deg)
+
+.lid.back.exiting, .lid.back.exited, .lid.back.entering
+  transform: rotate(40deg) translateX(450%) translateY(-150%) rotateY(360deg)
+  visibility: hidden
+  // width: 0
+  // height: 0
 
 .lid.front
   background: linear-gradient(135deg, white, #F4F6F6 50%, #EAEDED 90%)
   display: flex
   align-items: center
   justify-content: center
-  transform: rotate(0deg) translateX(0%) translateY(0%) rotateY(0deg)
 
   label
     cursor: pointer
     color: #566573
     font-size: 3rem
 
-.lid.back.open
-  transform: rotate(40deg) translateX(450%) translateY(-150%) rotateY(360deg)
-  visibility: hidden
-  width: 0
-  height: 0
+.lid.front.entered
+  transform: rotate(0deg) translateX(0%) translateY(0%) rotateY(0deg)
 
-.lid.front.open
+.lid.front.exiting, .lid.front.exited, .lid.front.entering
   transform: rotate(40deg) translateX(450%) translateY(-150%) rotateY(540deg)
   visibility: hidden
-  width: 0
-  height: 0
+  // width: 0
+  // height: 0
 
 @media screen and (min-width: 768px)
   .lid
