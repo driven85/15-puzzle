@@ -9,17 +9,17 @@ import Switch from 'components/UI/Switch'
 import './styles.sass'
 
 // Actions
-import { lidOpen } from 'actions/layout'
+import { toggleLid } from 'actions/layout'
 import { startGame } from 'actions/puzzle'
 
 
-const mapStateToProps = ({ layout: { lidOpen, startClicked } }) => ({
-  resetDisabled: !lidOpen || !startClicked,
-  startDisabled: !lidOpen || startClicked
+const mapStateToProps = ({ layout: { lid, startClicked } }) => ({
+  resetDisabled: lid || !startClicked,
+  startDisabled: lid || startClicked
 })
 
 const mapDispatchToProps = dispatch => ({
-  onOpen: (e) => dispatch(lidOpen()),
+  onOpen: (e) => dispatch(toggleLid()),
   onStartGame: () => dispatch(startGame())
 })
 

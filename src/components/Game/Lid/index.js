@@ -7,14 +7,14 @@ import classNames from 'classnames'
 import './styles.sass'
 
 
-const mapStateToProps = ({ layout: { lidOpen } }) => ({
-  lidOpen
+const mapStateToProps = ({ layout: { lid } }) => ({
+  lid
 })
 
-const Lid = ({ lidOpen }) => (
+const Lid = ({ lid }) => (
   <React.Fragment>
-    <div className={classNames('lid back', { open: lidOpen })} />
-    <div className={classNames('lid front', { open: lidOpen })}>
+    <div className={classNames('lid back', { open: !lid })} />
+    <div className={classNames('lid front', { open: !lid })}>
       <label>15 Puzzle</label>
     </div>
   </React.Fragment>
