@@ -11,7 +11,11 @@ const initialState = {
 const layout = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_LID:
-      return { ...state, lid: !state.lid }
+      return { 
+        ...state, 
+        lid: !state.lid,
+        startClicked: false
+      }
 
     case SET_LOADER:
       const { loader } = action.payload
