@@ -15,7 +15,10 @@ const mapStateToProps = ({ layout: { lid } }) => ({
 const Lid = ({ lid }) => (
   <Transition
     in={lid}
-    timeout={2000}
+    timeout={{
+      enter: 100,
+      exit: 1500
+    }}
     unmountOnExit
   >
     {state => (
