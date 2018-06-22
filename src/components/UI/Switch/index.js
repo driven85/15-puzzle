@@ -10,7 +10,7 @@ const Switch = ({ width, height, onChange }) => (
     className="switch"
     style={{ width, height }}
   >
-    <input type="checkbox" onChange={onChange} />
+    <input type="checkbox" onChange={e => onChange(e)} />
     <span className="slider" />
   </label>
 )

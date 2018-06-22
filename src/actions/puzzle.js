@@ -3,7 +3,7 @@ import Puzzle from 'app/Puzzle'
 import Shuffler from 'app/Shuffler'
 
 // Actions
-import { setLoader, startClicked } from 'actions/layout'
+import { setLoader, startClicked, toggleLid } from 'actions/layout'
 
 
 const PUZZLE = new Puzzle()
@@ -11,10 +11,18 @@ const PUZZLE = new Puzzle()
 export const SET_PUZZLE = 'SET_PUZZLE'
 
 
-export const setPuzzle = puzzle => ({
+const setPuzzle = puzzle => ({
   type: SET_PUZZLE,
   payload: { puzzle }
 })
+
+export const toggleBoxLid = toggle => dispatch => {
+  if (toggle) {
+    PUZZLE.reset()
+    dispatch(setPuzzle(PUZZLE.currentState()))
+  }
+  dispatch(toggleLid())
+}
 
 export const startGame = () => dispatch => {
   dispatch(setLoader(true))
