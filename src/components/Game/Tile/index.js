@@ -5,8 +5,8 @@ import React from 'react'
 import './styles.sass'
 
 
-const Tile = ({ number }) => (
-  <div className="tile">
+const Tile = ({ number, onClick }) => (
+  <div className="tile" onClick={onClick}>
     {number}
   </div>
 )

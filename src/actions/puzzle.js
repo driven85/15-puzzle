@@ -50,3 +50,11 @@ export const startGame = () => dispatch => {
   // Start timer
 }
 
+export const moveTile = tile => dispatch => {
+  if (PUZZLE.moveTile(tile)) {
+    dispatch(setPuzzle(PUZZLE.currentState()))
+  } else {
+    // Shake
+  }
+}
+
