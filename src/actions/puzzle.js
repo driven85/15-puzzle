@@ -28,6 +28,8 @@ export const startGame = () => dispatch => {
   dispatch(setLoader(true))
   dispatch(startClicked(true))
 
+  PUZZLE.reset()
+
   // Shuffle the puzzle
   const N = 50
   const shuffler = new Shuffler(PUZZLE)
@@ -56,5 +58,11 @@ export const moveTile = tile => dispatch => {
   } else {
     // Shake
   }
+}
+
+export const resetGame = () => dispatch => {
+  PUZZLE.reset()
+  dispatch(setPuzzle(PUZZLE.currentState()))
+  dispatch(startClicked(false))
 }
 
