@@ -5,7 +5,7 @@ import sinon from 'sinon'
 
 test('Shuffler.prototype.shuffle', t => {
   const puzzle = {
-    getMovableTiles: () => {},
+    getMovableTiles: () => [],
     moveTile: () => {}
   }
 
