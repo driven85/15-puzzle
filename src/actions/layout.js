@@ -1,6 +1,8 @@
 export const TOGGLE_LID = 'TOGGLE_LID'
 export const SET_LOADER = 'SET_LOADER'
 export const START_CLICKED = 'START_CLICKED'
+export const SET_SOLVED = 'SET_SOLVED'
+export const RESET = 'RESET'
 
 
 export const toggleLid = () => ({
@@ -12,8 +14,15 @@ export const setLoader = loader => ({
   payload: { loader }
 })
 
-export const startClicked = clicked => ({
-  type: START_CLICKED,
-  payload: { clicked }
+export const startClicked = () => ({
+  type: START_CLICKED
+})
+
+export const setSolved = () => ({
+  type: SET_SOLVED
+})
+
+export const reset = () => ({
+  type: RESET
 })
 

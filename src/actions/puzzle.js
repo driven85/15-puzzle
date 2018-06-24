@@ -3,7 +3,13 @@ import Puzzle from 'app/Puzzle'
 import Shuffler from 'app/Shuffler'
 
 // Actions
-import { setLoader, startClicked, toggleLid } from 'actions/layout'
+import { 
+  setLoader, 
+  startClicked, 
+  toggleLid,
+  setSolved,
+  reset
+} from 'actions/layout'
 
 
 const PUZZLE = new Puzzle()
@@ -26,7 +32,7 @@ export const toggleBoxLid = toggle => dispatch => {
 
 export const startGame = () => dispatch => {
   dispatch(setLoader(true))
-  dispatch(startClicked(true))
+  dispatch(startClicked())
 
   PUZZLE.reset()
 
@@ -52,9 +58,17 @@ export const startGame = () => dispatch => {
   // Start timer
 }
 
-export const moveTile = tile => dispatch => {
+export const moveTile = tile => (dispatch, getState) => {
   if (PUZZLE.moveTile(tile)) {
     dispatch(setPuzzle(PUZZLE.currentState()))
+
+    if (PUZZLE.isSolved()) {
+      const { layout: { startClicked } } = getState()
+
+      if (startClicked) {
+        dispatch(setSolved())
+      }
+    }
   } else {
     // Shake
   }
@@ -63,6 +77,6 @@ export const moveTile = tile => dispatch => {
 export const resetGame = () => dispatch => {
   PUZZLE.reset()
   dispatch(setPuzzle(PUZZLE.currentState()))
-  dispatch(startClicked(false))
+  dispatch(reset())
 }
 
