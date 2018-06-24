@@ -5,6 +5,7 @@ import React from 'react'
 import Box from './Box'
 import GameLoader from './GameLoader'
 import Lid from './Lid'
+import Congrats from './Congrats'
 
 // CSS
 import './styles.sass'
@@ -15,6 +16,7 @@ const Game = () => (
     <Box />
     <GameLoader />
     <Lid />
+    <Congrats />
   </div>
 )
 
