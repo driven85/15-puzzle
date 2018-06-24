@@ -82,7 +82,19 @@ Puzzle.prototype = {
   },
 
   isSolved: function() {
-    // TODO
+    const puzzle = this.currentState()
+    let solved = true
+
+    if (puzzle[puzzle.length - 1] !== 0) solved = false
+
+    for (let i = 0; i < puzzle.length - 2; i++) {
+      if (puzzle[i + 1] !== puzzle[i] + 1) {
+        solved = false
+        break
+      } 
+    }
+
+    return solved
   },
 
   reset: function(puzzle = initialState) {

@@ -148,6 +148,27 @@ test('Puzzle.prototype.isSolvable', t => {
   t.end()
 })
 
+test('Puzzle.prototype.isSolved', t => {
+  let puzzle
+
+  puzzle = new Puzzle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0])
+  t.ok(puzzle.isSolved(), 'Should be solved')
+
+  puzzle = new Puzzle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 0, 15])
+  t.notOk(puzzle.isSolved(), 'Should be unsolved')
+
+  puzzle = new Puzzle([6, 13, 7, 10, 8, 9, 11, 0, 15, 2, 12, 5, 14, 3, 1, 4])
+  t.notOk(puzzle.isSolved(), 'Should be unsolved')
+
+  puzzle = new Puzzle([3, 9, 1, 15, 14, 11, 4, 6, 13, 0, 10, 12, 2, 7, 8, 5])
+  t.notOk(puzzle.isSolved(), 'Should be unsolved')
+
+  puzzle = new Puzzle([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
+  t.notOk(puzzle.isSolved(), 'Should be unsolved')
+
+  t.end()
+})
+
 test('Puzzle.prototype.reset', t => {
   let puzzle,
       randomState = [0, 1, 3, 5, 7, 9, 11, 13, 15, 2, 4, 6, 8, 10, 12, 14]
