@@ -4,7 +4,8 @@ import {
   SET_LOADER, 
   START_CLICKED,
   SET_SOLVED,
-  RESET
+  RESET,
+  SHAKE_TILE
 } from 'actions/layout'
 
 
@@ -12,7 +13,8 @@ const initialState = {
   lid: true,
   loader: false,
   solved: false,
-  startClicked: false
+  startClicked: false,
+  shake: null
 }
 
 const layout = (state = initialState, action) => {
@@ -42,6 +44,11 @@ const layout = (state = initialState, action) => {
         solved: false,
         startClicked: false
       }
+
+    case SHAKE_TILE:
+      const { tile } = action.payload
+
+      return { ...state, shake: tile }
 
     default:
       return state

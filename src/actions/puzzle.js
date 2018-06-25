@@ -8,7 +8,8 @@ import {
   startClicked, 
   toggleLid,
   setSolved,
-  reset
+  reset,
+  shakeTile
 } from 'actions/layout'
 
 
@@ -72,7 +73,8 @@ export const moveTile = tile => (dispatch, getState) => {
       }
     }
   } else {
-    // Shake
+    dispatch(shakeTile(tile))
+    setTimeout(() => dispatch(shakeTile(null)), 300)
   }
 }
 

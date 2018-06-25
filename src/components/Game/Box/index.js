@@ -13,7 +13,13 @@ import Tile from '../Tile'
 import { moveTile } from 'actions/puzzle'
 
 
-const mapStateToProps = ({ puzzle }) => ({ puzzle })
+const mapStateToProps = ({ 
+  layout: { shake },
+  puzzle
+}) => ({ 
+  puzzle,
+  shake
+})
 
 const mapDispatchToProps = dispatch => ({
   onMoveTile: (tile) => {
@@ -21,13 +27,14 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-const Box = ({ puzzle, onMoveTile }) => (
+const Box = ({ puzzle, shake, onMoveTile }) => (
   <div className="box">
     {puzzle.map(tile => 
       tile 
         ? <Tile
             key={tile}
             number={tile}
+            shake={tile === shake}
             onClick={() => onMoveTile(tile)}
           />
         : <EmptySpace key={tile} />

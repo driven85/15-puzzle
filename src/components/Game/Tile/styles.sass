@@ -17,6 +17,17 @@
 .tile:active
   background: #F5B7B1
 
+.tile.shake
+  animation: shake 100ms linear infinite
+
+@keyframes shake
+  0% { transform: translateX(0px) rotate(0deg) }
+  20% { transform: translateX(3px) rotate(5deg) }
+  40% { transform: translateX(-3px) rotate(-5deg) }
+  60% { transform: translateX(3px) rotate(5deg) }
+  80% { transform: translateX(-3px) rotate(-5deg) }
+  100% { transform: translateX(0px) rotate(0deg) }
+
 @media screen and (min-width: 768px)
   .tile
     width: 80.5px
