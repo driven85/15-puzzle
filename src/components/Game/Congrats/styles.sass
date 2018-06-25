@@ -10,12 +10,23 @@
   justify-content: center
   background: rgba(255,255,255,0.9)
   color: #EC7063
-  font-size: 3em
 
   label
     user-select: none
     text-align: center
-    transform: rotate(-20deg)
+    transition: transform 800ms linear, font-size 800ms linear, opacity 2000ms linear
+
+.congrats.entering, .congrats.exited
+  label
+    transform: rotate(0deg)
+    font-size: 0.5em
+    opacity: 0
+
+.congrats.entered, .congrates.exiting
+  label
+    transform: rotate(1060deg)
+    font-size: 3em
+    opacity: 1
 
 @media screen and (min-width: 768px)
   .congrats
