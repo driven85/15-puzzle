@@ -1,14 +1,20 @@
 // Libs
 import React from 'react'
+import { connect } from 'react-redux'
 
 // CSS
 import './styles.sass'
 
 
-const MoveCounter = () => (
+const mapStateToProps = ({ display: { moves } }) => ({
+  moves
+})
+
+const MoveCounter = ({ moves }) => (
   <div className="move-counter">
+    {moves}
   </div>
 )
 
-export default MoveCounter
+export default connect(mapStateToProps)(MoveCounter)
 
