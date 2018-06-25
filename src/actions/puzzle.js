@@ -13,6 +13,7 @@ import {
 
 
 const PUZZLE = new Puzzle()
+window.PUZZLE = PUZZLE
 
 export const SET_PUZZLE = 'SET_PUZZLE'
 
@@ -37,7 +38,7 @@ export const startGame = () => dispatch => {
   PUZZLE.reset()
 
   // Shuffle the puzzle
-  const N = 50
+  const N = 200
   const shuffler = new Shuffler(PUZZLE)
   shuffler.shuffle(N)
 
@@ -48,11 +49,12 @@ export const startGame = () => dispatch => {
       dispatch(setPuzzle(shuffledStates[n]))
 
       if (n++ < N) {
+        if (n < N) n++
         display(n)
       } else { 
         dispatch(setLoader(false))
       }
-    }, 30)
+    }, 5)
   })(1)
   
   // Start timer
