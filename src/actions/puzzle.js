@@ -13,6 +13,8 @@ import {
   enableReset
 } from 'actions/layout'
 
+import { incrementMoves, resetDisplay } from 'actions/display'
+
 
 const PUZZLE = new Puzzle()
 window.PUZZLE = PUZZLE
@@ -66,10 +68,12 @@ export const moveTile = tile => (dispatch, getState) => {
   if (PUZZLE.moveTile(tile)) {
     dispatch(setPuzzle(PUZZLE.currentState()))
 
-    if (PUZZLE.isSolved()) {
-      const { layout: { startClicked } } = getState()
+    const { layout: { startClicked } } = getState()
 
-      if (startClicked) {
+    if (startClicked) {
+      dispatch(incrementMoves())
+
+      if (PUZZLE.isSolved()) {
         dispatch(setSolved())
       }
     }
@@ -82,6 +86,8 @@ export const moveTile = tile => (dispatch, getState) => {
 export const resetGame = () => dispatch => {
   PUZZLE.reset()
   dispatch(setPuzzle(PUZZLE.currentState()))
-  dispatch(reset())
+  // TODO: do though a single action
+  dispatch(reset()) 
+  dispatch(resetDisplay())
 }
 
