@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 // CSS
 import './styles.sass'
 
+// Helpers
+import { paddedNumber } from 'helpers/display'
 
 const mapStateToProps = ({ display: { moves } }) => ({
   moves
@@ -12,7 +14,7 @@ const mapStateToProps = ({ display: { moves } }) => ({
 
 const MoveCounter = ({ moves }) => (
   <div className="move-counter">
-    {moves}
+    {paddedNumber(moves)}
   </div>
 )
 
