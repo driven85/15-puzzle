@@ -1,3 +1,6 @@
+// TODO: refactor
+// TODO: helper for resetting
+
 // App
 import Puzzle from 'app/Puzzle'
 import Shuffler from 'app/Shuffler'
@@ -13,14 +16,14 @@ import {
   enableReset
 } from 'actions/layout'
 
-import { incrementMoves, resetDisplay } from 'actions/display'
+import { incrementMoves, resetDisplay, tick } from 'actions/display'
 
 
 const PUZZLE = new Puzzle()
-window.PUZZLE = PUZZLE
+
+let timer = null
 
 export const SET_PUZZLE = 'SET_PUZZLE'
-
 
 const setPuzzle = puzzle => ({
   type: SET_PUZZLE,
@@ -31,6 +34,8 @@ export const toggleBoxLid = toggle => dispatch => {
   if (toggle) {
     PUZZLE.reset()
     dispatch(setPuzzle(PUZZLE.currentState()))
+  } else {
+    clearInterval(timer)
   }
   dispatch(toggleLid())
 }
@@ -58,7 +63,7 @@ export const startGame = () => dispatch => {
       } else { 
         dispatch(setLoader(false))
         dispatch(enableReset())
-        // Start timer
+        timer = setInterval(() => dispatch(tick()), 1000)
       }
     }, 5)
   })(1)
@@ -89,5 +94,6 @@ export const resetGame = () => dispatch => {
   // TODO: do though a single action
   dispatch(reset()) 
   dispatch(resetDisplay())
+  clearInterval(timer)
 }
 

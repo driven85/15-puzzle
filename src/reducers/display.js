@@ -1,6 +1,7 @@
 import { 
   INCREMENT_MOVES,
-  RESET_DISPLAY
+  RESET_DISPLAY,
+  TICK
 } from 'actions/display'
 
 import { TOGGLE_LID } from 'actions/layout'
@@ -19,6 +20,10 @@ const display = (state = initialState, action) => {
     case RESET_DISPLAY:
     case TOGGLE_LID:
       return initialState
+
+    case TICK:
+      // TODO: should be the difference between the current time and previous time
+      return { ...state, time: state.time + 1 } 
 
     default:
       return state
