@@ -80,6 +80,7 @@ export const moveTile = tile => (dispatch, getState) => {
 
       if (PUZZLE.isSolved()) {
         dispatch(setSolved())
+        clearInterval(timer)
       }
     }
   } else {
