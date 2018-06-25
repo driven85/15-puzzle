@@ -39,7 +39,7 @@ export const startGame = () => dispatch => {
   PUZZLE.reset()
 
   // Shuffle the puzzle
-  const N = 3 //200
+  const N = 200
   const shuffler = new Shuffler(PUZZLE)
   shuffler.shuffle(N)
 
