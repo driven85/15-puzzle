@@ -9,7 +9,8 @@ import {
   toggleLid,
   setSolved,
   reset,
-  shakeTile
+  shakeTile,
+  enableReset
 } from 'actions/layout'
 
 
@@ -54,11 +55,11 @@ export const startGame = () => dispatch => {
         display(n)
       } else { 
         dispatch(setLoader(false))
+        dispatch(enableReset())
+        // Start timer
       }
     }, 5)
   })(1)
-  
-  // Start timer
 }
 
 export const moveTile = tile => (dispatch, getState) => {

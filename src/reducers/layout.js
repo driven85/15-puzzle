@@ -5,16 +5,18 @@ import {
   START_CLICKED,
   SET_SOLVED,
   RESET,
-  SHAKE_TILE
+  SHAKE_TILE,
+  ENABLE_RESET
 } from 'actions/layout'
 
 
 const initialState = {
   lid: true,
   loader: false,
+  resetDisabled: true,
+  shake: null,
   solved: false,
-  startClicked: false,
-  shake: null
+  startClicked: false
 }
 
 const layout = (state = initialState, action) => {
@@ -23,6 +25,7 @@ const layout = (state = initialState, action) => {
       return { 
         ...state, 
         lid: !state.lid,
+        resetDisabled: true,
         solved: false,
         startClicked: false
       }
@@ -41,6 +44,7 @@ const layout = (state = initialState, action) => {
     case RESET:
       return {
         ...state,
+        resetDisabled: true,
         solved: false,
         startClicked: false
       }
@@ -49,6 +53,9 @@ const layout = (state = initialState, action) => {
       const { tile } = action.payload
 
       return { ...state, shake: tile }
+
+    case ENABLE_RESET:
+      return { ...state, resetDisabled: false }
 
     default:
       return state

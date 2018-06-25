@@ -4,6 +4,7 @@ export const START_CLICKED = 'START_CLICKED'
 export const SET_SOLVED = 'SET_SOLVED'
 export const RESET = 'RESET'
 export const SHAKE_TILE = 'SHAKE_TILE'
+export const ENABLE_RESET = 'ENABLE_RESET'
 
 
 export const toggleLid = () => ({
@@ -30,5 +31,9 @@ export const reset = () => ({
 export const shakeTile = tile => ({
   type: SHAKE_TILE,
   payload: { tile }
+})
+
+export const enableReset = () => ({
+  type: ENABLE_RESET
 })
 

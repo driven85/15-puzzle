@@ -16,8 +16,8 @@ import {
 } from 'actions/puzzle'
 
 
-const mapStateToProps = ({ layout: { lid, startClicked } }) => ({
-  resetDisabled: lid || !startClicked,
+const mapStateToProps = ({ layout: { lid, resetDisabled, startClicked } }) => ({
+  resetDisabled,
   startDisabled: lid || startClicked
 })
 
