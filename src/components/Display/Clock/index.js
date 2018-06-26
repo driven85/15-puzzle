@@ -2,6 +2,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+// Images
+import ClockIcon from 'images/clock.svg'
+
 // CSS
 import './styles.sass'
 
@@ -15,7 +18,8 @@ const mapStateToProps = ({ display: { time } }) => ({
 
 const Clock = ({ time }) => (
   <div className="clock">
-    {formattedTime(time)}
+    <img src={ClockIcon} />
+    <div>{formattedTime(time)}</div>
   </div>
 )
 

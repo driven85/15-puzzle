@@ -2,6 +2,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+// Images
+import MovesIcon from 'images/moves.svg'
+
 // CSS
 import './styles.sass'
 
@@ -14,7 +17,8 @@ const mapStateToProps = ({ display: { moves } }) => ({
 
 const MoveCounter = ({ moves }) => (
   <div className="move-counter">
-    {paddedNumber(moves)}
+    <img src={MovesIcon} />
+    <div>{paddedNumber(moves)}</div>
   </div>
 )
 
