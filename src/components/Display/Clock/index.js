@@ -1,9 +1,11 @@
 // Libs
 import React from 'react'
 import { connect } from 'react-redux'
+import classNames from 'classnames'
 
 // Images
-import ClockIcon from 'images/clock.svg'
+import ClockOff from 'images/clock-off.svg'
+import ClockOn from 'images/clock-on.svg'
 
 // CSS
 import './styles.sass'
@@ -12,13 +14,17 @@ import './styles.sass'
 import { formattedTime } from 'helpers/display'
 
 
-const mapStateToProps = ({ display: { time } }) => ({
+const mapStateToProps = ({ 
+  display: { time }, 
+  layout: { lid } 
+}) => ({
+  lid, 
   time
 })
 
-const Clock = ({ time }) => (
-  <div className="clock">
-    <img src={ClockIcon} />
+const Clock = ({ lid, time }) => (
+  <div className={classNames('clock', { on: !lid })}>
+    <img src={lid ? ClockOff  : ClockOn} />
     <div>{formattedTime(time)}</div>
   </div>
 )
