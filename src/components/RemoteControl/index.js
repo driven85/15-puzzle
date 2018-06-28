@@ -5,6 +5,9 @@ import { connect } from 'react-redux'
 // Components
 import Switch from 'components/UI/Switch'
 
+// Images
+import Settings from 'images/settings.svg'
+
 // CSS
 import './styles.sass'
 
@@ -35,6 +38,7 @@ const RemoteControl = ({
   onToggleLid
 }) => (
   <div className="remote-control">
+    <img className="settings" src={Settings} />
     <Switch onChange={onToggleLid} />
     <button
       disabled={startDisabled}
