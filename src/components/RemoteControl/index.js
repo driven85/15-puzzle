@@ -3,13 +3,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 // Components
+import SettingsButton from './SettingsButton'
 import Switch from 'components/UI/Switch'
 
 // Images
 import Settings from 'images/settings.svg'
 
 // CSS
-import './styles.sass'
+import './index.sass'
 
 // Actions
 import { 
@@ -39,7 +40,7 @@ const RemoteControl = ({
 }) => (
   <div className="remote-control">
     <div className="button-group">
-      <img className="settings" src={Settings} />
+      <SettingsButton />
       <Switch onChange={onToggleLid} />
     </div>
     <div className="button-group">
