@@ -6,9 +6,6 @@ import { connect } from 'react-redux'
 import SettingsButton from './SettingsButton'
 import Switch from 'components/UI/Switch'
 
-// Images
-import Settings from 'images/settings.svg'
-
 // CSS
 import './index.sass'
 
@@ -21,6 +18,7 @@ import {
 
 
 const mapStateToProps = ({ layout: { lid, resetDisabled, startClicked } }) => ({
+  lid,
   resetDisabled,
   startDisabled: lid || startClicked
 })
@@ -31,7 +29,8 @@ const mapDispatchToProps = dispatch => ({
   onToggleLid: (e) => { dispatch(toggleBoxLid(e.target.checked)) }
 })
 
-const RemoteControl = ({ 
+const RemoteControl = ({
+  lid,
   resetDisabled,
   startDisabled,
   onResetGame,
@@ -40,7 +39,7 @@ const RemoteControl = ({
 }) => (
   <div className="remote-control">
     <div className="button-group">
-      <SettingsButton />
+      <SettingsButton bright={!lid} />
       <Switch onChange={onToggleLid} />
     </div>
     <div className="button-group">

@@ -2,7 +2,8 @@
 import React from 'react'
 
 // Images
-import Settings from 'images/settings.svg'
+import SettingsBright from 'images/settings-bright.svg'
+import SettingsDrab from 'images/settings-drab.svg'
 
 // CSS
 import './SettingsButton.sass'
@@ -10,9 +11,12 @@ import './SettingsButton.sass'
 
 // TODO: set the width & height via props
 
-const SettingsButton = () => (
+const SettingsButton = ({ bright }) => (
   <div className="settings-button">
-    <img src={Settings} />
+    {bright
+      ? <img src={SettingsBright} />
+      : <img src={SettingsDrab} />
+    }
   </div>
 )
 
