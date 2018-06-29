@@ -38,20 +38,24 @@ const RemoteControl = ({
   onToggleLid
 }) => (
   <div className="remote-control">
-    <img className="settings" src={Settings} />
-    <Switch onChange={onToggleLid} />
-    <button
-      disabled={startDisabled}
-      onClick={onStartGame}
-    >
-      Start
-    </button>
-    <button 
-      disabled={resetDisabled}
-      onClick={onResetGame}
-    >
-      Reset
-    </button>
+    <div className="button-group">
+      <img className="settings" src={Settings} />
+      <Switch onChange={onToggleLid} />
+    </div>
+    <div className="button-group">
+      <button
+        disabled={startDisabled}
+        onClick={onStartGame}
+      >
+        Start
+      </button>
+      <button 
+        disabled={resetDisabled}
+        onClick={onResetGame}
+      >
+        Reset
+      </button>
+    </div>
   </div>
 )
 

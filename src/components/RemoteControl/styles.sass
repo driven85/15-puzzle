@@ -2,30 +2,42 @@
   border: 2px solid #D5D8DC
   border-radius: 10px
   box-shadow: 0 0 5px #B2BABB
-  padding: 10px 40px
+  padding: 10px 20px
   display: flex
-  flex-direction: column
+  flex-direction: row
   align-items: center
-  justify-content: center
+  justify-content: space-between
   background: linear-gradient(225deg, #FFF, #F8F9F9 70%)
 
-  img.settings
-    cursor: pointer  
+  img
+    width: 30px
+    height: 30px
+    cursor: pointer
+    margin: 0 auto
 
   .switch
+    width: 125px
     height: 26px
 
   button
+    width: 125px
     font-size: 15px
-    margin-top: 15px
+
+  .button-group
+    & > *
+      display: block
+
+    & > :first-child
+      margin-bottom: 15px
 
 @media screen and (min-width: 500px)
   .remote-control
-    padding-left: 20px
-    padding-right: 20px
+    flex-direction: column
+    justify-content: center
 
-    button
-      width: 125px
+    .button-group:first-child
+      margin-bottom: 15px
+      
 
 @media screen and (min-width: 1024px)
   .remote-control
@@ -39,11 +51,16 @@
     .switch
       width: 150px
       height: 45px
-      margin-top: 20px
 
     button
       width: 150px
       font-size: 20px
       padding: 10px
-      margin-top: 20px
+
+    .button-group:first-child
+      margin-bottom: 20px
+
+    .button-group
+      & > :first-child
+        margin-bottom: 20px
 
