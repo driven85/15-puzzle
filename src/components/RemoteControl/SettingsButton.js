@@ -11,8 +11,11 @@ import './SettingsButton.sass'
 
 // TODO: set the width & height via props
 
-const SettingsButton = ({ bright }) => (
-  <div className="settings-button">
+const SettingsButton = ({ bright, onClick }) => (
+  <div 
+    className="settings-button"
+    onClick={onClick}
+  >
     {bright
       ? <img src={SettingsBright} />
       : <img src={SettingsDrab} />

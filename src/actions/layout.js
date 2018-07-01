@@ -5,6 +5,7 @@ export const SET_SOLVED = 'SET_SOLVED'
 export const RESET = 'RESET'
 export const SHAKE_TILE = 'SHAKE_TILE'
 export const ENABLE_RESET = 'ENABLE_RESET'
+export const TOGGLE_SETTINGS = 'TOGGLE_SETTINGS'
 
 
 export const toggleLid = () => ({
@@ -35,5 +36,9 @@ export const shakeTile = tile => ({
 
 export const enableReset = () => ({
   type: ENABLE_RESET
+})
+
+export const toggleSettings = () => ({
+  type: TOGGLE_SETTINGS
 })
 

@@ -10,6 +10,8 @@ import Switch from 'components/UI/Switch'
 import './index.sass'
 
 // Actions
+import { toggleSettings } from 'actions/layout'
+
 import { 
   startGame, 
   resetGame, 
@@ -26,7 +28,8 @@ const mapStateToProps = ({ layout: { lid, resetDisabled, startClicked } }) => ({
 const mapDispatchToProps = dispatch => ({
   onResetGame: () => dispatch(resetGame()),
   onStartGame: () => dispatch(startGame()),
-  onToggleLid: (e) => { dispatch(toggleBoxLid(e.target.checked)) }
+  onToggleLid: (e) => { dispatch(toggleBoxLid(e.target.checked)) },
+  onToggleSettings: () => { dispatch(toggleSettings()) }
 })
 
 const RemoteControl = ({
@@ -35,11 +38,12 @@ const RemoteControl = ({
   startDisabled,
   onResetGame,
   onStartGame,
-  onToggleLid
+  onToggleLid,
+  onToggleSettings
 }) => (
   <div className="remote-control">
     <div className="button-group">
-      <SettingsButton bright={!lid} />
+      <SettingsButton bright={!lid} onClick={onToggleSettings} />
       <Switch onChange={onToggleLid} />
     </div>
     <div className="button-group">

@@ -6,7 +6,8 @@ import {
   SET_SOLVED,
   RESET,
   SHAKE_TILE,
-  ENABLE_RESET
+  ENABLE_RESET,
+  TOGGLE_SETTINGS
 } from 'actions/layout'
 
 
@@ -14,6 +15,7 @@ const initialState = {
   lid: true,
   loader: false,
   resetDisabled: true,
+  settings: false,
   shake: null,
   solved: false,
   startClicked: false
@@ -56,6 +58,9 @@ const layout = (state = initialState, action) => {
 
     case ENABLE_RESET:
       return { ...state, resetDisabled: false }
+
+    case TOGGLE_SETTINGS:
+      return { ...state, settings: !state.settings }
 
     default:
       return state
