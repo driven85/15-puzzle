@@ -28,8 +28,8 @@ const mapStateToProps = ({ layout: { lid, resetDisabled, startClicked } }) => ({
 const mapDispatchToProps = dispatch => ({
   onResetGame: () => dispatch(resetGame()),
   onStartGame: () => dispatch(startGame()),
-  onToggleLid: (e) => { dispatch(toggleBoxLid(e.target.checked)) },
-  onToggleSettings: () => { dispatch(toggleSettings()) }
+  onToggleLid: (e) => dispatch(toggleBoxLid(e.target.checked)),
+  onToggleSettings: () => dispatch(toggleSettings())
 })
 
 const RemoteControl = ({

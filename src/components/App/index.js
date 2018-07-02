@@ -5,6 +5,7 @@ import React from 'react'
 import Display from 'components/Display'
 import Game from 'components/Game'
 import RemoteControl from 'components/RemoteControl'
+import SettingsDialog from 'components/SettingsDialog'
 
 // CSS
 import './styles.sass'
@@ -15,6 +16,7 @@ const App = () => (
     <Display />
     <Game />
     <RemoteControl />
+    <SettingsDialog />
   </div>
 )
 
