@@ -3,11 +3,12 @@
   top: 0
   left: 0
   z-index: 1001
+  transition: opacity 800ms
 
   .backdrop
     width: 100vw
     height: 100vh
-    background: rgba(248, 249, 249, 0.9)
+    background: rgba(248, 249, 249, 1)
     display: flex
     align-items: center
     justify-content: center
@@ -19,4 +20,14 @@
     border-radius: 10px
     box-shadow: 0 0 5px #B2BABB
     background: white
+    transition: transform 900ms
+
+.dialog.entering, .dialog.exiting
+  opacity: 0
+
+  .content
+    transform: translateY(-100px)
+
+.dialog.entered
+  opacity: 1
 
