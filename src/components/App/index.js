@@ -4,6 +4,7 @@ import React from 'react'
 // Components
 import Display from 'components/Display'
 import Game from 'components/Game'
+import MediaQuery from 'components/MediaQuery'
 import RemoteControl from 'components/RemoteControl'
 import SettingsDialog from 'components/SettingsDialog'
 
@@ -13,10 +14,12 @@ import './styles.sass'
 
 const App = () => (
   <div className="app">
-    <Display />
-    <Game />
-    <RemoteControl />
-    <SettingsDialog />
+    <MediaQuery>
+      <Display />
+      <Game />
+      <RemoteControl />
+      <SettingsDialog />
+    </MediaQuery>
   </div>
 )
 
