@@ -1,5 +1,6 @@
 // Libs
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Transition } from 'react-transition-group'
 import classNames from 'classnames'
 
@@ -42,5 +43,15 @@ export default class Dialog extends Component {
       </Transition>
     )
   }
+}
+
+Dialog.propTypes = {
+  show: PropTypes.bool,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
 }
 
