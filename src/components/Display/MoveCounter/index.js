@@ -1,5 +1,6 @@
 // Libs
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 
@@ -27,6 +28,11 @@ const MoveCounter = ({ lid, moves }) => (
     <div>{paddedNumber(moves)}</div>
   </div>
 )
+
+MoveCounter.propTypes = {
+  lid: PropTypes.bool,
+  moves: PropTypes.number
+}
 
 export default connect(mapStateToProps)(MoveCounter)
 
