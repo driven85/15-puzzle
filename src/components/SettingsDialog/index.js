@@ -10,6 +10,7 @@ import './styles.sass'
 
 // Actions
 import { toggleSettings } from 'actions/layout'
+import { switchLocale } from 'actions/settings'
 
 // Context
 import { MediaQueryContext } from 'components/MediaQuery/context.js'
@@ -22,15 +23,25 @@ const dialogSizes = {
   'lg': { width: 600, height: 450 }
 }
 
-const mapStateToProps = ({ layout: { settings } }) => ({
-  show: settings
+const mapStateToProps = ({ 
+  layout: { settings },
+  settings: { locale }
+}) => ({
+  show: settings,
+  locale
 })
 
 const mapDispatchToProps = dispatch => ({
-  onClose: () => dispatch(toggleSettings())
+  onClose: () => dispatch(toggleSettings()),
+  onLocaleChange: (e) => dispatch(switchLocale(e.target.value))
 })
 
-const SettingsDialog = ({ show, onClose }) => (
+const SettingsDialog = ({
+  locale,
+  show, 
+  onClose, 
+  onLocaleChange 
+}) => (
   <MediaQueryContext.Consumer>
     {({ layout }) =>
       <Dialog
@@ -38,7 +49,15 @@ const SettingsDialog = ({ show, onClose }) => (
         height={dialogSizes[layout].height}
         show={show} 
         onClose={onClose} 
-      />
+      >
+        <select 
+          value={locale}
+          onChange={onLocaleChange}
+        >
+          <option value="en">English</option>
+          <option value="ru">Русский</option>
+        </select>
+      </Dialog>
     }
   </MediaQueryContext.Consumer>
 )
