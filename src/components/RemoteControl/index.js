@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 // Components
 import SettingsButton from './SettingsButton'
 import Switch from 'components/UI/Switch'
+import { FormattedMessage } from 'react-intl'
 
 // CSS
 import './index.sass'
@@ -51,13 +52,13 @@ const RemoteControl = ({
         disabled={startDisabled}
         onClick={onStartGame}
       >
-        Start
+        <FormattedMessage id="remoteControl.start" />
       </button>
       <button 
         disabled={resetDisabled}
         onClick={onResetGame}
       >
-        Reset
+        <FormattedMessage id="remoteControl.reset" />
       </button>
     </div>
   </div>
