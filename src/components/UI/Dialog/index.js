@@ -17,7 +17,21 @@ export default class Dialog extends Component {
   }
 
   render() {
-    const { show, width, height, children } = this.props
+    const { 
+      show, 
+      width, 
+      height, 
+      children, 
+      header, 
+      title, 
+      onClose 
+    } = this.props
+
+    const headerElement = 
+      <header>
+        <label>{title}</label>
+        <div className="close" onClick={onClose}>+</div>
+      </header>
 
     return (
       <Transition
@@ -35,6 +49,7 @@ export default class Dialog extends Component {
                 className="content"
                 style={{ width, height }}
               >
+                {header && headerElement}
                 {children} 
               </div>
             </div>
@@ -49,6 +64,8 @@ Dialog.propTypes = {
   show: PropTypes.bool,
   width: PropTypes.number,
   height: PropTypes.number,
+  header: PropTypes.bool,
+  title: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node

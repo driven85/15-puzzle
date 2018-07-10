@@ -8,6 +8,10 @@ import Dialog from 'components/UI/Dialog'
 // CSS
 import './styles.sass'
 
+// Images
+import enFlag from 'images/flags/en.png'
+import ruFlag from 'images/flags/ru.png'
+
 // Actions
 import { toggleSettings } from 'actions/layout'
 import { switchLocale } from 'actions/settings'
@@ -47,14 +51,22 @@ const SettingsDialog = ({
       <Dialog
         width={dialogSizes[layout].width}
         height={dialogSizes[layout].height}
+        header
+        title="Settings"
         show={show} 
         onClose={onClose} 
       >
         <select 
+          className="lang-switcher"
           value={locale}
           onChange={onLocaleChange}
         >
-          <option value="en">English</option>
+          <option 
+            value="en"
+            style={{ backgroundImage: enFlag }}
+          >
+            English
+          </option>
           <option value="ru">Русский</option>
         </select>
       </Dialog>

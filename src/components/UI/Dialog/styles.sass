@@ -23,6 +23,32 @@
     background: white
     transition: transform 900ms
 
+    header
+      width: 100%
+      display: flex
+      align-items: flex-end
+      justify-content: space-between
+      color: #EC7063
+      margin-bottom: 40px
+      border-bottom: 1px solid #D5D8DC
+      padding-bottom: 10px
+
+      label
+        display: inline-block
+        width: 100%
+        font-size: 30px
+        text-transform: uppercase
+        padding-left: 30px
+
+      .close
+        float: right
+        transform-origin: center
+        transform: rotate(45deg)
+        font-size: 60px
+        line-height: 40px
+        cursor: pointer
+        user-select: none
+
 .dialog.entering, .dialog.exiting
   opacity: 0
 
