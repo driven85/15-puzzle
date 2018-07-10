@@ -9,8 +9,12 @@ import { FormattedMessage } from 'react-intl'
 import './styles.sass'
 
 
-const mapStateToProps = ({ layout: { lid } }) => ({
-  lid
+const mapStateToProps = ({ 
+  layout: { lid },
+  settings: { locale }
+}) => ({
+  lid,
+  locale
 })
 
 const Lid = ({ lid }) => (
