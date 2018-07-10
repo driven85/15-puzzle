@@ -2,6 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { IntlProvider } from 'react-intl'
+import { connect } from 'react-redux'
 
 // Components
 import Display from 'components/Display'
@@ -16,6 +17,12 @@ import './styles.sass'
 // I18n
 import i18n from 'i18n'
 
+
+const mapStateToProps = ({ 
+  settings: { locale } 
+}) => ({
+  locale  
+})
 
 const App = ({ locale }) => (
   <div className="app">
@@ -34,9 +41,5 @@ App.propTypes = {
   locale: PropTypes.string.isRequired
 }
 
-App.defaultProps = {
-  locale: 'en'
-}
-
-export default App
+export default connect(mapStateToProps)(App)
 
