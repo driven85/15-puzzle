@@ -2,14 +2,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
+
+// Components
 import { Transition } from 'react-transition-group'
+import { FormattedHTMLMessage } from 'react-intl'
 
 // CSS
 import './styles.sass'
 
 
-const mapStateToProps = ({ layout: { solved } }) => ({
-  show: solved
+const mapStateToProps = ({ 
+  layout: { solved },
+  settings: { locale }
+}) => ({
+  show: solved,
+  locale
 })
 
 const Congrats = ({ show }) => (
@@ -23,7 +30,9 @@ const Congrats = ({ show }) => (
   >
     {state => 
       <div className={classNames('congrats', state)}>
-        <label>Congrats!!!<br /> You solved the<br /> puzzle!</label>
+        <label>
+          <FormattedHTMLMessage id="congrats.message" />
+        </label>
       </div>
     }
   </Transition>
