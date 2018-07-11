@@ -1,25 +1,21 @@
 // Libs
 import React from 'react'
+import classNames from 'classnames'
 
-// Images
-import SettingsBright from 'images/settings-bright.svg'
-import SettingsDrab from 'images/settings-drab.svg'
+// Icons
+import SettingsSVG from 'icons/SettingsSVG'
 
 // CSS
 import './SettingsButton.sass'
 
 
 // TODO: set the width & height via props
-
 const SettingsButton = ({ bright, onClick }) => (
   <div 
     className="settings-button"
     onClick={onClick}
   >
-    {bright
-      ? <img src={SettingsBright} />
-      : <img src={SettingsDrab} />
-    }
+    <SettingsSVG className={classNames({ bright, drab: !bright })} />
   </div>
 )
 
