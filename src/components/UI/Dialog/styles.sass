@@ -17,6 +17,7 @@
     box-sizing: border-box
     width: 200px
     height: 300px
+    padding: 10px
     border: 2px solid #D5D8DC
     border-radius: 10px
     box-shadow: 0 0 5px #B2BABB
@@ -24,30 +25,28 @@
     transition: transform 900ms
 
     header
-      width: 100%
       display: flex
-      align-items: flex-end
+      align-items: center
       justify-content: space-between
+      width: 100%
+      font-size: 30px
       color: #EC7063
       margin-bottom: 40px
-      border-bottom: 1px solid #D5D8DC
       padding-bottom: 10px
+      border-bottom: 1px solid #D5D8DC
 
       label
         display: inline-block
         width: 100%
-        font-size: 30px
         text-transform: uppercase
         padding-left: 30px
 
       .close
         float: right
-        transform-origin: center
-        transform: rotate(45deg)
-        font-size: 60px
-        line-height: 40px
+        margin-right: 10px
         cursor: pointer
         user-select: none
+        transform: scale(1.1)
 
 .dialog.entering, .dialog.exiting
   opacity: 0

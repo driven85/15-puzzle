@@ -9,9 +9,8 @@ import Dialog from 'components/UI/Dialog'
 // CSS
 import './styles.sass'
 
-// Images
-import enFlag from 'images/flags/en.png'
-import ruFlag from 'images/flags/ru.png'
+// Styles
+import styles from './styles'
 
 // Actions
 import { toggleSettings } from 'actions/layout'
@@ -20,13 +19,6 @@ import { switchLocale } from 'actions/settings'
 // Context
 import { MediaQueryContext } from 'components/MediaQuery/context.js'
 
-
-const dialogSizes = {
-  'xs': { width: 300, height: 300 },
-  'sm': { width: 300, height: 300 },
-  'md': { width: 500, height: 350 },
-  'lg': { width: 600, height: 450 }
-}
 
 const mapStateToProps = ({ 
   layout: { settings }
@@ -48,11 +40,12 @@ const SettingsDialog = ({
   <MediaQueryContext.Consumer>
     {({ layout }) =>
       <Dialog
-        width={dialogSizes[layout].width}
-        height={dialogSizes[layout].height}
+        contentStyle={styles[layout].content}
         header
-        title={formatMessage({ id: 'settingsDialog.settings' })}
+        headerStyle={styles[layout].header}
+        mainStyle={styles[layout].main}
         show={show} 
+        title={formatMessage({ id: 'settingsDialog.settings' })}
         onClose={onClose} 
       >
         <select 
@@ -60,12 +53,7 @@ const SettingsDialog = ({
           value={locale}
           onChange={onLocaleChange}
         >
-          <option 
-            value="en"
-            style={{ backgroundImage: enFlag }}
-          >
-            English
-          </option>
+          <option value="en">English</option>
           <option value="ru">Русский</option>
         </select>
       </Dialog>

@@ -18,19 +18,20 @@ export default class Dialog extends Component {
 
   render() {
     const { 
-      show, 
-      width, 
-      height, 
       children, 
+      contentStyle,
       header, 
-      title, 
+      headerStyle,
+      mainStyle,
+      show, 
+      title,
       onClose 
     } = this.props
 
     const headerElement = 
-      <header>
+      <header style={headerStyle}>
         <label>{title}</label>
-        <div className="close" onClick={onClose}>+</div>
+        <div className="close" onClick={onClose}>&times;</div>
       </header>
 
     return (
@@ -47,10 +48,12 @@ export default class Dialog extends Component {
             >
               <div 
                 className="content"
-                style={{ width, height }}
+                style={contentStyle}
               >
                 {header && headerElement}
-                {children} 
+                <main style={mainStyle}>
+                  {children}
+                </main>
               </div>
             </div>
           </div>
@@ -61,14 +64,16 @@ export default class Dialog extends Component {
 }
 
 Dialog.propTypes = {
-  show: PropTypes.bool,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  header: PropTypes.bool,
-  title: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ])
+  ]),
+  contentStyle: PropTypes.object,
+  header: PropTypes.bool,
+  headerStyle: PropTypes.object,
+  mainStyle: PropTypes.object,
+  onClose: PropTypes.func,
+  show: PropTypes.bool,
+  title: PropTypes.string,
 }
 
