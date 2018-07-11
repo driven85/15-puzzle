@@ -4,9 +4,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 
-// Images
-import ClockOff from 'images/clock-off.svg'
-import ClockOn from 'images/clock-on.svg'
+// Icons
+import ClockSvg from 'icons/ClockSvg'
 
 // CSS
 import './styles.sass'
@@ -25,7 +24,7 @@ const mapStateToProps = ({
 
 const Clock = ({ lid, time }) => (
   <div className={classNames('clock', { on: !lid })}>
-    <img src={lid ? ClockOff  : ClockOn} />
+    <ClockSvg className={classNames({ off: lid, on: !lid })} />
     <div>{formattedTime(time)}</div>
   </div>
 )
