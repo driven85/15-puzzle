@@ -43,32 +43,48 @@ test('formattedTime', t => {
 })
 
 test('paddedNumber', t => {
-  t.equal(paddedNumber(0), '000',
+  t.equal(paddedNumber(0, 3), '000',
     '0 should be formatted correctly'
   )
 
-  t.equal(paddedNumber(3), '003',
+  t.equal(paddedNumber(3, 3), '003',
     '3 should be formatted correctly'
   )
 
-  t.equal(paddedNumber(23), '023',
+  t.equal(paddedNumber(23, 3), '023',
     '23 should be formatted correctly'
   )
 
-  t.equal(paddedNumber(50), '050',
+  t.equal(paddedNumber(50, 3), '050',
     '50 should be formatted correctly'
   )
 
-  t.equal(paddedNumber(278), '278',
+  t.equal(paddedNumber(278, 3), '278',
     '278 should be formatted correctly'
   )
 
-  t.equal(paddedNumber(999), '999',
+  t.equal(paddedNumber(999, 3), '999',
     '999 should be formatted correctly'
   )
 
-  t.equal(paddedNumber(1000), '000',
+  t.equal(paddedNumber(1000, 3), '000',
     '1000 should be formatted correctly'
+  )
+
+  t.equal(paddedNumber(5, 2), '05',
+    '5 should be formatted correctly'
+  )
+
+  t.equal(paddedNumber(33, 2), '33',
+    '33 should be formatted correctly'
+  )
+
+  t.equal(paddedNumber(127, 2), '27',
+    '27 should be formatted correctly'
+  )
+
+  t.equal(paddedNumber(99, 5), '00099',
+    '99 should be formatted correctly'
   )
 
   t.end()
