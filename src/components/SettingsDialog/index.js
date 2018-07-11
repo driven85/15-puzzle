@@ -1,6 +1,7 @@
 // Libs
 import React from 'react'
 import { connect } from 'react-redux'
+import { injectIntl } from 'react-intl'
 
 // Components
 import Dialog from 'components/UI/Dialog'
@@ -28,11 +29,9 @@ const dialogSizes = {
 }
 
 const mapStateToProps = ({ 
-  layout: { settings },
-  settings: { locale }
+  layout: { settings }
 }) => ({
-  show: settings,
-  locale
+  show: settings
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -41,7 +40,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const SettingsDialog = ({
-  locale,
+  intl: { formatMessage, locale },
   show, 
   onClose, 
   onLocaleChange 
@@ -52,7 +51,7 @@ const SettingsDialog = ({
         width={dialogSizes[layout].width}
         height={dialogSizes[layout].height}
         header
-        title="Settings"
+        title={formatMessage({ id: 'settingsDialog.settings' })}
         show={show} 
         onClose={onClose} 
       >
@@ -74,5 +73,7 @@ const SettingsDialog = ({
   </MediaQueryContext.Consumer>
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(SettingsDialog)
+export default injectIntl(
+  connect(mapStateToProps, mapDispatchToProps)(SettingsDialog)
+)
 

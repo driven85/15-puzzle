@@ -1,6 +1,7 @@
 // Libs
 import { addLocaleData } from 'react-intl'
 
+// Locale data
 import en from 'react-intl/locale-data/en'
 import ru from 'react-intl/locale-data/ru'
 
@@ -14,7 +15,9 @@ export default {
     'lid.label': '15 Puzzle',
 
     'remoteControl.start': 'Start',
-    'remoteControl.reset': 'Reset'
+    'remoteControl.reset': 'Reset',
+
+    'settingsDialog.settings': 'Settings'
   },
   ru: {
     'congrats.message': 'Поздравляем!!!<br /> Вы решили<br /> головоломку!',
@@ -22,7 +25,9 @@ export default {
     'lid.label': 'Игра в 15',
 
     'remoteControl.start': 'Старт',
-    'remoteControl.reset': 'Сброс'
+    'remoteControl.reset': 'Сброс',
+
+    'settingsDialog.settings': 'Настройки'
   }
 }
 
