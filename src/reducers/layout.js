@@ -60,7 +60,9 @@ const layout = (state = initialState, action) => {
       return { ...state, resetDisabled: false }
 
     case TOGGLE_SETTINGS:
-      return { ...state, settings: !state.settings }
+      const { settings } = action.payload
+
+      return { ...state, settings }
 
     default:
       return state

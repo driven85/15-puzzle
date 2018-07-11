@@ -38,7 +38,8 @@ export const enableReset = () => ({
   type: ENABLE_RESET
 })
 
-export const toggleSettings = () => ({
-  type: TOGGLE_SETTINGS
+export const toggleSettings = settings => ({
+  type: TOGGLE_SETTINGS,
+  payload: { settings }
 })
 
