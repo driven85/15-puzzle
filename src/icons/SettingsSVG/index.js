@@ -5,7 +5,7 @@ import React from 'react'
 import './styles.sass'
 
 
-const SettingsSVG = ({ className }) => (
+const SettingsSvg = ({ className }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
     viewBox="0 0 20 20"
@@ -16,5 +16,5 @@ const SettingsSVG = ({ className }) => (
   </svg>
 )
 
-export default SettingsSVG
+export default SettingsSvg
 

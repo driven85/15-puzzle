@@ -3,7 +3,7 @@ import React from 'react'
 import classNames from 'classnames'
 
 // Icons
-import SettingsSVG from 'icons/SettingsSVG'
+import SettingsSvg from 'icons/SettingsSvg'
 
 // CSS
 import './SettingsButton.sass'
@@ -15,7 +15,7 @@ const SettingsButton = ({ bright, onClick }) => (
     className="settings-button"
     onClick={onClick}
   >
-    <SettingsSVG className={classNames({ bright, drab: !bright })} />
+    <SettingsSvg className={classNames({ bright, drab: !bright })} />
   </div>
 )
 
