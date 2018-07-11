@@ -21,8 +21,9 @@ import { MediaQueryContext } from 'components/MediaQuery/context.js'
 
 
 const mapStateToProps = ({ 
-  layout: { settings }
+  layout: { lid, settings }
 }) => ({
+  lid,
   show: settings
 })
 
@@ -33,6 +34,7 @@ const mapDispatchToProps = dispatch => ({
 
 const SettingsDialog = ({
   intl: { formatMessage, locale },
+  lid,
   show, 
   onClose, 
   onLocaleChange 
@@ -40,7 +42,10 @@ const SettingsDialog = ({
   <MediaQueryContext.Consumer>
     {({ layout }) =>
       <Dialog
-        contentStyle={styles[layout].content}
+        contentStyle={{
+          ...styles[layout].content,
+          ...(lid ? {} : { color: '#EC7063' }) // TODO: take the colour from the current theme
+        }}
         header
         headerStyle={styles[layout].header}
         mainStyle={styles[layout].main}
