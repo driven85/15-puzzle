@@ -4,9 +4,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 
-// Images
-import MovesOff from 'images/moves-off.svg'
-import MovesOn from 'images/moves-on.svg'
+// Icons
+import MovesSvg from 'icons/MovesSvg'
 
 // CSS
 import './styles.sass'
@@ -24,7 +23,7 @@ const mapStateToProps = ({
 
 const MoveCounter = ({ lid, moves }) => (
   <div className={classNames('move-counter', { on: !lid })}>
-    <img src={lid ? MovesOff : MovesOn} />
+    <MovesSvg className={classNames({ off: lid, on: !lid })} />
     <div>{paddedNumber(moves)}</div>
   </div>
 )
