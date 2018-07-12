@@ -1,10 +1,9 @@
+import { RESET } from 'actions/common'
 import { 
   INCREMENT_MOVES,
   TICK
 } from 'actions/display'
-
 import { TOGGLE_LID } from 'actions/layout'
-import { RESET } from 'actions/puzzle'
 
 
 const initialState = {

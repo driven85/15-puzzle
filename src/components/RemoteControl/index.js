@@ -14,10 +14,10 @@ import './index.sass'
 import { toggleSettings } from 'actions/layout'
 
 import { 
-  startGame, 
   resetGame, 
+  startGame, 
   toggleBoxLid 
-} from 'actions/puzzle'
+} from 'actions/game'
 
 
 const mapStateToProps = ({ 

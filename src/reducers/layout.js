@@ -1,4 +1,5 @@
 // Action types
+import { RESET } from 'actions/common'
 import { 
   TOGGLE_LID, 
   SET_LOADER, 
@@ -8,8 +9,6 @@ import {
   ENABLE_RESET,
   TOGGLE_SETTINGS
 } from 'actions/layout'
-
-import { RESET } from 'actions/puzzle'
 
 
 const initialState = {

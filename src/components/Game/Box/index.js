@@ -10,7 +10,7 @@ import EmptySpace from '../EmptySpace'
 import Tile from '../Tile'
 
 // Actions
-import { moveTile } from 'actions/puzzle'
+import { moveTile } from 'actions/game'
 
 
 const mapStateToProps = ({ 
