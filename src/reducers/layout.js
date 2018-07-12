@@ -4,11 +4,12 @@ import {
   SET_LOADER, 
   START_CLICKED,
   SET_SOLVED,
-  RESET,
   SHAKE_TILE,
   ENABLE_RESET,
   TOGGLE_SETTINGS
 } from 'actions/layout'
+
+import { RESET } from 'actions/puzzle'
 
 
 const initialState = {

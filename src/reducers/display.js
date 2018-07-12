@@ -1,10 +1,10 @@
 import { 
   INCREMENT_MOVES,
-  RESET_DISPLAY,
   TICK
 } from 'actions/display'
 
 import { TOGGLE_LID } from 'actions/layout'
+import { RESET } from 'actions/puzzle'
 
 
 const initialState = {
@@ -17,7 +17,7 @@ const display = (state = initialState, action) => {
     case INCREMENT_MOVES:
       return { ...state, moves: state.moves + 1 }
 
-    case RESET_DISPLAY:
+    case RESET:
     case TOGGLE_LID:
       return initialState
 

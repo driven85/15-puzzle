@@ -1,5 +1,4 @@
 // TODO: refactor
-// TODO: helper for resetting
 
 // App
 import Puzzle from 'app/Puzzle'
@@ -11,19 +10,24 @@ import {
   startClicked, 
   toggleLid,
   setSolved,
-  reset,
   shakeTile,
   enableReset
 } from 'actions/layout'
 
-import { incrementMoves, resetDisplay, tick } from 'actions/display'
+import { incrementMoves, tick } from 'actions/display'
 
 
 const PUZZLE = new Puzzle()
 
 let timer = null
 
+export const RESET = 'RESET'
 export const SET_PUZZLE = 'SET_PUZZLE'
+
+
+const reset = () => ({
+  type: RESET
+})
 
 const setPuzzle = puzzle => ({
   type: SET_PUZZLE,
@@ -92,9 +96,7 @@ export const moveTile = tile => (dispatch, getState) => {
 export const resetGame = () => dispatch => {
   PUZZLE.reset()
   dispatch(setPuzzle(PUZZLE.currentState()))
-  // TODO: do though a single action
-  dispatch(reset()) 
-  dispatch(resetDisplay())
+  dispatch(reset())
   clearInterval(timer)
 }
 
