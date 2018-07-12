@@ -24,7 +24,7 @@ const mapStateToProps = ({
 const MoveCounter = ({ lid, moves }) => (
   <div className={classNames('move-counter', { on: !lid })}>
     <MovesSvg className={classNames({ off: lid, on: !lid })} />
-    <div>{paddedNumber(moves)}</div>
+    <div>{paddedNumber(moves, 3)}</div>
   </div>
 )
 
