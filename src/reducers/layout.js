@@ -7,7 +7,8 @@ import {
   SET_SOLVED,
   SHAKE_TILE,
   ENABLE_RESET,
-  TOGGLE_SETTINGS
+  TOGGLE_SETTINGS,
+  SET_START_DISABLED
 } from 'actions/layout'
 
 
@@ -18,7 +19,8 @@ const initialState = {
   settings: false,
   shake: null,
   solved: false,
-  startClicked: false
+  startClicked: 0,
+  startDisabled: true
 }
 
 const layout = (state = initialState, action) => {
@@ -29,7 +31,8 @@ const layout = (state = initialState, action) => {
         lid: !state.lid,
         resetDisabled: true,
         solved: false,
-        startClicked: false
+        startClicked: 0,
+        startDisabled: !state.lid
       }
 
     case SET_LOADER:
@@ -38,7 +41,11 @@ const layout = (state = initialState, action) => {
       return { ...state, loader }
 
     case START_CLICKED:
-      return { ...state, startClicked: true }
+      let newBtnState = state.startClicked + 1
+
+      if (newBtnState === 3) newBtnState = 1
+
+      return { ...state, startClicked: newBtnState }
 
     case SET_SOLVED:
       return { ...state, solved: true }
@@ -48,7 +55,8 @@ const layout = (state = initialState, action) => {
         ...state,
         resetDisabled: true,
         solved: false,
-        startClicked: false
+        startClicked: 0,
+        startDisabled: false
       }
 
     case SHAKE_TILE:
@@ -63,6 +71,11 @@ const layout = (state = initialState, action) => {
       const { settings } = action.payload
 
       return { ...state, settings }
+
+    case SET_START_DISABLED:
+      const { disabled } = action.payload
+
+      return { ...state, startDisabled: disabled }
 
     default:
       return state

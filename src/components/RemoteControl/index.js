@@ -20,14 +20,17 @@ import {
 } from 'actions/game'
 
 
+const buttonLabels = ['start', 'pause', 'resume']
+
 const mapStateToProps = ({ 
-  layout: { lid, resetDisabled, startClicked },
+  layout: { lid, resetDisabled, startClicked, startDisabled },
   settings: { locale }
 }) => ({
   lid,
   locale,
   resetDisabled,
-  startDisabled: lid || startClicked
+  startClicked,
+  startDisabled
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -40,6 +43,7 @@ const mapDispatchToProps = dispatch => ({
 const RemoteControl = ({
   lid,
   resetDisabled,
+  startClicked,
   startDisabled,
   onResetGame,
   onStartGame,
@@ -56,7 +60,9 @@ const RemoteControl = ({
         disabled={startDisabled}
         onClick={onStartGame}
       >
-        <FormattedMessage id="remoteControl.start" />
+        <FormattedMessage 
+          id={`remoteControl.${buttonLabels[startClicked]}`}
+        />
       </button>
       <button 
         disabled={resetDisabled}

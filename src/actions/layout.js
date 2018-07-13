@@ -5,6 +5,7 @@ export const SET_SOLVED = 'SET_SOLVED'
 export const SHAKE_TILE = 'SHAKE_TILE'
 export const ENABLE_RESET = 'ENABLE_RESET'
 export const TOGGLE_SETTINGS = 'TOGGLE_SETTINGS'
+export const SET_START_DISABLED = 'SET_START_DISABLED'
 
 
 export const toggleLid = () => ({
@@ -36,5 +37,10 @@ export const enableReset = () => ({
 export const toggleSettings = settings => ({
   type: TOGGLE_SETTINGS,
   payload: { settings }
+})
+
+export const setStartDisabled = disabled => ({
+  type: SET_START_DISABLED,
+  payload: { disabled }
 })
 

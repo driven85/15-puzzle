@@ -10,6 +10,7 @@ import {
   setLoader, 
   setSolved,
   shakeTile,
+  setStartDisabled,
   startClicked, 
   toggleLid
 } from 'actions/layout'
@@ -30,33 +31,59 @@ export const toggleBoxLid = toggle => dispatch => {
   dispatch(toggleLid())
 }
 
-export const startGame = () => dispatch => {
-  dispatch(setLoader(true))
-  dispatch(startClicked())
+export const startGame = () => (dispatch, getState) => {
+  const START  = 0,
+        PAUSE  = 1,
+        RESUME = 2
 
-  PUZZLE.reset()
+  const { layout: { startClicked: currBtnState } } = getState()
 
-  // Shuffle the puzzle
-  const N = 200
-  const shuffler = new Shuffler(PUZZLE)
-  shuffler.shuffle(N)
+  switch (currBtnState) {
+    case START:
+      dispatch(setLoader(true))
+      dispatch(setStartDisabled(true)) // TODO: disable through the START_CLICKED action - ?
 
-  // Display the shuffling
-  const shuffledStates = PUZZLE.allStates();
-  (function display(n) {
-    setTimeout(() => {
-      dispatch(setPuzzle(shuffledStates[n]))
+      PUZZLE.reset()
 
-      if (n++ < N) {
-        if (n < N) n++
-        display(n)
-      } else { 
-        dispatch(setLoader(false))
-        dispatch(enableReset())
-        timer = setInterval(() => dispatch(tick()), 1000)
-      }
-    }, 5)
-  })(1)
+      // Shuffle the puzzle
+      const N = 200
+      const shuffler = new Shuffler(PUZZLE)
+      shuffler.shuffle(N)
+
+      // Display the shuffling
+      const shuffledStates = PUZZLE.allStates();
+      (function display(n) {
+        setTimeout(() => {
+          dispatch(setPuzzle(shuffledStates[n]))
+
+          if (n++ < N) {
+            if (n < N) n++
+            display(n)
+          } else { 
+            dispatch(setLoader(false))
+            dispatch(startClicked())
+            // TODO: enable through a singe action - ?
+            dispatch(setStartDisabled(false))
+            dispatch(enableReset())
+            timer = setInterval(() => dispatch(tick()), 1000)
+          }
+        }, 5)
+      })(1)
+
+      break
+
+    case PAUSE:
+      dispatch(startClicked())
+      clearInterval(timer)
+
+      break
+
+    case RESUME:
+      dispatch(startClicked())
+      timer = setInterval(() => dispatch(tick()), 1000)
+
+      break
+  }
 }
 
 export const moveTile = tile => (dispatch, getState) => {
@@ -69,6 +96,7 @@ export const moveTile = tile => (dispatch, getState) => {
       dispatch(incrementMoves())
 
       if (PUZZLE.isSolved()) {
+        dispatch(setStartDisabled(true))
         dispatch(setSolved())
         clearInterval(timer)
       }

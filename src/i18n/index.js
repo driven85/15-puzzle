@@ -14,8 +14,10 @@ export default {
 
     'lid.label': '15 Puzzle',
 
-    'remoteControl.start': 'Start',
+    'remoteControl.pause': 'Pause',
     'remoteControl.reset': 'Reset',
+    'remoteControl.resume': 'Resume',
+    'remoteControl.start': 'Start',
 
     'settingsDialog.settings': 'Settings'
   },
@@ -24,8 +26,10 @@ export default {
 
     'lid.label': 'Игра в 15',
 
-    'remoteControl.start': 'Старт',
+    'remoteControl.pause': 'Пауза',
     'remoteControl.reset': 'Сброс',
+    'remoteControl.resume': 'Продолж.',
+    'remoteControl.start': 'Старт',
 
     'settingsDialog.settings': 'Настройки'
   }
