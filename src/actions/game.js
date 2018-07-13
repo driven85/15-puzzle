@@ -86,24 +86,39 @@ export const startGame = () => (dispatch, getState) => {
   }
 }
 
+// TODO: refactor
 export const moveTile = tile => (dispatch, getState) => {
-  if (PUZZLE.moveTile(tile)) {
-    dispatch(setPuzzle(PUZZLE.currentState()))
+  const { layout: { startClicked } } = getState()
 
-    const { layout: { startClicked } } = getState()
-
-    if (startClicked) {
-      dispatch(incrementMoves())
-
-      if (PUZZLE.isSolved()) {
-        dispatch(setStartDisabled(true))
-        dispatch(setSolved())
-        clearInterval(timer)
-      }
-    }
-  } else {
+  if (startClicked === 2) { // the game is paused
     dispatch(shakeTile(tile))
     setTimeout(() => dispatch(shakeTile(null)), 300)
+
+    if (PUZZLE.moveTile(tile)) {
+      dispatch(setPuzzle(PUZZLE.currentState()))
+      setTimeout(() => {
+        PUZZLE.moveTile(tile)
+        dispatch(setPuzzle(PUZZLE.currentState()))
+      }, 150)
+    }
+
+  } else {
+    if (PUZZLE.moveTile(tile)) {
+      dispatch(setPuzzle(PUZZLE.currentState()))
+
+      if (startClicked) {
+        dispatch(incrementMoves())
+
+        if (PUZZLE.isSolved()) {
+          dispatch(setStartDisabled(true))
+          dispatch(setSolved())
+          clearInterval(timer)
+        }
+      }
+    } else {
+      dispatch(shakeTile(tile))
+      setTimeout(() => dispatch(shakeTile(null)), 300)
+    }
   }
 }
 
