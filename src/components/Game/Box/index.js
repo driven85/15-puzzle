@@ -1,5 +1,6 @@
 // Libs
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 // CSS
@@ -41,6 +42,12 @@ const Box = ({ puzzle, shake, onMoveTile }) => (
     )}
   </div>
 )
+
+Box.propTypes = {
+  puzzle: PropTypes.arrayOf(PropTypes.number),
+  shake: PropTypes.bool,
+  onMoveTile: PropTypes.func
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Box)
 
