@@ -45,7 +45,7 @@ const Box = ({ puzzle, shake, onMoveTile }) => (
 
 Box.propTypes = {
   puzzle: PropTypes.arrayOf(PropTypes.number),
-  shake: PropTypes.bool,
+  shake: PropTypes.number,
   onMoveTile: PropTypes.func
 }
 
