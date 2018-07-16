@@ -6,6 +6,7 @@ export const SHAKE_TILE = 'SHAKE_TILE'
 export const ENABLE_RESET = 'ENABLE_RESET'
 export const TOGGLE_SETTINGS = 'TOGGLE_SETTINGS'
 export const SET_START_DISABLED = 'SET_START_DISABLED'
+export const TOGGLE_CHEATING_WARNING = 'TOGGLE_CHEATING_WARNING'
 
 
 export const toggleLid = () => ({
@@ -42,5 +43,10 @@ export const toggleSettings = settings => ({
 export const setStartDisabled = disabled => ({
   type: SET_START_DISABLED,
   payload: { disabled }
+})
+
+export const toggleCheatingWarning = toggle => ({
+  type: TOGGLE_CHEATING_WARNING,
+  payload: { toggle }
 })
 

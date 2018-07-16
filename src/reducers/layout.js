@@ -8,11 +8,13 @@ import {
   SHAKE_TILE,
   ENABLE_RESET,
   TOGGLE_SETTINGS,
-  SET_START_DISABLED
+  SET_START_DISABLED,
+  TOGGLE_CHEATING_WARNING
 } from 'actions/layout'
 
 
 const initialState = {
+  cheatingWarning: false,
   lid: true,
   loader: false,
   resetDisabled: true,
@@ -27,7 +29,8 @@ const layout = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_LID:
       return { 
-        ...state, 
+        ...state,
+        cheatingWarning: false,
         lid: !state.lid,
         resetDisabled: true,
         solved: false,
@@ -53,6 +56,7 @@ const layout = (state = initialState, action) => {
     case RESET:
       return {
         ...state,
+        cheatingWarning: false,
         resetDisabled: true,
         solved: false,
         startClicked: 0,
@@ -76,6 +80,11 @@ const layout = (state = initialState, action) => {
       const { disabled } = action.payload
 
       return { ...state, startDisabled: disabled }
+
+    case TOGGLE_CHEATING_WARNING:
+      const { toggle } = action.payload
+
+      return { ...state, cheatingWarning: toggle }
 
     default:
       return state

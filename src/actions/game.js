@@ -12,7 +12,8 @@ import {
   shakeTile,
   setStartDisabled,
   startClicked, 
-  toggleLid
+  toggleLid,
+  toggleCheatingWarning
 } from 'actions/layout'
 import { setPuzzle } from 'actions/puzzle'
 
@@ -20,6 +21,7 @@ import { setPuzzle } from 'actions/puzzle'
 const PUZZLE = new Puzzle()
 
 let timer = null
+let cheatingMoves = 0
 
 export const toggleBoxLid = toggle => dispatch => {
   if (toggle) {
@@ -27,6 +29,7 @@ export const toggleBoxLid = toggle => dispatch => {
     dispatch(setPuzzle(PUZZLE.currentState()))
   } else {
     clearInterval(timer)
+    cheatingMoves = 0
   }
   dispatch(toggleLid())
 }
@@ -75,6 +78,7 @@ export const startGame = () => (dispatch, getState) => {
     case PAUSE:
       dispatch(startClicked())
       clearInterval(timer)
+      cheatingMoves = 0
 
       break
 
@@ -95,14 +99,20 @@ export const moveTile = tile => (dispatch, getState) => {
     setTimeout(() => dispatch(shakeTile(null)), 300)
 
     if (PUZZLE.moveTile(tile)) {
+      if (++cheatingMoves >= 3) {
+        cheatingMoves = 0
+        dispatch(toggleCheatingWarning(true))
+      }
+
       dispatch(setPuzzle(PUZZLE.currentState()))
       setTimeout(() => {
         PUZZLE.moveTile(tile)
         dispatch(setPuzzle(PUZZLE.currentState()))
       }, 150)
     }
-
   } else {
+    if (cheatingMoves > 0) cheatingMoves = 0
+
     if (PUZZLE.moveTile(tile)) {
       dispatch(setPuzzle(PUZZLE.currentState()))
 
@@ -127,5 +137,6 @@ export const resetGame = () => dispatch => {
   dispatch(setPuzzle(PUZZLE.currentState()))
   dispatch(reset())
   clearInterval(timer)
+  cheatingMoves = 0
 }
 
