@@ -1,5 +1,6 @@
 // Libs
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 
@@ -37,6 +38,10 @@ const Congrats = ({ show }) => (
     }
   </Transition>
 )
+
+Congrats.propTypes = {
+  show: PropTypes.bool
+}
 
 export default connect(mapStateToProps)(Congrats)
 
