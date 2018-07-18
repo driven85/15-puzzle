@@ -5,6 +5,8 @@ import { injectIntl } from 'react-intl'
 
 // Components
 import Dialog from 'components/UI/Dialog'
+import Select from 'components/UI/Select'
+import Option from 'components/UI/Option'
 
 // CSS
 import './styles.sass'
@@ -53,14 +55,13 @@ const SettingsDialog = ({
         title={formatMessage({ id: 'settingsDialog.settings' })}
         onClose={onClose} 
       >
-        <select 
-          className="lang-switcher"
+        <Select 
           value={locale}
           onChange={onLocaleChange}
         >
-          <option value="en">English</option>
-          <option value="ru">Русский</option>
-        </select>
+          <Option value="en">English</Option>
+          <Option value="ru">Русский</Option>
+        </Select>
       </Dialog>
     }
   </MediaQueryContext.Consumer>

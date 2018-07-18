@@ -4,8 +4,6 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 
-
-// Reducer
 import reducer from 'reducers'
 
 
