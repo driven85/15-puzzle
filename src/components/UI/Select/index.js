@@ -58,7 +58,7 @@ class Select extends Component {
         ref={node => this.select = node}
       >
         <div 
-          className="selected-option"
+          className={classNames('selected-option', { open })}
           onClick={this.toggleHandler}
         >
           {selected}
