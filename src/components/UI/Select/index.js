@@ -59,7 +59,7 @@ class Select extends Component {
         ref={node => this.select = node}
       >
         <div 
-          className={classNames('selected-option', { open })}
+          className={classNames('select-selected', { open })}
           onClick={this.toggleHandler}
         >
           {icon && <span className="icon">{icon}</span>}
