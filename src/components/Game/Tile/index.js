@@ -6,9 +6,9 @@ import classNames from 'classnames'
 import './styles.sass'
 
 
-const Tile = ({ number, shake, onClick }) => (
+const Tile = ({ bright, number, shake, onClick }) => (
   <div 
-    className={classNames('tile', { shake })}
+    className={classNames('tile', { bright, shake })}
     onClick={onClick}
   >
     {number}

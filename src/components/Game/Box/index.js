@@ -15,9 +15,10 @@ import { moveTile } from 'actions/game'
 
 
 const mapStateToProps = ({ 
-  layout: { shake },
+  layout: { lid, shake },
   puzzle
-}) => ({ 
+}) => ({
+  lid, 
   puzzle,
   shake
 })
@@ -28,12 +29,13 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-const Box = ({ puzzle, shake, onMoveTile }) => (
+const Box = ({ lid, puzzle, shake, onMoveTile }) => (
   <div className="box">
     {puzzle.map(tile => 
       tile 
         ? <Tile
             key={tile}
+            bright={!lid}
             number={tile}
             shake={tile === shake}
             onClick={() => onMoveTile(tile)}
