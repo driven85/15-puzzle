@@ -5,11 +5,12 @@ import React, { Component } from 'react'
 import './styles.sass'
 
 
-const Option = ({ children, value }) => (
+const Option = ({ children, icon, value }) => (
   <div 
     className="option"
     data-value={value}
   >
+    <span className="icon">{icon}</span>
     {children}
   </div>
 )

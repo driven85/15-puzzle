@@ -43,11 +43,12 @@ class Select extends Component {
   render() {
     const { children, value } = this.props
     const { open } = this.state
-    let selected
+    let icon, selected
 
     // TODO: refactor
     children.forEach(child => {
       if (child.props.value === value) {
+        icon = child.props.icon
         selected = child.props.children
       } 
     })
@@ -61,6 +62,7 @@ class Select extends Component {
           className={classNames('selected-option', { open })}
           onClick={this.toggleHandler}
         >
+          {icon && <span className="icon">{icon}</span>}
           {selected}
         </div>
         <div 

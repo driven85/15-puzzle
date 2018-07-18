@@ -8,6 +8,10 @@ import Dialog from 'components/UI/Dialog'
 import Select from 'components/UI/Select'
 import Option from 'components/UI/Option'
 
+// Images
+import enFlag from 'images/flags/en.png'
+import ruFlag from 'images/flags/ru.png'
+
 // CSS
 import './styles.sass'
 
@@ -59,8 +63,18 @@ const SettingsDialog = ({
           value={locale}
           onChange={onLocaleChange}
         >
-          <Option value="en">English</Option>
-          <Option value="ru">Русский</Option>
+          <Option
+            icon={<img src={enFlag} />}
+            value="en"
+          >
+            English
+          </Option>
+          <Option 
+            icon={<img src={ruFlag} />}
+            value="ru"
+          >
+            Русский
+          </Option>
         </Select>
       </Dialog>
     }
