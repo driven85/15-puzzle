@@ -9,6 +9,8 @@ import './styles.sass'
 class Select extends Component {
   state = { open: false }
 
+  selectRef = React.createRef()
+
   toggleHandler = () => {
     this.setState({ open: !this.state.open })
   }
@@ -23,22 +25,19 @@ class Select extends Component {
     })
   }
 
-  /* TODO: close on click outside
-
-  close = e => {
-    if (e.target !== this.select) {
+  closeHandler = e => {
+    if (!this.selectRef.current.contains(e.target)) {
       this.setState({ open: false })
     }
   }
-
+  
   componentDidMount() {
-    window.addEventListener('click', this.close)
+    window.addEventListener('click', this.closeHandler)
   }
 
   componentWillUnmount() {
-    window.removeEventListener('click', this.close)
+    window.removeEventListener('click', this.closeHandler)
   }
-  */
 
   render() {
     const { children, value } = this.props
@@ -56,7 +55,7 @@ class Select extends Component {
     return (
       <div 
         className="select"
-        ref={node => this.select = node}
+        ref={this.selectRef}
       >
         <div 
           className={classNames('select-selected', { open })}
