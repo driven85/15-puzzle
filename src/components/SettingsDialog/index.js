@@ -35,7 +35,7 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = dispatch => ({
   onClose: () => dispatch(toggleSettings(false)),
-  onLocaleChange: (e) => dispatch(switchLocale(e.target.value))
+  onLocaleChange: value => dispatch(switchLocale(value))
 })
 
 const SettingsDialog = ({

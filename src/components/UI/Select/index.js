@@ -17,12 +17,7 @@ class Select extends Component {
 
   changeHandler = e => {
     this.toggleHandler()
-    // TODO: redo
-    this.props.onChange({ 
-      target: {
-        value: e.target.dataset.value
-      }
-    })
+    this.props.onChange(e.target.dataset.value)
   }
 
   closeHandler = e => {
@@ -42,15 +37,10 @@ class Select extends Component {
   render() {
     const { children, value } = this.props
     const { open } = this.state
-    let icon, selected
-
-    // TODO: refactor
-    children.forEach(child => {
-      if (child.props.value === value) {
-        icon = child.props.icon
-        selected = child.props.children
-      } 
-    })
+    const { 
+      props: { icon: optionIcon, children: optionContent } 
+    } = 
+      children.find(child => child.props.value === value)
 
     return (
       <div 
@@ -61,8 +51,8 @@ class Select extends Component {
           className={classNames('select-selected', { open })}
           onClick={this.toggleHandler}
         >
-          {icon && <span className="icon">{icon}</span>}
-          {selected}
+          {optionIcon && <span className="icon">{optionIcon}</span>}
+          {optionContent}
         </div>
         <div 
           className={classNames('options', { 'options-hide': !open })}
