@@ -18,6 +18,7 @@ export default class Dialog extends Component {
 
   render() {
     const { 
+      bright,
       children, 
       contentStyle,
       header, 
@@ -47,7 +48,7 @@ export default class Dialog extends Component {
               onClick={this.handleBackdropClick}
             >
               <div 
-                className="content"
+                className={classNames('content', { bright })}
                 style={contentStyle}
               >
                 {header && headerElement}
@@ -68,6 +69,7 @@ Dialog.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]),
+  bright: PropTypes.bool,
   contentStyle: PropTypes.object,
   header: PropTypes.bool,
   headerStyle: PropTypes.object,

@@ -48,10 +48,8 @@ const SettingsDialog = ({
   <MediaQueryContext.Consumer>
     {({ layout }) =>
       <Dialog
-        contentStyle={{
-          ...styles[layout].content,
-          ...(lid ? {} : { color: '#EC7063' }) // TODO: take the colour from the current theme
-        }}
+        bright={!lid}
+        contentStyle={styles[layout].content}
         header
         headerStyle={styles[layout].header}
         mainStyle={styles[layout].main}
