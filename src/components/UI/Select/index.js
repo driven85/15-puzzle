@@ -55,7 +55,7 @@ class Select extends Component {
           {optionContent}
         </div>
         <div 
-          className={classNames('options', { 'options-hide': !open })}
+          className={classNames('select-options', { 'select-options-hide': !open })}
           onClick={this.changeHandler}
         >
           {children}
