@@ -6,7 +6,17 @@ import classNames from 'classnames'
 import './styles.sass'
 
 
-class Select extends Component {
+export const Option = ({ children, icon, selected, value }) => (
+  <div 
+    className={classNames('option', { selected })}
+    data-value={value}
+  >
+    <span className="icon">{icon}</span>
+    {children}
+  </div>
+)
+
+export default class Select extends Component {
   state = { open: false }
 
   selectRef = React.createRef()
@@ -70,6 +80,4 @@ class Select extends Component {
     )
   }
 }
-
-export default Select
 

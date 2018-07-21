@@ -5,8 +5,7 @@ import { injectIntl } from 'react-intl'
 
 // Components
 import Dialog from 'components/UI/Dialog'
-import Select from 'components/UI/Select'
-import Option from 'components/UI/Option'
+import Select, { Option } from 'components/UI/Select'
 
 // Images
 import enFlag from 'images/flags/en.png'
