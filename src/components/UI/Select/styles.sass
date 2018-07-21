@@ -1,9 +1,10 @@
 .select
   width: 150px
   position: relative
+  color: #566573
 
   .select-selected
-    border: 1px solid #EC7063
+    border: 1px solid #566573
     border-radius: 10px
 
     .icon
@@ -17,16 +18,14 @@
     width: 0
     height: 0
     border: 6px solid transparent
-    border-color: #EC7063 transparent transparent transparent
+    border-color: #566573 transparent transparent transparent
 
   .select-selected.open:after
     top: 6px
-    border-color: transparent transparent #EC7063 transparent
+    border-color: transparent transparent #566573 transparent
 
   .select-selected, .option
     padding: 5px 10px
-    color: #EC7063
-    background: #FAD8D8
     cursor: pointer
     user-select: none
 
@@ -36,10 +35,42 @@
     top: 105%
 
     & > .option:first-child
-      border: 1px solid #EC7063
-      border-color: #EC7063 #EC7063 transparent #EC7063
+      border: 1px solid #566573
+      border-color: #566573 #566573 transparent #566573
       border-top-left-radius: 10px
       border-top-right-radius: 10px
+
+    .option
+      border: 1px solid #566573
+      border-color: #566573 #566573 transparent #566573
+
+    & > .option:last-child
+      border: 1px solid #566573
+      border-bottom-left-radius: 10px
+      border-bottom-right-radius: 10px
+
+    .option:hover
+      background: #ECECEC
+
+  .select-options-hide
+    display: none
+
+.select.bright
+  color: #EC7063
+
+  .select-selected
+    border: 1px solid #EC7063
+
+  .select-selected:after
+    border-color: #EC7063 transparent transparent transparent
+
+  .select-selected.open:after
+    border-color: transparent transparent #EC7063 transparent
+
+  .select-options
+    & > .option:first-child
+      border: 1px solid #EC7063
+      border-color: #EC7063 #EC7063 transparent #EC7063
 
     .option
       border: 1px solid #EC7063
@@ -47,12 +78,7 @@
 
     & > .option:last-child
       border: 1px solid #EC7063
-      border-bottom-left-radius: 10px
-      border-bottom-right-radius: 10px
 
     .option:hover
-      background: #F5B7B1
-
-  .select-options-hide
-    display: none
+      background: #FADBD8
 

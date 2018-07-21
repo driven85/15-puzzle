@@ -58,6 +58,7 @@ const SettingsDialog = ({
         onClose={onClose} 
       >
         <Select 
+          bright={!lid}
           value={locale}
           onChange={onLocaleChange}
         >

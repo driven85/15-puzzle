@@ -35,7 +35,7 @@ class Select extends Component {
   }
 
   render() {
-    const { children, value } = this.props
+    const { bright, children, value } = this.props
     const { open } = this.state
     const { 
       props: { icon: optionIcon, children: optionContent } 
@@ -44,7 +44,7 @@ class Select extends Component {
 
     return (
       <div 
-        className="select"
+        className={classNames('select', { bright })}
         ref={this.selectRef}
       >
         <div 
