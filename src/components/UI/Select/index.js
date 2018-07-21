@@ -55,10 +55,16 @@ class Select extends Component {
           {optionContent}
         </div>
         <div 
-          className={classNames('select-options', { 'select-options-hide': !open })}
+          className={classNames('select-options', { 
+            'select-options-hide': !open 
+          })}
           onClick={this.changeHandler}
         >
-          {children}
+          {React.Children.map(children, child =>
+            React.cloneElement(child, { 
+              selected: child.props.value === value 
+            })
+          )}
         </div>
       </div>
     )

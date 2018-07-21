@@ -1,13 +1,14 @@
 // Libs
 import React, { Component } from 'react'
+import classNames from 'classnames'
 
 // CSS
 import './styles.sass'
 
 
-const Option = ({ children, icon, value }) => (
+const Option = ({ children, icon, selected, value }) => (
   <div 
-    className="option"
+    className={classNames('option', { selected })}
     data-value={value}
   >
     <span className="icon">{icon}</span>
