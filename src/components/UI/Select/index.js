@@ -45,7 +45,12 @@ export default class Select extends Component {
   }
 
   render() {
-    const { bright, children, value } = this.props
+    const { 
+      bright, 
+      children, 
+      style,
+      value
+    } = this.props
     const { open } = this.state
     const { 
       props: { icon: optionIcon, children: optionContent } 
@@ -56,6 +61,7 @@ export default class Select extends Component {
       <div 
         className={classNames('select', { bright })}
         ref={this.selectRef}
+        style={style}
       >
         <div 
           className={classNames('select-selected', { open })}
