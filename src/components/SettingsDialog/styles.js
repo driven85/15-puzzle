@@ -32,7 +32,8 @@ const styles = {
       height: 350 
     },
     langSwitcher: {
-      width: 200
+      width: 200,
+      fontSize: '1.2rem'
     }
   },
 
@@ -40,6 +41,10 @@ const styles = {
     content: { 
       width: 600, 
       height: 450 
+    },
+    langSwitcher: {
+      width: 250,
+      fontSize: '1.4rem'
     }
   }
 }
