@@ -47,6 +47,7 @@ export default class Select extends Component {
   render() {
     const { 
       bright, 
+      className,
       children, 
       style,
       value
@@ -59,7 +60,7 @@ export default class Select extends Component {
 
     return (
       <div 
-        className={classNames('select', { bright })}
+        className={classNames('select', className, { bright })}
         ref={this.selectRef}
         style={style}
       >

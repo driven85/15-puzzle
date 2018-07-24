@@ -58,8 +58,9 @@ const SettingsDialog = ({
       >
         <Select 
           bright={!lid}
-          value={locale}
+          className="lang-switcher"
           style={getStyle(layout, 'langSwitcher')}
+          value={locale}
           onChange={onLocaleChange}
         >
           <Option
