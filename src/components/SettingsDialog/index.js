@@ -48,6 +48,7 @@ const SettingsDialog = ({
     {({ layout }) =>
       <Dialog
         bright={!lid}
+        className="settings-dialog"
         contentStyle={getStyle(layout, 'content')}
         header
         headerStyle={getStyle(layout, 'header')}
@@ -59,7 +60,7 @@ const SettingsDialog = ({
         <Select 
           bright={!lid}
           className="lang-switcher"
-          style={getStyle(layout, 'langSwitcher')}
+          style={getStyle(layout, 'select')}
           value={locale}
           onChange={onLocaleChange}
         >
@@ -74,6 +75,18 @@ const SettingsDialog = ({
             value="ru"
           >
             Русский
+          </Option>
+        </Select>
+        <Select
+          bright={!lid}
+          className="theme-switcher"
+          style={getStyle(layout, 'select')}
+          value="red-grey"
+        >
+          <Option
+            value="red-grey"
+          >
+            Red grey
           </Option>
         </Select>
       </Dialog>

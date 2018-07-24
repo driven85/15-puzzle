@@ -11,7 +11,7 @@ const styles = {
     main: { 
       display: 'flex', 
       flexDirection: 'column', 
-      alignItems: 'center' 
+      alignItems: 'center'
     }
   },
 
@@ -31,7 +31,7 @@ const styles = {
       width: 500, 
       height: 350 
     },
-    langSwitcher: {
+    select: {
       width: 200,
       height: 34,
       fontSize: '1.2rem'
@@ -43,7 +43,7 @@ const styles = {
       width: 600, 
       height: 450 
     },
-    langSwitcher: {
+    select: {
       width: 250,
       height: 38,
       fontSize: '1.4rem'
