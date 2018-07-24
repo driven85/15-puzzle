@@ -56,7 +56,8 @@ export default class Select extends Component {
     const { 
       props: { icon: optionIcon, children: optionContent } 
     } = 
-      children.find(child => child.props.value === value)
+      React.Children.toArray(children)
+        .find(child => child.props.value === value) || { props: {} }
 
     return (
       <div 

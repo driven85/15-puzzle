@@ -33,6 +33,7 @@ const styles = {
     },
     langSwitcher: {
       width: 200,
+      height: 34,
       fontSize: '1.2rem'
     }
   },
@@ -44,6 +45,7 @@ const styles = {
     },
     langSwitcher: {
       width: 250,
+      height: 38,
       fontSize: '1.4rem'
     }
   }
