@@ -20,6 +20,7 @@ export default class Dialog extends Component {
     const { 
       bright,
       children, 
+      className,
       contentStyle,
       header, 
       headerStyle,
@@ -42,7 +43,7 @@ export default class Dialog extends Component {
         unmountOnExit
       >
         {state => (
-          <div className={classNames('dialog', state)}>
+          <div className={classNames('dialog', className, state)}>
             <div 
               className="backdrop"
               onClick={this.handleBackdropClick}
