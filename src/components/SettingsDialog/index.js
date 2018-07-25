@@ -19,30 +19,35 @@ import styles, { getStyle } from './styles'
 
 // Actions
 import { toggleSettings } from 'actions/layout'
-import { switchLocale } from 'actions/settings'
+import { switchLocale, switchTheme } from 'actions/settings'
 
 // Context
 import { MediaQueryContext } from 'components/MediaQuery/context.js'
 
 
 const mapStateToProps = ({ 
-  layout: { lid, settings }
+  layout: { lid, settings },
+  settings: { theme }
 }) => ({
   lid,
-  show: settings
+  show: settings,
+  theme
 })
 
 const mapDispatchToProps = dispatch => ({
   onClose: () => dispatch(toggleSettings(false)),
-  onLocaleChange: value => dispatch(switchLocale(value))
+  onLocaleChange: value => dispatch(switchLocale(value)),
+  onThemeChange: value => dispatch(switchTheme(value))
 })
 
 const SettingsDialog = ({
   intl: { formatMessage, locale },
   lid,
   show, 
+  theme,
   onClose, 
-  onLocaleChange 
+  onLocaleChange,
+  onThemeChange
 }) => (
   <MediaQueryContext.Consumer>
     {({ layout }) =>
@@ -81,7 +86,8 @@ const SettingsDialog = ({
           bright={!lid}
           className="theme-switcher"
           style={getStyle(layout, 'select')}
-          value="red-grey"
+          value={theme}
+          onChange={onThemeChange}
         >
           <Option
             value="red-grey"
