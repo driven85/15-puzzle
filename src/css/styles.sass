@@ -6,7 +6,8 @@
 
 \:root
   --primary-color: #EC7063
-  --primary-color1: #F5B7B1
+  --primary-color1: #F1948A
+  --primary-color2: #F5B7B1
   --secondary-color: #566573
   --secondary-color1: #D5D8DC
 
@@ -20,7 +21,7 @@ body
 
 button
   border: 1px solid var(--primary-color)
-  box-shadow: 0 0 3px 2px #F1948A
+  box-shadow: 0 0 3px 2px var(--primary-color1)
   border-radius: 20px
   background: #FADBD8
   font-weight: bold
@@ -32,7 +33,7 @@ button
   user-select: none
 
 button:active
-  background: var(--primary-color1)
+  background: var(--primary-color2)
 
 button:disabled
   background: #ECECEC
