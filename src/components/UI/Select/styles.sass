@@ -1,11 +1,11 @@
 .select
   position: relative
-  color: #566573
+  color: var(--secondary-color)
   width: 150px
   height: 30px
 
   .select-selected
-    border: 1px solid #566573
+    border: 1px solid var(--secondary-color)
     border-radius: 10px
     box-sizing: border-box
     height: inherit
@@ -21,11 +21,11 @@
     width: 0
     height: 0
     border: 6px solid transparent
-    border-color: #566573 transparent transparent transparent
+    border-color: var(--secondary-color) transparent transparent transparent
 
   .select-selected.open:after
     top: 6px
-    border-color: transparent transparent #566573 transparent
+    border-color: transparent transparent var(--secondary-color) transparent
 
   .select-selected, .option
     padding: 5px 10px
@@ -39,21 +39,21 @@
     z-index: 1000
 
     & > .option:first-child
-      border: 1px solid #566573
-      border-color: #566573 #566573 transparent #566573
+      border: 1px solid var(--secondary-color)
+      border-color: var(--secondary-color) var(--secondary-color) transparent var(--secondary-color)
       border-top-left-radius: 10px
       border-top-right-radius: 10px
 
     .option
-      border: 1px solid #566573
-      border-color: #566573 #566573 transparent #566573
+      border: 1px solid var(--secondary-color)
+      border-color: var(--secondary-color) var(--secondary-color) transparent var(--secondary-color)
       background: #FFF
 
       .icon
         margin-right: 20px
 
     & > .option:last-child
-      border: 1px solid #566573
+      border: 1px solid var(--secondary-color)
       border-bottom-left-radius: 10px
       border-bottom-right-radius: 10px
 
