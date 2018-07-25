@@ -64,28 +64,28 @@
     display: none
 
 .select.bright
-  color: #EC7063
+  color: var(--primary-color)
 
   .select-selected
-    border: 1px solid #EC7063
+    border: 1px solid var(--primary-color)
 
   .select-selected:after
-    border-color: #EC7063 transparent transparent transparent
+    border-color: var(--primary-color) transparent transparent transparent
 
   .select-selected.open:after
-    border-color: transparent transparent #EC7063 transparent
+    border-color: transparent transparent var(--primary-color) transparent
 
   .select-options
     & > .option:first-child
-      border: 1px solid #EC7063
-      border-color: #EC7063 #EC7063 transparent #EC7063
+      border: 1px solid var(--primary-color)
+      border-color: var(--primary-color) var(--primary-color) transparent var(--primary-color)
 
     .option
-      border: 1px solid #EC7063
-      border-color: #EC7063 #EC7063 transparent #EC7063
+      border: 1px solid var(--primary-color)
+      border-color: var(--primary-color) var(--primary-color) transparent var(--primary-color)
 
     & > .option:last-child
-      border: 1px solid #EC7063
+      border: 1px solid var(--primary-color)
 
     .option.selected, .option:hover
       background: #FADBD8
