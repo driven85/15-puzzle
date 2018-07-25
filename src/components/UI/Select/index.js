@@ -26,8 +26,11 @@ export default class Select extends Component {
   }
 
   changeHandler = e => {
+    const newValue = e.target.dataset.value
+
     this.toggleHandler()
-    this.props.onChange(e.target.dataset.value)
+    if (this.props.value !== newValue)
+      this.props.onChange(e.target.dataset.value)
   }
 
   closeHandler = e => {
