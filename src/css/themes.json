@@ -1,0 +1,25 @@
+{
+  "red-grey": {
+    "--primary-color": "#EC7063",
+    "--primary-color1": "#F1948A",
+    "--primary-color2": "#F5B7B1",
+    "--primary-color3": "#FADBD8",
+    "--secondary-color": "#566573",
+    "--secondary-color1": "#B2BABB",
+    "--secondary-color2": "#D5D8DC",
+    "--secondary-color3": "#ECECEC",
+    "--secondary-color4": "#F8F9F9"
+  },
+  "custom": {
+    "--primary-color": "#2DB29B",
+    "--primary-color1": "#31CDB3",
+    "--primary-color2": "#84F2E0",
+    "--primary-color3": "#BAFFF6",
+    "--secondary-color": "#9059A0",
+    "--secondary-color1": "#BA75D0",
+    "--secondary-color2": "#D492E8",
+    "--secondary-color3": "#E6B0F6",
+    "--secondary-color4": "#FAE6FF"
+  }
+}
+

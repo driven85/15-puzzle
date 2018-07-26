@@ -19,7 +19,7 @@ import styles, { getStyle } from './styles'
 
 // Actions
 import { toggleSettings } from 'actions/layout'
-import { switchLocale, switchTheme } from 'actions/settings'
+import { switchLocale, switchGameTheme } from 'actions/settings'
 
 // Context
 import { MediaQueryContext } from 'components/MediaQuery/context.js'
@@ -37,7 +37,7 @@ const mapStateToProps = ({
 const mapDispatchToProps = dispatch => ({
   onClose: () => dispatch(toggleSettings(false)),
   onLocaleChange: value => dispatch(switchLocale(value)),
-  onThemeChange: value => dispatch(switchTheme(value))
+  onThemeChange: value => dispatch(switchGameTheme(value))
 })
 
 const SettingsDialog = ({
@@ -93,6 +93,11 @@ const SettingsDialog = ({
             value="red-grey"
           >
             Red grey
+          </Option>
+          <Option
+            value="custom"
+          >
+            Custom
           </Option>
         </Select>
       </Dialog>
