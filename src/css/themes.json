@@ -10,16 +10,16 @@
     "--secondary-color3": "#ECECEC",
     "--secondary-color4": "#F8F9F9"
   },
-  "custom": {
-    "--primary-color": "#2DB29B",
-    "--primary-color1": "#31CDB3",
-    "--primary-color2": "#84F2E0",
-    "--primary-color3": "#BAFFF6",
-    "--secondary-color": "#9059A0",
-    "--secondary-color1": "#BA75D0",
-    "--secondary-color2": "#D492E8",
-    "--secondary-color3": "#E6B0F6",
-    "--secondary-color4": "#FAE6FF"
+  "green-brown": {
+    "--primary-color": "#556B2F",
+    "--primary-color1": "#6B8E23",
+    "--primary-color2": "#3CB371",
+    "--primary-color3": "#90EE90",
+    "--secondary-color": "#A52A2A",
+    "--secondary-color1": "#CD853F",
+    "--secondary-color2": "#D2B48C",
+    "--secondary-color3": "#F5DEB3",
+    "--secondary-color4": "#FFEBCD"
   }
 }
 

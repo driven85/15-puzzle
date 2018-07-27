@@ -95,9 +95,9 @@ const SettingsDialog = ({
             Red grey
           </Option>
           <Option
-            value="custom"
+            value="green-brown"
           >
-            Custom
+            Green brown
           </Option>
         </Select>
       </Dialog>
