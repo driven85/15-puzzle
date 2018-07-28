@@ -1,5 +1,6 @@
 // Libs
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 // CSS
@@ -15,6 +16,16 @@ export const Option = ({ children, icon, selected, value }) => (
     {children}
   </div>
 )
+
+Option.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
+  icon: PropTypes.node,
+  selected: PropTypes.bool,
+  value: PropTypes.string 
+}
 
 export default class Select extends Component {
   state = { open: false }
