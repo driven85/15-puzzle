@@ -103,3 +103,15 @@ export default class Select extends Component {
   }
 }
 
+Select.propTypes = {
+  bright: PropTypes.bool,
+  className: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
+  style: PropTypes.object,
+  value: PropTypes.string,
+  onChange: PropTypes.func
+}
+
