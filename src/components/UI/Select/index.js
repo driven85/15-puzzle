@@ -18,13 +18,10 @@ export const Option = ({ children, icon, selected, value }) => (
 )
 
 Option.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
+  children: PropTypes.string,
   icon: PropTypes.node,
   selected: PropTypes.bool,
-  value: PropTypes.string 
+  value: PropTypes.string.isRequired
 }
 
 export default class Select extends Component {
@@ -83,7 +80,7 @@ export default class Select extends Component {
           className={classNames('select-selected', { open })}
           onClick={this.toggleHandler}
         >
-          {optionIcon && <span className="icon">{optionIcon}</span>}
+          <span className="icon">{optionIcon}</span>
           {optionContent}
         </div>
         <div 
@@ -106,10 +103,7 @@ export default class Select extends Component {
 Select.propTypes = {
   bright: PropTypes.bool,
   className: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
+  children: PropTypes.node,
   style: PropTypes.object,
   value: PropTypes.string,
   onChange: PropTypes.func
