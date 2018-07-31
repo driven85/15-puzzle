@@ -6,6 +6,7 @@ import Box from './Box'
 import GameLoader from './GameLoader'
 import Lid from './Lid'
 import Congrats from './Congrats'
+import Warning from './Warning'
 
 // CSS
 import './styles.sass'
@@ -17,6 +18,7 @@ const Game = () => (
     <GameLoader />
     <Lid />
     <Congrats />
+    <Warning />
   </div>
 )
 
