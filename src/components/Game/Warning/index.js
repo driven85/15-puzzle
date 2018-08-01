@@ -8,6 +8,12 @@ import Dialog from 'components/UI/Dialog'
 // CSS
 import './styles.sass'
 
+// Styles
+import styles from './styles'
+
+// Helpers
+import { getStyle } from 'helpers/styles'
+
 // Actions
 import { toggleCheatingWarning } from 'actions/layout'
 
@@ -31,6 +37,7 @@ const Warning = ({ show, onClose }) => (
       <Dialog
         bright
         className="warning"
+        contentStyle={getStyle(styles, layout, 'content')}
         show={show}
         onClose={onClose}
       >

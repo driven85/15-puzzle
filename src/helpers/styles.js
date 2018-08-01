@@ -10,3 +10,5 @@ export const getStyle = (styles, layout, element) => {
   return style
 }
 
+// TODO: implement merging
+
