@@ -15,7 +15,10 @@ import ruFlag from 'images/flags/ru.png'
 import './styles.sass'
 
 // Styles
-import styles, { getStyle } from './styles'
+import styles from './styles'
+
+// Helpers
+import { getStyle } from 'helpers/styles'
 
 // Actions
 import { toggleSettings } from 'actions/layout'
@@ -54,10 +57,10 @@ const SettingsDialog = ({
       <Dialog
         bright={!lid}
         className="settings-dialog"
-        contentStyle={getStyle(layout, 'content')}
+        contentStyle={getStyle(styles, layout, 'content')}
         header
-        headerStyle={getStyle(layout, 'header')}
-        mainStyle={getStyle(layout, 'main')}
+        headerStyle={getStyle(styles, layout, 'header')}
+        mainStyle={getStyle(styles, layout, 'main')}
         show={show} 
         title={formatMessage({ id: 'settingsDialog.settings' })}
         onClose={onClose} 
@@ -65,7 +68,7 @@ const SettingsDialog = ({
         <Select 
           bright={!lid}
           className="lang-switcher"
-          style={getStyle(layout, 'select')}
+          style={getStyle(styles, layout, 'select')}
           value={locale}
           onChange={onLocaleChange}
         >
@@ -85,7 +88,7 @@ const SettingsDialog = ({
         <Select
           bright={!lid}
           className="theme-switcher"
-          style={getStyle(layout, 'select')}
+          style={getStyle(styles, layout, 'select')}
           value={theme}
           onChange={onThemeChange}
         >
