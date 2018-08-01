@@ -77,6 +77,10 @@ test('getStyle', t => {
     'lg footer style should be retrieved correctly'
   )
 
+  t.equal(Object.keys(getStyle(styles, 'md', 'section')).length, 0,
+    'Should return an empty object for an element with no styles set'
+  )
+
   t.end()
 })
 
