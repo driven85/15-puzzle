@@ -43,6 +43,8 @@ const mapDispatchToProps = dispatch => ({
   onThemeChange: value => dispatch(switchGameTheme(value))
 })
 
+// TODO: implement with a hoc
+
 const SettingsDialog = ({
   intl: { formatMessage, locale },
   lid,
