@@ -28,6 +28,12 @@ const styles = {
   }
 }
 
+const missingStyles = {
+  'xs': {
+    header: xsHeaderStyle
+  }
+}
+
 test('getStyle', t => {
   t.equal(getStyle(styles, 'xs', 'header'), xsHeaderStyle,
     'xs header style should be retrieved correctly'
@@ -79,6 +85,10 @@ test('getStyle', t => {
 
   t.equal(Object.keys(getStyle(styles, 'md', 'section')).length, 0,
     'Should return an empty object for an element with no styles set'
+  )
+
+  t.equal(getStyle(missingStyles, 'md', 'header'), xsHeaderStyle,
+    'Should work correctly if styles for some breakpoints are missing'
   )
 
   t.end()

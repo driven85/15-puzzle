@@ -3,7 +3,7 @@ export const getStyle = (styles, layout, element) => {
   let style = {}
 
   for (const bp of breakpoints) {
-    style = styles[bp][element] || style // TODO: .?
+    style = styles[bp] && styles[bp][element] || style // TODO: .?
     if (bp === layout) break
   }
 
