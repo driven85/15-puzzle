@@ -19,7 +19,10 @@ export default {
     'remoteControl.resume': 'Resume',
     'remoteControl.start': 'Start',
 
-    'settingsDialog.settings': 'Settings'
+    'settingsDialog.settings': 'Settings',
+
+    'warning.cheating': 'Well, well.. It seems like someone\'s trying to cheat. \
+      You can\'t move tiles when the game is on pause!'
   },
   ru: {
     'congrats.message': 'Поздравляем!!!<br /> Вы решили<br /> головоломку!',
@@ -31,7 +34,10 @@ export default {
     'remoteControl.resume': 'Продолж.',
     'remoteControl.start': 'Старт',
 
-    'settingsDialog.settings': 'Настройки'
+    'settingsDialog.settings': 'Настройки',
+
+    'warning.cheating': 'Так, так.. Кажется, кто-то пытается мухлевать. \
+      Вы не можете перемещать костяшки, когда игра на паузе!'
   }
 }
 

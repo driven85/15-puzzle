@@ -1,6 +1,7 @@
 // Libs
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
 
 // Components
 import Dialog from 'components/UI/Dialog'
@@ -41,7 +42,9 @@ const Warning = ({ show, onClose }) => (
         show={show}
         onClose={onClose}
       >
-        Warning!
+        <div className="message">
+          <FormattedMessage id="warning.cheating" />
+        </div>
       </Dialog>
     }
   </MediaQueryContext.Consumer>
