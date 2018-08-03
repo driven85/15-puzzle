@@ -17,8 +17,8 @@ const switchTheme = theme => ({
 export const switchGameTheme = theme => dispatch => {
   dispatch(switchTheme(theme))
 
-  Object.entries(themes[theme]).forEach(color => {
-    document.documentElement.style.setProperty(color[0], color[1])
+  Object.entries(themes[theme]).forEach(([property, value]) => {
+    document.documentElement.style.setProperty(property, value)
   })
 }
 
