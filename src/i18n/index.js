@@ -21,8 +21,9 @@ export default {
 
     'settingsDialog.settings': 'Settings',
 
-    'warning.cheating': 'Well, well.. It seems like someone\'s trying to cheat. \
-      You can\'t move tiles when the game is on pause!'
+    'warning.message': 'Well, well.. Are you trying to cheat? \
+      You can\'t move tiles when the game is paused!',
+    'warning.button': 'Sorry!'
   },
   ru: {
     'congrats.message': 'Поздравляем!!!<br /> Вы решили<br /> головоломку!',
@@ -36,8 +37,9 @@ export default {
 
     'settingsDialog.settings': 'Настройки',
 
-    'warning.cheating': 'Так, так.. Кажется, кто-то пытается мухлевать. \
-      Вы не можете перемещать костяшки, когда игра на паузе!'
+    'warning.message': 'Так, так.. Вы пытаетесь мухлевать? \
+      Вы не можете перемещать костяшки, когда игра на паузе!',
+    'warning.button': 'Извиняюсь!'
   }
 }
 

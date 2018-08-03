@@ -39,12 +39,17 @@ const Warning = ({ show, onClose }) => (
         bright
         className="warning"
         contentStyle={getStyle(styles, layout, 'content')}
+        mainStyle={getStyle(styles, layout, 'main')}
+        modal
         show={show}
         onClose={onClose}
       >
         <div className="message">
-          <FormattedMessage id="warning.cheating" />
+          <FormattedMessage id="warning.message" />
         </div>
+        <button onClick={onClose}>
+          <FormattedMessage id="warning.button" />
+        </button>
       </Dialog>
     }
   </MediaQueryContext.Consumer>

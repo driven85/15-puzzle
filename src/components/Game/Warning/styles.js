@@ -3,6 +3,9 @@ export default {
     content: {
       width: 300, 
       height: 300 
+    },
+    main: {
+      position: 'relative'
     }
   },
 
