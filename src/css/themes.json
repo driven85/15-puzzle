@@ -15,11 +15,11 @@
     "--primary-color1": "#6B8E23",
     "--primary-color2": "#3CB371",
     "--primary-color3": "#90EE90",
-    "--secondary-color": "#A52A2A",
-    "--secondary-color1": "#CD853F",
-    "--secondary-color2": "#D2B48C",
-    "--secondary-color3": "#F5DEB3",
-    "--secondary-color4": "#FFEBCD"
+    "--secondary-color": "#6F4242",
+    "--secondary-color1": "#AC9090",
+    "--secondary-color2": "#D2C3C3",
+    "--secondary-color3": "#E7D7D7",
+    "--secondary-color4": "#F4F0F0"
   }
 }
 
