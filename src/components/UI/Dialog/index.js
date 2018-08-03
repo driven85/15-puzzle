@@ -10,9 +10,9 @@ import './styles.sass'
 
 export default class Dialog extends Component {
   handleBackdropClick = e => {
-    const { onClose } = this.props
+    const { modal, onClose } = this.props
 
-    if (e.target === e.currentTarget)
+    if (!modal && e.target === e.currentTarget)
       onClose()
   }
 
@@ -53,7 +53,10 @@ export default class Dialog extends Component {
                 style={contentStyle}
               >
                 {header && headerElement}
-                <main style={mainStyle}>
+                <main
+                  className={classNames({ 'no-header': !header })}
+                  style={mainStyle}
+                >
                   {children}
                 </main>
               </div>
