@@ -29,6 +29,13 @@ export default {
   },
 
   'md': {
+    checkbox: {
+      fontSize: '1.2em'  
+    },
+    checkmark: {
+      width: 23,
+      height: 23
+    },
     content: { 
       width: 500, 
       height: 350 
@@ -41,9 +48,17 @@ export default {
   },
 
   'lg': {
+    checkbox: {
+      fontSize: '1.4rem'
+    },
     content: { 
       width: 600, 
       height: 450 
+    },
+    checkmark: {
+      width: 25,
+      height: 25,
+      top: 0
     },
     select: {
       width: 250,

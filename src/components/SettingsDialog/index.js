@@ -113,7 +113,10 @@ const SettingsDialog = ({
         <Checkbox 
           bright={!lid}
           checked={sound}
+          checkmarkStyle={getStyle(styles, layout, 'checkmark')}
+          className="sound-checkbox"
           label={formatMessage({ id: 'settingsDialog.sound' })}
+          style={getStyle(styles, layout, 'checkbox')}
           onChange={onSoundChange}
         />
       </Dialog>
