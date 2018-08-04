@@ -9,17 +9,26 @@ import './styles.sass'
 const Checkbox = ({ 
   bright, 
   checked, 
+  checkmarkStyle,
+  className,
   label, 
+  style,
   onChange 
 }) => (
-  <label className={classNames('checkbox', { bright })}>
+  <label 
+    className={classNames('checkbox', className, { bright })}
+    style={style}
+  >
     {label}
     <input 
       type="checkbox" 
       checked={checked} 
       onChange={e => onChange(e.target.checked)}
     />
-    <span className="checkmark" />
+    <span 
+      className="checkmark"
+      style={checkmarkStyle}
+    />
   </label>
 )
 
