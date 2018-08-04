@@ -9,6 +9,7 @@
   --primary-color1: #F1948A
   --primary-color2: #F5B7B1
   --primary-color3: #FADBD8
+  --primary-color4: #FDEDEC
   --secondary-color: #566573
   --secondary-color1: #B2BABB
   --secondary-color2: #D5D8DC
@@ -38,6 +39,9 @@ button
 
 button:active
   background: var(--primary-color2)
+
+button:hover
+  box-shadow: 0 0 3px 2px var(--primary-color1), 0 0 5px 7px var(--primary-color4)
 
 button:disabled
   background: var(--secondary-color3)

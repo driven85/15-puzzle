@@ -38,4 +38,11 @@
   input:checked + .slider:before
     transform: translateX(100%)
     background-color: var(--primary-color)
-  
+
+  &:hover
+    .slider
+      box-shadow: 0 0 3px 2px var(--secondary-color), 0 0 5px 7px var(--secondary-color3)
+
+    input:checked + .slider
+      box-shadow: 0 0 3px 2px var(--primary-color1), 0 0 5px 7px var(--primary-color4)
+
