@@ -36,7 +36,7 @@ const mapStateToProps = ({
 const mapDispatchToProps = dispatch => ({
   onResetGame: () => dispatch(resetGame()),
   onStartGame: () => dispatch(startGame()),
-  onToggleLid: (e) => dispatch(toggleBoxLid(e.target.checked)),
+  onToggleLid: value => dispatch(toggleBoxLid(value)),
   onToggleSettings: () => dispatch(toggleSettings(true))
 })
 
