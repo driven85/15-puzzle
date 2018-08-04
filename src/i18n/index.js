@@ -20,6 +20,7 @@ export default {
     'remoteControl.start': 'Start',
 
     'settingsDialog.settings': 'Settings',
+    'settingsDialog.sound': 'Sound',
 
     'warning.message': 'Well, well.. Are you trying to cheat? \
       You can\'t move tiles when the game is paused!',
@@ -36,6 +37,7 @@ export default {
     'remoteControl.start': 'Старт',
 
     'settingsDialog.settings': 'Настройки',
+    'settingsDialog.sound': 'Звук',
 
     'warning.message': 'Так, так.. Вы пытаетесь мухлевать? \
       Вы не можете перемещать костяшки, когда игра на паузе!',

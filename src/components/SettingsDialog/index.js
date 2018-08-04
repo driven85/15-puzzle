@@ -6,6 +6,7 @@ import { injectIntl } from 'react-intl'
 // Components
 import Dialog from 'components/UI/Dialog'
 import Select, { Option } from 'components/UI/Select'
+import Checkbox from 'components/UI/Checkbox'
 
 // Images
 import enFlag from 'images/flags/en.png'
@@ -22,7 +23,7 @@ import { getStyle } from 'helpers/styles'
 
 // Actions
 import { toggleSettings } from 'actions/layout'
-import { switchLocale, switchGameTheme } from 'actions/settings'
+import { switchLocale, switchGameTheme, toggleSound } from 'actions/settings'
 
 // Context
 import { MediaQueryContext } from 'components/MediaQuery/context.js'
@@ -30,16 +31,18 @@ import { MediaQueryContext } from 'components/MediaQuery/context.js'
 
 const mapStateToProps = ({ 
   layout: { lid, settings },
-  settings: { theme }
+  settings: { sound, theme }
 }) => ({
   lid,
   show: settings,
+  sound,
   theme
 })
 
 const mapDispatchToProps = dispatch => ({
   onClose: () => dispatch(toggleSettings(false)),
   onLocaleChange: value => dispatch(switchLocale(value)),
+  onSoundChange: value => { dispatch(toggleSound(value)) },
   onThemeChange: value => dispatch(switchGameTheme(value))
 })
 
@@ -49,9 +52,11 @@ const SettingsDialog = ({
   intl: { formatMessage, locale },
   lid,
   show, 
+  sound,
   theme,
   onClose, 
   onLocaleChange,
+  onSoundChange,
   onThemeChange
 }) => (
   <MediaQueryContext.Consumer>
@@ -105,6 +110,12 @@ const SettingsDialog = ({
             Green brown
           </Option>
         </Select>
+        <Checkbox 
+          bright={!lid}
+          checked={sound}
+          label={formatMessage({ id: 'settingsDialog.sound' })}
+          onChange={onSoundChange}
+        />
       </Dialog>
     }
   </MediaQueryContext.Consumer>
