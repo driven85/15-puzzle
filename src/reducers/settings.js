@@ -1,11 +1,17 @@
-import { SWITCH_LOCALE, SWITCH_THEME } from 'actions/settings'
+import { 
+  SWITCH_LOCALE, 
+  SWITCH_THEME,
+  TOGGLE_SOUND
+} from 'actions/settings'
 
 
 const initialState = {
   locale: 'en',
+  sound: false,
   theme: 'red-grey'
 }
 
+// TODO: refactor
 const settings = (state = initialState, action) => {
   switch (action.type) {
     case SWITCH_LOCALE:
@@ -17,6 +23,11 @@ const settings = (state = initialState, action) => {
       const { theme } = action.payload
 
       return { ...state, theme }
+
+    case TOGGLE_SOUND:
+      const { sound } = action.payload
+
+      return { ...state, sound }
 
     default:
       return state
