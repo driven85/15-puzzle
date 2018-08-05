@@ -1,5 +1,6 @@
 // Libs
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 // CSS
@@ -31,6 +32,16 @@ const Checkbox = ({
     />
   </label>
 )
+
+Checkbox.propTypes = {
+  bright: PropTypes.bool,
+  checked: PropTypes.bool,
+  checkmarkStyle: PropTypes.object,
+  className: PropTypes.string,
+  label: PropTypes.string,
+  style: PropTypes.object,
+  onChange: PropTypes.func
+}
 
 export default Checkbox
 
