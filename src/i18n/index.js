@@ -24,7 +24,7 @@ export default {
 
     'warning.message': 'Well, well.. Are you trying to cheat? \
       You can\'t move tiles when the game is paused!',
-    'warning.button': 'Sorry!'
+    'warning.button': 'Got It!'
   },
   ru: {
     'congrats.message': 'Поздравляем!!!<br /> Вы решили<br /> головоломку!',
@@ -41,7 +41,7 @@ export default {
 
     'warning.message': 'Так, так.. Вы пытаетесь мухлевать? \
       Вы не можете перемещать костяшки, когда игра на паузе!',
-    'warning.button': 'Извиняюсь!'
+    'warning.button': 'Понятно!'
   }
 }
 
