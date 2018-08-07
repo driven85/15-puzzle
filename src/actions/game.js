@@ -22,14 +22,17 @@ const PUZZLE = new Puzzle()
 
 let timer = null
 let cheatingMoves = 0
+let lidClosed = false
 
 export const toggleBoxLid = toggle => dispatch => {
   if (toggle) {
     PUZZLE.reset()
     dispatch(setPuzzle(PUZZLE.currentState()))
+    lidClosed = false
   } else {
     clearInterval(timer)
     cheatingMoves = 0
+    lidClosed = true
   }
   dispatch(toggleLid())
 }
@@ -64,11 +67,13 @@ export const startGame = () => (dispatch, getState) => {
             display(n)
           } else { 
             dispatch(setLoader(false))
-            dispatch(startClicked())
-            // TODO: enable through a singe action - ?
-            dispatch(setStartDisabled(false))
-            dispatch(enableReset())
-            timer = setInterval(() => dispatch(tick()), 1000)
+            if (!lidClosed) {
+              dispatch(startClicked())
+              // TODO: enable through a singe action - ?
+              dispatch(setStartDisabled(false))
+              dispatch(enableReset())
+              timer = setInterval(() => dispatch(tick()), 1000)
+            }
           }
         }, 5)
       })(1)
