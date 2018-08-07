@@ -14,6 +14,10 @@ export default {
       display: 'flex', 
       flexDirection: 'column', 
       alignItems: 'center'
+    },
+    select: {
+      width: 200,
+      height: 30
     }
   },
 
@@ -41,7 +45,7 @@ export default {
       height: 350 
     },
     select: {
-      width: 200,
+      width: 230,
       height: 34,
       fontSize: '1.2rem'
     }
@@ -61,7 +65,7 @@ export default {
       top: 0
     },
     select: {
-      width: 250,
+      width: 270,
       height: 38,
       fontSize: '1.4rem'
     }
