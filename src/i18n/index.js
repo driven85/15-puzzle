@@ -20,6 +20,8 @@ export default {
     'remoteControl.start': 'Start',
 
     'settingsDialog.settings': 'Settings',
+    'settingsDialog.pinkGrey': 'Pink grey',
+    'settingsDialog.greenBrown': 'Green brown',
     'settingsDialog.sound': 'Sound',
 
     'warning.message': 'Well, well.. Are you trying to cheat? \
@@ -37,6 +39,8 @@ export default {
     'remoteControl.start': 'Старт',
 
     'settingsDialog.settings': 'Настройки',
+    'settingsDialog.pinkGrey': 'Розово-серый',
+    'settingsDialog.greenBrown': 'Зелено-коричневый',
     'settingsDialog.sound': 'Звук',
 
     'warning.message': 'Так, так.. Вы пытаетесь мухлевать? \

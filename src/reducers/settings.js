@@ -8,7 +8,7 @@ import {
 const initialState = {
   locale: 'en',
   sound: false,
-  theme: 'red-grey'
+  theme: 'pink-grey'
 }
 
 // TODO: refactor

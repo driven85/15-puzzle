@@ -1,7 +1,7 @@
 // Libs
 import React from 'react'
 import { connect } from 'react-redux'
-import { injectIntl } from 'react-intl'
+import { FormattedMessage, injectIntl } from 'react-intl'
 
 // Components
 import Dialog from 'components/UI/Dialog'
@@ -100,14 +100,15 @@ const SettingsDialog = ({
           onChange={onThemeChange}
         >
           <Option
-            value="red-grey"
+            value="pink-grey"
           >
-            Red grey
+            {/* TODO: fix a bug with FormattedMessage */}
+            {formatMessage({ id: 'settingsDialog.pinkGrey' })}
           </Option>
           <Option
             value="green-brown"
           >
-            Green brown
+            {formatMessage({ id: 'settingsDialog.greenBrown' })}
           </Option>
         </Select>
         <Checkbox 
