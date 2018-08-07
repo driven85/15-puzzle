@@ -6,7 +6,7 @@
   "author": "Ivan Petrochenko",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode=production",
     "start": "webpack-dev-server --mode=development --inline --progress --output-public-path=/build",
     "test:app": "babel-tape-runner src/app/*.test.js | tap-spec",
     "test:helpers": "babel-tape-runner src/helpers/*.test.js | tap-spec"
