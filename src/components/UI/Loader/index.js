@@ -1,14 +1,15 @@
 // Libs
 import React from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
 // CSS
 import './styles.sass'
 
 
-const Loader = ({ width, height }) => (
+const Loader = ({ className, width, height }) => (
   <div 
-    className="loader"
+    className={classNames('loader', className)}
     style={{ width, height }}
   >
     <div className="spinner" />
@@ -16,6 +17,7 @@ const Loader = ({ width, height }) => (
 )
 
 Loader.propTypes = {
+  className: PropTypes.string,
   width: PropTypes.number,
   height: PropTypes.number
 }
