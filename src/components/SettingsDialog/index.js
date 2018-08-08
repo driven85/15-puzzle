@@ -23,7 +23,12 @@ import { getStyle } from 'helpers/styles'
 
 // Actions
 import { toggleSettings } from 'actions/layout'
-import { switchLocale, switchGameTheme, toggleSound } from 'actions/settings'
+import { 
+  switchLocale, 
+  switchGameTheme, 
+  toggleRememberSettings,
+  toggleSound 
+} from 'actions/settings'
 
 // Context
 import { MediaQueryContext } from 'components/MediaQuery/context.js'
@@ -31,9 +36,10 @@ import { MediaQueryContext } from 'components/MediaQuery/context.js'
 
 const mapStateToProps = ({ 
   layout: { lid, settings },
-  settings: { sound, theme }
+  settings: { rememberSettings, sound, theme }
 }) => ({
   lid,
+  rememberSettings,
   show: settings,
   sound,
   theme
@@ -42,7 +48,8 @@ const mapStateToProps = ({
 const mapDispatchToProps = dispatch => ({
   onClose: () => dispatch(toggleSettings(false)),
   onLocaleChange: value => dispatch(switchLocale(value)),
-  onSoundChange: value => { dispatch(toggleSound(value)) },
+  onRememberSettingsChange: value => dispatch(toggleRememberSettings(value)),
+  onSoundChange: value => dispatch(toggleSound(value)),
   onThemeChange: value => dispatch(switchGameTheme(value))
 })
 
@@ -51,11 +58,13 @@ const mapDispatchToProps = dispatch => ({
 const SettingsDialog = ({
   intl: { formatMessage, locale },
   lid,
+  rememberSettings,
   show, 
   sound,
   theme,
   onClose, 
   onLocaleChange,
+  onRememberSettingsChange,
   onSoundChange,
   onThemeChange
 }) => (
@@ -122,10 +131,12 @@ const SettingsDialog = ({
         />
         <Checkbox 
           bright={!lid}
+          checked={rememberSettings}
           checkmarkStyle={getStyle(styles, layout, 'checkmark')}
           className="remember-checkbox"
           label={formatMessage({ id: 'settingsDialog.rememberSettings' })}
           style={getStyle(styles, layout, 'checkbox')}
+          onChange={onRememberSettingsChange}
         />
       </Dialog>
     }

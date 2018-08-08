@@ -2,6 +2,7 @@ import themes from 'css/themes.json'
 
 export const SWITCH_LOCALE = 'SWITCH_LOCALE'
 export const SWITCH_THEME = 'SWITCH_THEME'
+export const TOGGLE_REMEMBER_SETTINGS = 'TOGGLE_REMEMBER_SETTINGS'
 export const TOGGLE_SOUND = 'TOGGLE_SOUND'
 
 
@@ -13,6 +14,11 @@ export const switchLocale = locale => ({
 const switchTheme = theme => ({
   type: SWITCH_THEME,
   payload: { theme }
+})
+
+export const toggleRememberSettings = remember => ({
+  type: TOGGLE_REMEMBER_SETTINGS,
+  payload: { remember }
 })
 
 export const toggleSound = sound => ({
