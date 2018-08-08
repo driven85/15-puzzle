@@ -22,6 +22,7 @@ export default {
     'settingsDialog.settings': 'Settings',
     'settingsDialog.pinkGrey': 'Pink grey',
     'settingsDialog.greenBrown': 'Green brown',
+    'settingsDialog.rememberSettings': 'Remember settings',
     'settingsDialog.sound': 'Sound',
 
     'warning.message': 'Well, well.. Are you trying to cheat? \
@@ -41,6 +42,7 @@ export default {
     'settingsDialog.settings': 'Настройки',
     'settingsDialog.pinkGrey': 'Розово-серый',
     'settingsDialog.greenBrown': 'Зелено-коричневый',
+    'settingsDialog.rememberSettings': 'Запомнить настройки',
     'settingsDialog.sound': 'Звук',
 
     'warning.message': 'Так, так.. Вы пытаетесь мухлевать? \

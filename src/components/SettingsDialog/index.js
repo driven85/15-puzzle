@@ -120,6 +120,13 @@ const SettingsDialog = ({
           style={getStyle(styles, layout, 'checkbox')}
           onChange={onSoundChange}
         />
+        <Checkbox 
+          bright={!lid}
+          checkmarkStyle={getStyle(styles, layout, 'checkmark')}
+          className="remember-checkbox"
+          label={formatMessage({ id: 'settingsDialog.rememberSettings' })}
+          style={getStyle(styles, layout, 'checkbox')}
+        />
       </Dialog>
     }
   </MediaQueryContext.Consumer>
