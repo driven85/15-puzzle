@@ -1,14 +1,15 @@
 // Libs
 import React from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
 // CSS
 import './styles.sass'
 
 
-const Switch = ({ width, height, onChange }) => (
+const Switch = ({ className, width, height, onChange }) => (
   <label 
-    className="switch"
+    className={classNames('switch', className)}
     style={{ width, height }}
   >
     <input 
