@@ -1,5 +1,3 @@
-// TODO: remove duplications
-
 export default {
   'xs': {
     content: {
@@ -21,16 +19,7 @@ export default {
     }
   },
 
-  'sm': {
-    content: { 
-      width: 300, 
-      height: 300 
-    },
-    header: { 
-      fontSize: 25, 
-      marginBottom: 30 
-    }
-  },
+  'sm': {},
 
   'md': {
     checkbox: {

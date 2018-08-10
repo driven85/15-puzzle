@@ -18,8 +18,8 @@ import './styles.sass'
 // Styles
 import styles from './styles'
 
-// Helpers
-import { getStyle } from 'helpers/styles'
+// HOC
+import withStyles from 'hoc/withStyles'
 
 // Actions
 import { toggleSettings } from 'actions/layout'
@@ -29,9 +29,6 @@ import {
   toggleRememberSettings,
   toggleSound 
 } from 'actions/settings'
-
-// Context
-import { MediaQueryContext } from 'components/MediaQuery/context.js'
 
 
 const mapStateToProps = ({ 
@@ -61,6 +58,7 @@ const SettingsDialog = ({
   rememberSettings,
   show, 
   sound,
+  styles,
   theme,
   onClose, 
   onLocaleChange,
@@ -68,82 +66,81 @@ const SettingsDialog = ({
   onSoundChange,
   onThemeChange
 }) => (
-  <MediaQueryContext.Consumer>
-    {({ layout }) =>
-      <Dialog
-        bright={!lid}
-        className="settings-dialog"
-        contentStyle={getStyle(styles, layout, 'content')}
-        header
-        headerStyle={getStyle(styles, layout, 'header')}
-        mainStyle={getStyle(styles, layout, 'main')}
-        show={show} 
-        title={formatMessage({ id: 'settingsDialog.settings' })}
-        onClose={onClose} 
+  <Dialog
+    bright={!lid}
+    className="settings-dialog"
+    contentStyle={styles.content}
+    header
+    headerStyle={styles.header}
+    mainStyle={styles.main}
+    show={show} 
+    title={formatMessage({ id: 'settingsDialog.settings' })}
+    onClose={onClose} 
+  >
+    <Select 
+      bright={!lid}
+      className="lang-switcher"
+      style={styles.select}
+      value={locale}
+      onChange={onLocaleChange}
+    >
+      <Option
+        icon={<img src={enFlag} />}
+        value="en"
       >
-        <Select 
-          bright={!lid}
-          className="lang-switcher"
-          style={getStyle(styles, layout, 'select')}
-          value={locale}
-          onChange={onLocaleChange}
-        >
-          <Option
-            icon={<img src={enFlag} />}
-            value="en"
-          >
-            English
-          </Option>
-          <Option 
-            icon={<img src={ruFlag} />}
-            value="ru"
-          >
-            Русский
-          </Option>
-        </Select>
-        <Select
-          bright={!lid}
-          className="theme-switcher"
-          style={getStyle(styles, layout, 'select')}
-          value={theme}
-          onChange={onThemeChange}
-        >
-          <Option
-            value="pink-grey"
-          >
-            {/* TODO: fix a bug with FormattedMessage */}
-            {formatMessage({ id: 'settingsDialog.pinkGrey' })}
-          </Option>
-          <Option
-            value="green-brown"
-          >
-            {formatMessage({ id: 'settingsDialog.greenBrown' })}
-          </Option>
-        </Select>
-        <Checkbox 
-          bright={!lid}
-          checked={sound}
-          checkmarkStyle={getStyle(styles, layout, 'checkmark')}
-          className="sound-checkbox"
-          label={formatMessage({ id: 'settingsDialog.sound' })}
-          style={getStyle(styles, layout, 'checkbox')}
-          onChange={onSoundChange}
-        />
-        <Checkbox 
-          bright={!lid}
-          checked={rememberSettings}
-          checkmarkStyle={getStyle(styles, layout, 'checkmark')}
-          className="remember-checkbox"
-          label={formatMessage({ id: 'settingsDialog.rememberSettings' })}
-          style={getStyle(styles, layout, 'checkbox')}
-          onChange={onRememberSettingsChange}
-        />
-      </Dialog>
-    }
-  </MediaQueryContext.Consumer>
+        English
+      </Option>
+      <Option 
+        icon={<img src={ruFlag} />}
+        value="ru"
+      >
+        Русский
+      </Option>
+    </Select>
+    <Select
+      bright={!lid}
+      className="theme-switcher"
+      style={styles.select}
+      value={theme}
+      onChange={onThemeChange}
+    >
+      <Option
+        value="pink-grey"
+      >
+        {/* TODO: fix a bug with FormattedMessage */}
+        {formatMessage({ id: 'settingsDialog.pinkGrey' })}
+      </Option>
+      <Option
+        value="green-brown"
+      >
+        {formatMessage({ id: 'settingsDialog.greenBrown' })}
+      </Option>
+    </Select>
+    <Checkbox 
+      bright={!lid}
+      checked={sound}
+      checkmarkStyle={styles.checkmark}
+      className="sound-checkbox"
+      label={formatMessage({ id: 'settingsDialog.sound' })}
+      style={styles.checkbox}
+      onChange={onSoundChange}
+    />
+    <Checkbox 
+      bright={!lid}
+      checked={rememberSettings}
+      checkmarkStyle={styles.checkmark}
+      className="remember-checkbox"
+      label={formatMessage({ id: 'settingsDialog.rememberSettings' })}
+      style={styles.checkbox}
+      onChange={onRememberSettingsChange}
+    />
+  </Dialog>
 )
 
 export default injectIntl(
-  connect(mapStateToProps, mapDispatchToProps)(SettingsDialog)
+  connect(
+    mapStateToProps, 
+    mapDispatchToProps
+  )(withStyles(SettingsDialog, styles))
 )
 
