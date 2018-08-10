@@ -3,12 +3,12 @@ export const getStyle = (styles, layout, element) => {
   let style = {}
 
   for (const bp of breakpoints) {
-    style = styles[bp] && styles[bp][element] || style // TODO: .?
+    const bpStyle = styles[bp] && styles[bp][element] || style // TODO: .?
+    style = { ...style, ...bpStyle }
+
     if (bp === layout) break
   }
 
   return style
 }
-
-// TODO: implement merging
 
