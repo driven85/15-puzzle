@@ -12,14 +12,11 @@ import './styles.sass'
 // Styles
 import styles from './styles'
 
-// Helpers
-import { getStyle } from 'helpers/styles'
+// HOC
+import withStyles from 'hoc/withStyles'
 
 // Actions
 import { toggleCheatingWarning } from 'actions/layout'
-
-// Context
-import { MediaQueryContext } from 'components/MediaQuery/context.js'
 
 
 const mapStateToProps = ({ 
@@ -32,28 +29,27 @@ const mapDispatchToProps = dispatch => ({
   onClose: () => dispatch(toggleCheatingWarning(false))
 })
 
-const Warning = ({ show, onClose }) => (
-  <MediaQueryContext.Consumer>
-    {({ layout }) =>
-      <Dialog
-        bright
-        className="warning"
-        contentStyle={getStyle(styles, layout, 'content')}
-        mainStyle={getStyle(styles, layout, 'main')}
-        modal
-        show={show}
-        onClose={onClose}
-      >
-        <div className="message">
-          <FormattedMessage id="warning.message" />
-        </div>
-        <button onClick={onClose}>
-          <FormattedMessage id="warning.button" />
-        </button>
-      </Dialog>
-    }
-  </MediaQueryContext.Consumer>
+const Warning = ({ show, styles, onClose }) => (
+  <Dialog
+    bright
+    className="warning"
+    contentStyle={styles.content}
+    mainStyle={styles.main}
+    modal
+    show={show}
+    onClose={onClose}
+  >
+    <div className="message">
+      <FormattedMessage id="warning.message" />
+    </div>
+    <button onClick={onClose}>
+      <FormattedMessage id="warning.button" />
+    </button>
+  </Dialog>
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(Warning)
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(withStyles(Warning, styles))
 
