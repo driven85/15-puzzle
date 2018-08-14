@@ -10,10 +10,12 @@ import './styles.sass'
 const Checkbox = ({ 
   bright, 
   checked, 
+  checkedIcon,
   checkmarkStyle,
   className,
   label, 
   style,
+  uncheckedIcon,
   onChange 
 }) => (
   <label 
@@ -26,20 +28,28 @@ const Checkbox = ({
       checked={checked} 
       onChange={e => onChange(e.target.checked)}
     />
-    <span 
-      className="checkmark"
-      style={checkmarkStyle}
-    />
+    {checkedIcon && uncheckedIcon
+      ? <span className="icon">
+          {checked && checkedIcon}
+          {!checked && uncheckedIcon}
+        </span>
+      : <span 
+          className="checkmark"
+          style={checkmarkStyle}
+        />
+    }
   </label>
 )
 
 Checkbox.propTypes = {
   bright: PropTypes.bool,
   checked: PropTypes.bool,
+  checkedIcon: PropTypes.element,
   checkmarkStyle: PropTypes.object,
   className: PropTypes.string,
   label: PropTypes.string,
   style: PropTypes.object,
+  uncheckedIcon: PropTypes.element,
   onChange: PropTypes.func
 }
 
