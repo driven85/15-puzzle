@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 // Components
+import Card from 'components/UI/Card'
 import SettingsButton from './SettingsButton'
 import Switch from 'components/UI/Switch'
 import { FormattedMessage } from 'react-intl'
@@ -50,7 +51,7 @@ const RemoteControl = ({
   onToggleLid,
   onToggleSettings
 }) => (
-  <div className="remote-control">
+  <Card className="remote-control">
     <div className="button-group">
       <SettingsButton bright={!lid} onClick={onToggleSettings} />
       <Switch onChange={onToggleLid} />
@@ -71,7 +72,7 @@ const RemoteControl = ({
         <FormattedMessage id="remoteControl.reset" />
       </button>
     </div>
-  </div>
+  </Card>
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(RemoteControl)
