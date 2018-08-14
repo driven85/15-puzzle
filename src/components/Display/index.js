@@ -2,6 +2,7 @@
 import React from 'react'
 
 // Components
+import Card from 'components/UI/Card'
 import Clock from './Clock'
 import MoveCounter from './MoveCounter'
 
@@ -9,12 +10,11 @@ import MoveCounter from './MoveCounter'
 import './styles.sass'
 
 
-const Display = () => (
-  <div className="display">
+const Display = () =>
+  <Card className="display">
     <Clock />
     <MoveCounter />
-  </div>
-)
+  </Card>
 
 export default Display
 
