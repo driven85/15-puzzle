@@ -17,6 +17,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-optional-chaining": "^7.0.0-beta.3",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-tape-runner": "^2.0.1",
     "css-loader": "^0.28.11",
@@ -42,5 +43,9 @@
     "react-transition-group": "^2.3.1",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0"
+  },
+  "resolutions": {
+    "babel-tape-runner/babel-polyfill": "7.0.0-beta.3",
+    "babel-tape-runner/babel-register": "7.0.0-beta.3"
   }
 }

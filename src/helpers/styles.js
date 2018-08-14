@@ -16,7 +16,7 @@ export const getStyle = (styles, layout, element) => {
 
   for (const bp of breakpoints) {
     if (element) {
-      const bpStyle = styles[bp] && styles[bp][element] || style // TODO: .?
+      const bpStyle = styles?.[bp]?.[element] || style
       style = { ...style, ...bpStyle }
     } else {
       if (styles[bp])
