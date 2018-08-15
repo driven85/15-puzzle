@@ -23,7 +23,8 @@ export default {
 
   'md': {
     checkbox: {
-      fontSize: '1.2em'  
+      fontSize: '1.2em',
+      paddingLeft: 40
     },
     checkmark: {
       width: 23,
@@ -32,6 +33,11 @@ export default {
     content: { 
       width: 500, 
       height: 350 
+    },
+    icon: {
+      width: 30,
+      height: 30,
+      top: -4
     },
     select: {
       width: 230,
@@ -42,7 +48,8 @@ export default {
 
   'lg': {
     checkbox: {
-      fontSize: '1.4rem'
+      fontSize: '1.4rem',
+      paddingLeft: 45
     },
     content: { 
       width: 600, 
@@ -52,6 +59,10 @@ export default {
       width: 25,
       height: 25,
       top: 0
+    },
+    icon: {
+      width: 34,
+      width: 34
     },
     select: {
       width: 270,

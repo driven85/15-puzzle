@@ -2,11 +2,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { FormattedMessage, injectIntl } from 'react-intl'
+import classNames from 'classnames'
 
 // Components
 import Dialog from 'components/UI/Dialog'
 import Select, { Option } from 'components/UI/Select'
 import Checkbox from 'components/UI/Checkbox'
+
+// Icons
+import SoundOnSvg from 'icons/SoundOnSvg'
+import SoundOffSvg from 'icons/SoundOffSvg'
 
 // Images
 import enFlag from 'images/flags/en.png'
@@ -117,10 +122,12 @@ const SettingsDialog = ({
     <Checkbox 
       bright={!lid}
       checked={sound}
-      checkmarkStyle={styles.checkmark}
+      checkedIcon={<SoundOnSvg className={classNames({ drab: lid, bright: !lid })}/>}
       className="sound-checkbox"
+      iconStyle={styles.icon}
       label={formatMessage({ id: 'settingsDialog.sound' })}
       style={styles.checkbox}
+      uncheckedIcon={<SoundOffSvg className={classNames({ drab: lid, bright: !lid })} />}
       onChange={onSoundChange}
     />
     <Checkbox 
