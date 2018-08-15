@@ -10,15 +10,20 @@
     opacity: 0
     cursor: pointer
 
-  .checkmark, .icon
+  .checkmark
     position: absolute
     top: -1px
     left: 0
     height: 20px
     width: 20px
-
-  .checkmark
     background-color: var(--secondary-color3)
+
+  .icon
+    position: absolute
+    top: -3px
+    left: 0
+    height: 25px
+    width: 25px
 
   .checkmark:after
     content: ""
@@ -45,6 +50,10 @@
     .checkmark
       background-color: var(--secondary-color2)
 
+    input:not(:checked) ~ .icon
+      path:first-child
+        fill: var(--secondary-color2)
+
 .checkbox.bright
   .checkmark
     background-color: var(--primary-color4)
@@ -55,4 +64,8 @@
   &:hover
     .checkmark
       background-color: var(--primary-color3)
+
+    input:not(:checked) ~ .icon
+      path:first-child
+        fill: var(--primary-color3)
 

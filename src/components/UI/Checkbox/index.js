@@ -13,6 +13,7 @@ const Checkbox = ({
   checkedIcon,
   checkmarkStyle,
   className,
+  iconStyle,
   label, 
   style,
   uncheckedIcon,
@@ -29,7 +30,10 @@ const Checkbox = ({
       onChange={e => onChange(e.target.checked)}
     />
     {checkedIcon && uncheckedIcon
-      ? <span className="icon">
+      ? <span 
+          className="icon"
+          style={iconStyle}
+        >
           {checked && checkedIcon}
           {!checked && uncheckedIcon}
         </span>
@@ -47,6 +51,7 @@ Checkbox.propTypes = {
   checkedIcon: PropTypes.element,
   checkmarkStyle: PropTypes.object,
   className: PropTypes.string,
+  iconStyle: PropTypes.object,
   label: PropTypes.string,
   style: PropTypes.object,
   uncheckedIcon: PropTypes.element,
