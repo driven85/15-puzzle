@@ -107,16 +107,15 @@ const SettingsDialog = ({
       value={theme}
       onChange={onThemeChange}
     >
-      <Option
-        value="pink-grey"
-      >
+      <Option value="pink-grey">
         {/* TODO: fix a bug with FormattedMessage */}
         {formatMessage({ id: 'settingsDialog.pinkGrey' })}
       </Option>
-      <Option
-        value="green-brown"
-      >
+      <Option value="green-brown">
         {formatMessage({ id: 'settingsDialog.greenBrown' })}
+      </Option>
+      <Option value="turquoise-blue">
+        {formatMessage({ id: 'settingsDialog.turquoiseBlue' })}
       </Option>
     </Select>
     <Checkbox 

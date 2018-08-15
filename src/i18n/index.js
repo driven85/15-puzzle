@@ -22,6 +22,7 @@ export default {
     'settingsDialog.settings': 'Settings',
     'settingsDialog.pinkGrey': 'Pink grey',
     'settingsDialog.greenBrown': 'Green brown',
+    'settingsDialog.turquoiseBlue': 'Turquoise blue',
     'settingsDialog.rememberSettings': 'Remember settings',
     'settingsDialog.sound': 'Sound',
 
@@ -42,6 +43,7 @@ export default {
     'settingsDialog.settings': 'Настройки',
     'settingsDialog.pinkGrey': 'Розово-серый',
     'settingsDialog.greenBrown': 'Зелено-коричневый',
+    'settingsDialog.turquoiseBlue': 'Бирюзово-синий',
     'settingsDialog.rememberSettings': 'Запомнить настройки',
     'settingsDialog.sound': 'Звук',
 

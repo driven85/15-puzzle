@@ -22,6 +22,18 @@
     "--secondary-color2": "#D2C3C3",
     "--secondary-color3": "#E7D7D7",
     "--secondary-color4": "#F4F0F0"
+  },
+  "turquoise-blue": {
+    "--primary-color": "#1c605a",
+    "--primary-color1": "#2ea095",
+    "--primary-color2": "#39c6b8",
+    "--primary-color3": "#40e0d0",
+    "--primary-color4": "#86e5dc",
+    "--secondary-color": "#236B8E",
+    "--secondary-color1": "#3299CC",
+    "--secondary-color2": "#38B0DE",
+    "--secondary-color3": "#87CEEB",
+    "--secondary-color4": "#B0E2FF"
   }
 }
 
