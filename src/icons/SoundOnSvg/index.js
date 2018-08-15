@@ -3,7 +3,7 @@ import React from 'react'
 import classNames from 'classnames'
 
 // CSS
-// import './styles.sass'
+import './styles.sass'
 
 
 const SoundOnSvg = ({ className }) => (
