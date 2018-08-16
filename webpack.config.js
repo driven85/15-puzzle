@@ -22,21 +22,25 @@ module.exports = {
     }, {
       test: /\.(c|sa|sc)ss$/,
       use: ['style-loader', 'css-loader', 'sass-loader'] 
-    },
-    {
+    }, {
       test: /\.(png|svg|jpg|gif)$/,
       use: 'file-loader'
-    },
-    {
+    }, {
       test: /\.(woff|woff2|eot|ttf|otf)$/,
-      use: [
-        {
-          loader: 'file-loader',
-          options: {
-            outputPath: 'fonts/'
-          }
+      use: {
+        loader: 'file-loader',
+        options: {
+          outputPath: 'fonts/'
         }
-      ]
+      }
+    }, {
+      test: /\.mp3$/,
+      use: { 
+        loader: 'file-loader',
+        options: { 
+          outputPath: 'sounds/'
+        }
+      }  
     }]
   }
 }

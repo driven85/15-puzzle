@@ -17,6 +17,9 @@ import {
 } from 'actions/layout'
 import { setPuzzle } from 'actions/puzzle'
 
+// Sounds
+import { lidSoundEffect } from 'sounds'
+
 
 const PUZZLE = new Puzzle()
 
@@ -24,7 +27,9 @@ let timer = null
 let cheatingMoves = 0
 let lidClosed = false
 
-export const toggleBoxLid = toggle => dispatch => {
+export const toggleBoxLid = toggle => (dispatch, getState) => {
+  const { settings: { sound } } = getState()
+
   if (toggle) {
     PUZZLE.reset()
     dispatch(setPuzzle(PUZZLE.currentState()))
@@ -35,6 +40,11 @@ export const toggleBoxLid = toggle => dispatch => {
     lidClosed = true
   }
   dispatch(toggleLid())
+
+  if (sound) {
+    lidSoundEffect.currentTime = 0
+    lidSoundEffect.play()
+  }
 }
 
 export const startGame = () => (dispatch, getState) => {
