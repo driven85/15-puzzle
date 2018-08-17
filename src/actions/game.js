@@ -18,7 +18,10 @@ import {
 import { setPuzzle } from 'actions/puzzle'
 
 // Sounds
-import { lidSoundEffect } from 'sounds'
+import { 
+  lidSoundEffect,
+  shuffleSoundEffect
+} from 'sounds'
 
 
 const PUZZLE = new Puzzle()
@@ -26,6 +29,11 @@ const PUZZLE = new Puzzle()
 let timer = null
 let cheatingMoves = 0
 let lidClosed = false
+
+shuffleSoundEffect.addEventListener('timeupdate', () => {
+  if (shuffleSoundEffect.currentTime > 1)
+    shuffleSoundEffect.pause()
+})
 
 export const toggleBoxLid = toggle => (dispatch, getState) => {
   const { settings: { sound } } = getState()
@@ -52,12 +60,21 @@ export const startGame = () => (dispatch, getState) => {
         PAUSE  = 1,
         RESUME = 2
 
-  const { layout: { startClicked: currBtnState } } = getState()
+  const { 
+    layout: { startClicked: currBtnState },
+    settings: { sound }
+  } = getState()
 
   switch (currBtnState) {
     case START:
       dispatch(setLoader(true))
       dispatch(setStartDisabled(true)) // TODO: disable through the START_CLICKED action - ?
+
+
+      if (sound) {
+        shuffleSoundEffect.currentTime = 0
+        shuffleSoundEffect.play()
+      }
 
       PUZZLE.reset()
 
