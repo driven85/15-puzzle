@@ -19,8 +19,9 @@ import { setPuzzle } from 'actions/puzzle'
 
 // Sounds
 import { 
-  lidSoundEffect,
-  shuffleSoundEffect
+  immovableTileSound,
+  lidSound,
+  shuffleSound
 } from 'sounds'
 
 
@@ -30,9 +31,9 @@ let timer = null
 let cheatingMoves = 0
 let lidClosed = false
 
-shuffleSoundEffect.addEventListener('timeupdate', () => {
-  if (shuffleSoundEffect.currentTime > 1)
-    shuffleSoundEffect.pause()
+shuffleSound.addEventListener('timeupdate', () => {
+  if (shuffleSound.currentTime > 1)
+    shuffleSound.pause()
 })
 
 export const toggleBoxLid = toggle => (dispatch, getState) => {
@@ -50,8 +51,8 @@ export const toggleBoxLid = toggle => (dispatch, getState) => {
   dispatch(toggleLid())
 
   if (sound) {
-    lidSoundEffect.currentTime = 0
-    lidSoundEffect.play()
+    lidSound.currentTime = 0
+    lidSound.play()
   }
 }
 
@@ -72,8 +73,8 @@ export const startGame = () => (dispatch, getState) => {
 
 
       if (sound) {
-        shuffleSoundEffect.currentTime = 0
-        shuffleSoundEffect.play()
+        shuffleSound.currentTime = 0
+        shuffleSound.play()
       }
 
       PUZZLE.reset()
@@ -127,6 +128,9 @@ export const moveTile = tile => (dispatch, getState) => {
   const { layout: { startClicked } } = getState()
 
   if (startClicked === 2) { // the game is paused
+    immovableTileSound.currentTime = 0
+    immovableTileSound.play()
+
     dispatch(shakeTile(tile))
     setTimeout(() => dispatch(shakeTile(null)), 300)
 
@@ -158,6 +162,9 @@ export const moveTile = tile => (dispatch, getState) => {
         }
       }
     } else {
+      immovableTileSound.currentTime = 0
+      immovableTileSound.play()
+
       dispatch(shakeTile(tile))
       setTimeout(() => dispatch(shakeTile(null)), 300)
     }

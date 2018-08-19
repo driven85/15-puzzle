@@ -1,8 +1,11 @@
-import lidSound from 'sounds/lid.mp3'
-import shuffleSound from 'sounds/shuffle.mp3'
+import immovableTile from 'sounds/immovable-tile.mp3'
+import lid from 'sounds/lid.mp3'
+import shuffle from 'sounds/shuffle.mp3'
 
 
-export const lidSoundEffect = new Audio(lidSound)
+export const immovableTileSound = new Audio(immovableTile)
 
-export const shuffleSoundEffect = new Audio(shuffleSound)
+export const lidSound = new Audio(lid)
+
+export const shuffleSound = new Audio(shuffle)
 
