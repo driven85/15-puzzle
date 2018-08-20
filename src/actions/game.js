@@ -26,6 +26,11 @@ import {
 } from 'sounds'
 
 
+const playSound = sound => {
+  sound.currentTime = 0
+  sound.play()
+}
+
 const PUZZLE = new Puzzle()
 
 let timer = null
@@ -51,10 +56,7 @@ export const toggleBoxLid = toggle => (dispatch, getState) => {
   }
   dispatch(toggleLid())
 
-  if (sound) {
-    lidSound.currentTime = 0
-    lidSound.play()
-  }
+  sound && playSound(lidSound)
 }
 
 export const startGame = () => (dispatch, getState) => {
@@ -73,10 +75,7 @@ export const startGame = () => (dispatch, getState) => {
       dispatch(setStartDisabled(true)) // TODO: disable through the START_CLICKED action - ?
 
 
-      if (sound) {
-        shuffleSound.currentTime = 0
-        shuffleSound.play()
-      }
+      sound && playSound(shuffleSound)
 
       PUZZLE.reset()
 
@@ -126,11 +125,13 @@ export const startGame = () => (dispatch, getState) => {
 
 // TODO: refactor
 export const moveTile = tile => (dispatch, getState) => {
-  const { layout: { startClicked } } = getState()
+  const { 
+    layout: { startClicked },
+    settings: { sound }
+  } = getState()
 
   if (startClicked === 2) { // the game is paused
-    immovableTileSound.currentTime = 0
-    immovableTileSound.play()
+    sound && playSound(immovableTileSound)
 
     dispatch(shakeTile(tile))
     setTimeout(() => dispatch(shakeTile(null)), 300)
@@ -151,8 +152,7 @@ export const moveTile = tile => (dispatch, getState) => {
     if (cheatingMoves > 0) cheatingMoves = 0
 
     if (PUZZLE.moveTile(tile)) {
-      tileSound.currentTime = 0
-      tileSound.play()
+      sound && playSound(tileSound)
 
       dispatch(setPuzzle(PUZZLE.currentState()))
 
@@ -166,8 +166,7 @@ export const moveTile = tile => (dispatch, getState) => {
         }
       }
     } else {
-      immovableTileSound.currentTime = 0
-      immovableTileSound.play()
+      sound && playSound(immovableTileSound)
 
       dispatch(shakeTile(tile))
       setTimeout(() => dispatch(shakeTile(null)), 300)
