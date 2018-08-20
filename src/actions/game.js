@@ -21,7 +21,8 @@ import { setPuzzle } from 'actions/puzzle'
 import { 
   immovableTileSound,
   lidSound,
-  shuffleSound
+  shuffleSound,
+  tileSound
 } from 'sounds'
 
 
@@ -150,6 +151,9 @@ export const moveTile = tile => (dispatch, getState) => {
     if (cheatingMoves > 0) cheatingMoves = 0
 
     if (PUZZLE.moveTile(tile)) {
+      tileSound.currentTime = 0
+      tileSound.play()
+
       dispatch(setPuzzle(PUZZLE.currentState()))
 
       if (startClicked) {
