@@ -21,6 +21,7 @@ import { setPuzzle } from 'actions/puzzle'
 import { 
   immovableTileSound,
   lidSound,
+  resetSound,
   shuffleSound,
   tileSound
 } from 'sounds'
@@ -174,7 +175,10 @@ export const moveTile = tile => (dispatch, getState) => {
   }
 }
 
-export const resetGame = () => dispatch => {
+export const resetGame = () => (dispatch, getState) => {
+  const { settings: { sound } } = getState()
+
+  sound && playSound(resetSound)  
   PUZZLE.reset()
   dispatch(setPuzzle(PUZZLE.currentState()))
   dispatch(reset())
