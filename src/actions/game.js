@@ -26,11 +26,9 @@ import {
   tileSound
 } from 'sounds'
 
+// Helpers
+import { playSound } from 'helpers/sound'
 
-const playSound = sound => {
-  sound.currentTime = 0
-  sound.play()
-}
 
 const PUZZLE = new Puzzle()
 
