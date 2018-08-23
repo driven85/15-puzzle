@@ -41,7 +41,10 @@ export const switchGameLocale = locale => (dispatch, getState) => {
   dispatch(switchLocale(locale))
 }
 
-export const switchGameTheme = theme => dispatch => {
+export const switchGameTheme = theme => (dispatch, getState) => {
+  const { settings: { sound } } = getState()
+
+  sound && playSound(clickSound)
   dispatch(switchTheme(theme))
 
   Object.entries(themes[theme]).forEach(([property, value]) => {
