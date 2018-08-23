@@ -24,7 +24,7 @@ const switchTheme = theme => ({
   payload: { theme }
 })
 
-export const toggleRememberSettings = remember => ({
+const toggleRememberSettings = remember => ({
   type: TOGGLE_REMEMBER_SETTINGS,
   payload: { remember }
 })
@@ -50,6 +50,13 @@ export const switchGameTheme = theme => (dispatch, getState) => {
   Object.entries(themes[theme]).forEach(([property, value]) => {
     document.documentElement.style.setProperty(property, value)
   })
+}
+
+export const toggleGameRememberSettings = remember => (dispatch, getState) => {
+  const { settings: { sound } } = getState()
+
+  sound && playSound(clickSound)
+  dispatch(toggleRememberSettings(remember))
 }
 
 export const toggleGameSound = soundValue => (dispatch, getState) => {
