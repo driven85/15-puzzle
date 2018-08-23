@@ -32,7 +32,7 @@ import {
   switchGameLocale,
   switchGameTheme, 
   toggleRememberSettings,
-  toggleSound 
+  toggleGameSound 
 } from 'actions/settings'
 
 
@@ -51,7 +51,7 @@ const mapDispatchToProps = dispatch => ({
   onClose: () => dispatch(toggleSettings(false)),
   onLocaleChange: value => dispatch(switchGameLocale(value)),
   onRememberSettingsChange: value => dispatch(toggleRememberSettings(value)),
-  onSoundChange: value => dispatch(toggleSound(value)),
+  onSoundChange: value => dispatch(toggleGameSound(value)),
   onThemeChange: value => dispatch(switchGameTheme(value))
 })
 
