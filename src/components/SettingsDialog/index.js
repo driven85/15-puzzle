@@ -27,7 +27,7 @@ import styles from './styles'
 import withStyles from 'hoc/withStyles'
 
 // Actions
-import { toggleSettings } from 'actions/layout'
+import { toggleGameSettings } from 'actions/layout'
 import { 
   switchGameLocale,
   switchGameTheme, 
@@ -48,7 +48,7 @@ const mapStateToProps = ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onClose: () => dispatch(toggleSettings(false)),
+  onClose: () => dispatch(toggleGameSettings(false)),
   onLocaleChange: value => dispatch(switchGameLocale(value)),
   onRememberSettingsChange: value => dispatch(toggleGameRememberSettings(value)),
   onSoundChange: value => dispatch(toggleGameSound(value)),

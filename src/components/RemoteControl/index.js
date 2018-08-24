@@ -12,7 +12,7 @@ import { FormattedMessage } from 'react-intl'
 import './index.sass'
 
 // Actions
-import { toggleSettings } from 'actions/layout'
+import { toggleGameSettings } from 'actions/layout'
 
 import { 
   resetGame, 
@@ -38,7 +38,7 @@ const mapDispatchToProps = dispatch => ({
   onResetGame: () => dispatch(resetGame()),
   onStartGame: () => dispatch(startGame()),
   onToggleLid: value => dispatch(toggleBoxLid(value)),
-  onToggleSettings: () => dispatch(toggleSettings(true))
+  onToggleSettings: () => dispatch(toggleGameSettings(true))
 })
 
 const RemoteControl = ({

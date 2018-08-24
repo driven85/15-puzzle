@@ -1,3 +1,10 @@
+// Helpers
+import { playSound } from 'helpers/sound'
+
+// Sounds
+import { settingsSound } from 'sounds'
+
+
 export const TOGGLE_LID = 'TOGGLE_LID'
 export const SET_LOADER = 'SET_LOADER'
 export const START_CLICKED = 'START_CLICKED'
@@ -35,7 +42,7 @@ export const enableReset = () => ({
   type: ENABLE_RESET
 })
 
-export const toggleSettings = settings => ({
+const toggleSettings = settings => ({
   type: TOGGLE_SETTINGS,
   payload: { settings }
 })
@@ -49,4 +56,11 @@ export const toggleCheatingWarning = toggle => ({
   type: TOGGLE_CHEATING_WARNING,
   payload: { toggle }
 })
+
+export const toggleGameSettings = settings => (dispatch, getState) => {
+  const { settings: { sound } } = getState()
+
+  sound && playSound(settingsSound)
+  dispatch(toggleSettings(settings))
+}
 
