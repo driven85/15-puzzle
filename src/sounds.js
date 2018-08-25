@@ -5,6 +5,7 @@ import reset from 'sounds/reset.mp3'
 import settings from 'sounds/settings.mp3'
 import shuffle from 'sounds/shuffle.mp3'
 import tile from 'sounds/tile.mp3'
+import warning from 'sounds/warning.mp3'
 
 
 export const clickSound = new Audio(click)
@@ -20,4 +21,6 @@ export const settingsSound = new Audio(settings)
 export const shuffleSound = new Audio(shuffle)
 
 export const tileSound = new Audio(tile)
+
+export const warningSound = new Audio(warning)
 

@@ -2,7 +2,10 @@
 import { playSound } from 'helpers/sound'
 
 // Sounds
-import { settingsSound } from 'sounds'
+import { 
+  settingsSound,
+  warningSound
+} from 'sounds'
 
 
 export const TOGGLE_LID = 'TOGGLE_LID'
@@ -56,6 +59,13 @@ export const toggleCheatingWarning = toggle => ({
   type: TOGGLE_CHEATING_WARNING,
   payload: { toggle }
 })
+
+export const toggleGameCheatingWarning = toggle => (dispatch, getState) => {
+  const { settings: { sound } } = getState()
+
+  sound && playSound(warningSound)
+  dispatch(toggleCheatingWarning(toggle))
+}
 
 export const toggleGameSettings = settings => (dispatch, getState) => {
   const { settings: { sound } } = getState()

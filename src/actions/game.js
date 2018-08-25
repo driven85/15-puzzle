@@ -13,7 +13,7 @@ import {
   setStartDisabled,
   startClicked, 
   toggleLid,
-  toggleCheatingWarning
+  toggleGameCheatingWarning
 } from 'actions/layout'
 import { setPuzzle } from 'actions/puzzle'
 
@@ -138,7 +138,7 @@ export const moveTile = tile => (dispatch, getState) => {
     if (PUZZLE.moveTile(tile)) {
       if (++cheatingMoves >= 3) {
         cheatingMoves = 0
-        dispatch(toggleCheatingWarning(true))
+        dispatch(toggleGameCheatingWarning(true))
       }
 
       dispatch(setPuzzle(PUZZLE.currentState()))
