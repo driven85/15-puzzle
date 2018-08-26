@@ -1,5 +1,6 @@
 // Libs
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 // Components
@@ -15,6 +16,10 @@ const mapStateToProps = ({ layout: { loader } }) => ({
 
 const GameLoader = ({ show, ...props }) =>
   show && <Loader {...props} />
+
+GameLoader.propTypes = {
+  show: PropTypes.bool
+}
 
 export default connect(mapStateToProps)(GameLoader)
 
