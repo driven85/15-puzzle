@@ -16,7 +16,7 @@ import styles from './styles'
 import withStyles from 'hoc/withStyles'
 
 // Actions
-import { toggleCheatingWarning } from 'actions/layout'
+import { toggleGameCheatingWarning } from 'actions/layout'
 
 
 const mapStateToProps = ({ 
@@ -26,7 +26,7 @@ const mapStateToProps = ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onClose: () => dispatch(toggleCheatingWarning(false))
+  onClose: () => dispatch(toggleGameCheatingWarning(false))
 })
 
 const Warning = ({ show, styles, onClose }) => (

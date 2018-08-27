@@ -4,7 +4,8 @@ import { playSound } from 'helpers/sound'
 // Sounds
 import { 
   settingsSound,
-  warningSound
+  warningSound,
+  warningCloseSound
 } from 'sounds'
 
 
@@ -55,7 +56,7 @@ export const setStartDisabled = disabled => ({
   payload: { disabled }
 })
 
-export const toggleCheatingWarning = toggle => ({
+const toggleCheatingWarning = toggle => ({
   type: TOGGLE_CHEATING_WARNING,
   payload: { toggle }
 })
@@ -63,7 +64,8 @@ export const toggleCheatingWarning = toggle => ({
 export const toggleGameCheatingWarning = toggle => (dispatch, getState) => {
   const { settings: { sound } } = getState()
 
-  sound && playSound(warningSound)
+  sound && toggle && playSound(warningSound)
+  sound && !toggle && playSound(warningCloseSound)
   dispatch(toggleCheatingWarning(toggle))
 }
 
