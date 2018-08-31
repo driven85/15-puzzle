@@ -12,8 +12,19 @@ import 'css/styles.sass'
 // Store
 import configureStore from 'configureStore'
 
+// Settings
+import loadSettings from 'loadSettings'
 
-const store = configureStore()
+// Helpers
+import { applyTheme } from 'helpers/theme'
+
+// Themes
+import themes from 'css/themes.json'
+
+
+const settings = loadSettings()
+const store = configureStore({ settings })
+applyTheme(themes[settings.theme])
 
 render(
   <Provider store={store}>

@@ -1,7 +1,11 @@
+// Storage
+import { SettingsStorage } from 'app/Storage'
+
 // Themes
 import themes from 'css/themes.json'
 
 // Helpers
+import { applyTheme } from 'helpers/theme'
 import { playSound } from 'helpers/sound'
 
 // Sounds
@@ -35,21 +39,20 @@ const toggleSound = sound => ({
 })
 
 export const switchGameLocale = locale => (dispatch, getState) => {
-  const { settings: { sound } } = getState()
+  const { settings: { rememberSettings, sound } } = getState()
 
   sound && playSound(clickSound)
   dispatch(switchLocale(locale))
+  rememberSettings && SettingsStorage.setSetting('locale', locale)
 }
 
 export const switchGameTheme = theme => (dispatch, getState) => {
-  const { settings: { sound } } = getState()
+  const { settings: { rememberSettings, sound } } = getState()
 
   sound && playSound(clickSound)
   dispatch(switchTheme(theme))
-
-  Object.entries(themes[theme]).forEach(([property, value]) => {
-    document.documentElement.style.setProperty(property, value)
-  })
+  applyTheme(themes[theme])
+  rememberSettings && SettingsStorage.setSetting('theme', theme)
 }
 
 export const toggleGameRememberSettings = remember => (dispatch, getState) => {
@@ -57,12 +60,15 @@ export const toggleGameRememberSettings = remember => (dispatch, getState) => {
 
   sound && playSound(clickSound)
   dispatch(toggleRememberSettings(remember))
+  remember && SettingsStorage.setSetting('rememberSettings', remember)
+  !remember && SettingsStorage.resetSettings()
 }
 
 export const toggleGameSound = soundValue => (dispatch, getState) => {
-  const { settings: { sound } } = getState()
+  const { settings: { rememberSettings, sound } } = getState()
 
   sound && playSound(clickSound)
   dispatch(toggleSound(soundValue))
+  rememberSettings && SettingsStorage.setSetting('sound', soundValue)
 }
 
