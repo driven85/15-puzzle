@@ -8,8 +8,10 @@ export const defaultSettings = {
   theme: 'pink-grey'
 }
 
-const loadSettings = () =>
-  SettingsStorage.getAllSettings(defaultSettings)
+const loadSettings = () => ({
+  ...defaultSettings,
+  ...SettingsStorage.getAllSettings(defaultSettings)
+})
 
 export default loadSettings
 
