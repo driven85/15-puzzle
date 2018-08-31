@@ -5,13 +5,8 @@ import {
   TOGGLE_SOUND
 } from 'actions/settings'
 
+import { defaultSettings as initialState } from 'loadSettings'
 
-const initialState = {
-  locale: 'en',
-  rememberSettings: false,
-  sound: false,
-  theme: 'pink-grey'
-}
 
 // TODO: refactor
 const settings = (state = initialState, action) => {
