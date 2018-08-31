@@ -22,7 +22,7 @@ const Storage = function() {
 
 export const SettingsStorage = function(storage) {
   const _version = '1.0.0'
-  const _settingsKey = `15-puzzle-${_version}`
+  const _settingsKey = `15-PUZZLE-${_version}`
 
   const _loadFromStorage = () => {
     const json = storage.get(_settingsKey)
@@ -43,7 +43,11 @@ export const SettingsStorage = function(storage) {
     this.set(_settingsKey, JSON.stringify(settings))
   }
 
-  storage.loadSettings = function(defaults = {}) {
+  storage.setAllSettings = function(settings) {
+    this.set(_settingsKey, JSON.stringify(settings))
+  }
+
+  storage.getAllSettings = function(defaults = {}) {
     const settings = _loadFromStorage()
 
     return { ...defaults, ...settings }

@@ -9,7 +9,7 @@ export const defaultSettings = {
 }
 
 const loadSettings = () =>
-  SettingsStorage.loadSettings(defaultSettings)
+  SettingsStorage.getAllSettings(defaultSettings)
 
 export default loadSettings
 

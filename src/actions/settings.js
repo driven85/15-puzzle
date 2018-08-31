@@ -56,12 +56,19 @@ export const switchGameTheme = theme => (dispatch, getState) => {
 }
 
 export const toggleGameRememberSettings = remember => (dispatch, getState) => {
-  const { settings: { sound } } = getState()
+  const { settings } = getState()
 
-  sound && playSound(clickSound)
+  settings.sound && playSound(clickSound)
   dispatch(toggleRememberSettings(remember))
-  remember && SettingsStorage.setSetting('rememberSettings', remember)
-  !remember && SettingsStorage.resetSettings()
+
+  if (remember) {
+    SettingsStorage.setAllSettings({
+      ...settings,
+      rememberSettings: remember
+    })
+  } else {
+    SettingsStorage.resetSettings()
+  }
 }
 
 export const toggleGameSound = soundValue => (dispatch, getState) => {
