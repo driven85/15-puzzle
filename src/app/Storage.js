@@ -1,4 +1,5 @@
-const Storage = function() {
+export const Storage = function() {
+  // TODO: define the version globally
   const _version = '1.0.0'
   const _storageKey = `15-PUZZLE-${_version}`
 
