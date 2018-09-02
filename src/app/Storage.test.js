@@ -1,5 +1,5 @@
 import test from 'tape'
-import { Storage } from './Storage'
+import { Storage, SettingsStorage } from './Storage'
 import sinon from 'sinon'
 
 
@@ -12,6 +12,9 @@ global.localStorage = {
   },
   setItem: function(key, value) {
     this._storage[key] = value.toString()
+  },
+  clear: function() {
+    this._storage = {}
   }
 }
 
@@ -58,6 +61,95 @@ test('Storage.remove', t => {
 
   t.equal(b, undefined,
     'Should remove a value correctly')
+
+  t.end()
+})
+
+// TODO: localStorage._storage.settings = { ... }
+
+test('SettingsStorage.getSetting', t => {
+  localStorage.clear()
+  const get = sinon.spy(SettingsStorage, 'get')
+  let sound = SettingsStorage.getSetting('sound')
+
+  t.ok(get.calledWith('settings'), 
+    'Should call the get method with \'settings\' as an argument'
+  )
+
+  t.equal(sound, undefined,
+    'Should return undefined if there is no setting'
+  )
+
+  SettingsStorage.setSetting('sound', 'loud')
+  sound = SettingsStorage.getSetting('sound')
+
+  t.equal(sound, 'loud',
+    'Should retrieve a setting from the storage correctly')
+
+  get.restore()
+  t.end()
+})
+
+test('SettingsStorage.setSetting', t => {
+  localStorage.clear()
+  SettingsStorage.setSetting('locale', 'en')
+  let locale = SettingsStorage.getSetting('locale')
+
+  t.equal(locale, 'en',
+    'Should save a setting in the storage correctly')
+
+  SettingsStorage.setSetting('locale', 'ru')
+  locale = SettingsStorage.getSetting('locale')
+
+  t.equal(locale, 'ru',
+    'Should save a setting in the storage correctly')
+ 
+  t.end()
+})
+
+test('SettingsStorage.setAllSettings', t => {
+  localStorage.clear()
+  const set = sinon.spy(SettingsStorage, 'set')
+  const settings = { locale: 'ru', sound: true }
+
+  SettingsStorage.setAllSettings(settings)
+
+  t.ok(set.calledWith('settings', settings),
+    'Should call the set method with correct arguments'
+  )
+
+  t.end()
+})
+
+test('SettingsStorage.getAllSettings', t => {
+  localStorage.clear()
+  const get = sinon.spy(SettingsStorage, 'get')  
+  const settings = { locale: 'ru', sound: true }
+
+  let sets = SettingsStorage.getAllSettings()
+
+  t.ok(get.calledWith('settings'),
+    'Should call the get method with correct arguments')
+
+  t.deepEqual(sets, {},
+    'Should return an empty object if there are no settings set')
+
+  SettingsStorage.setAllSettings(settings)
+  sets = SettingsStorage.getAllSettings()
+
+  t.deepEqual(sets, settings,
+    'Should retrieve settings from the storage correctly')
+
+  t.end()
+})
+
+test('SettingsStorage.removeSettings', t => {
+  const remove = sinon.spy(SettingsStorage, 'remove')   
+
+  SettingsStorage.resetSettings()
+  t.ok(remove.calledWith('settings'),
+    'Should call the remove method with \'settings\' as an argument'
+  )
 
   t.end()
 })
