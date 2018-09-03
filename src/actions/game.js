@@ -21,7 +21,9 @@ import { setPuzzle } from 'actions/puzzle'
 import { 
   immovableTileSound,
   lidSound,
+  pauseSound,
   resetSound,
+  resumeSound,
   shuffleSound,
   tileSound
 } from 'sounds'
@@ -73,7 +75,6 @@ export const startGame = () => (dispatch, getState) => {
       dispatch(setLoader(true))
       dispatch(setStartDisabled(true)) // TODO: disable through the START_CLICKED action - ?
 
-
       sound && playSound(shuffleSound)
 
       PUZZLE.reset()
@@ -112,11 +113,15 @@ export const startGame = () => (dispatch, getState) => {
       clearInterval(timer)
       cheatingMoves = 0
 
+      sound && playSound(pauseSound)
+
       break
 
     case RESUME:
       dispatch(startClicked())
       timer = setInterval(() => dispatch(tick()), 1000)
+
+      sound && playSound(resumeSound)
 
       break
   }
