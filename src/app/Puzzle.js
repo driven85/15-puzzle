@@ -5,6 +5,8 @@ function Puzzle(puzzle = initialState) {
 }
 
 Puzzle.prototype = {
+  constructor: Puzzle,
+
   currentState: function() {
     return this._puzzleStates[this._puzzleStates.length - 1]
   },
