@@ -1,13 +1,18 @@
+import VERSION from '../version'
+
+
 export const Storage = function() {
-  // TODO: define the version globally
-  const _version = '1.0.0'
-  const _storageKey = `15-PUZZLE-${_version}`
+  const _storageKey = `15-PUZZLE-${VERSION}`
 
   function _loadFromStorage() {
     if (localStorage) {
       const json = localStorage.getItem(_storageKey)
 
-      return json ? JSON.parse(json) : {} // TODO: wrap in try/catch
+      try {
+        return json ? JSON.parse(json) : {}
+      } catch (e) {
+        return {}
+      }
     } else {
       return null
     }

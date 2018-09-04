@@ -1,28 +1,38 @@
 import test from 'tape'
 import { Storage, SettingsStorage } from './Storage'
 import sinon from 'sinon'
+import VERSION from '../version'
 
+
+const storageKey = '15-PUZZLE-' + VERSION
 
 global.localStorage = {
-  _storage: {
-    '15-PUZZLE-1.0.0': JSON.stringify({ a: 123, b: 456 })
-  },
+  _storage: {},
+
   getItem: function(key) {
     return this._storage[key]
   },
+
   setItem: function(key, value) {
     this._storage[key] = value.toString()
   },
+
   clear: function() {
     this._storage = {}
   }
 }
 
+const initLocalStorage = value =>
+  global.localStorage._storage[storageKey] = JSON.stringify(value)
+
+const resetLocalStorage = () =>
+  global.localStorage._storage[storageKey] = {}
+
 // TODO: add more spies
-
 test('Storage.get', t => {
-  const getItem = sinon.spy(localStorage, 'getItem')
+  initLocalStorage({ a: 123, b: 456 })
 
+  const getItem = sinon.spy(localStorage, 'getItem')
   const a = Storage.get('a')
   const b = Storage.get('b')
 
@@ -33,6 +43,7 @@ test('Storage.get', t => {
   t.equal(b, 456,
     'Should get a value correctly')
 
+  resetLocalStorage()
   t.end()
 })
 
@@ -51,24 +62,25 @@ test('Storage.set', t => {
   t.equal(d, 9,
     'Should set a value correctly')
 
+  resetLocalStorage()
   t.end()
 })
 
 test('Storage.remove', t => {
-  Storage.remove('b')
+  initLocalStorage({ a: 123 })
 
-  const b = Storage.get('b')
+  Storage.remove('a')
 
-  t.equal(b, undefined,
+  const a = Storage.get('a')
+
+  t.equal(a, undefined,
     'Should remove a value correctly')
 
+  resetLocalStorage()
   t.end()
 })
 
-// TODO: localStorage._storage.settings = { ... }
-
 test('SettingsStorage.getSetting', t => {
-  localStorage.clear()
   const get = sinon.spy(SettingsStorage, 'get')
   let sound = SettingsStorage.getSetting('sound')
 
@@ -80,18 +92,19 @@ test('SettingsStorage.getSetting', t => {
     'Should return undefined if there is no setting'
   )
 
-  SettingsStorage.setSetting('sound', 'loud')
+  initLocalStorage({ settings: { sound: 'loud' } })
+
   sound = SettingsStorage.getSetting('sound')
 
   t.equal(sound, 'loud',
     'Should retrieve a setting from the storage correctly')
 
   get.restore()
+  resetLocalStorage()
   t.end()
 })
 
 test('SettingsStorage.setSetting', t => {
-  localStorage.clear()
   SettingsStorage.setSetting('locale', 'en')
   let locale = SettingsStorage.getSetting('locale')
 
@@ -103,12 +116,12 @@ test('SettingsStorage.setSetting', t => {
 
   t.equal(locale, 'ru',
     'Should save a setting in the storage correctly')
- 
+
+  resetLocalStorage() 
   t.end()
 })
 
 test('SettingsStorage.setAllSettings', t => {
-  localStorage.clear()
   const set = sinon.spy(SettingsStorage, 'set')
   const settings = { locale: 'ru', sound: true }
 
@@ -118,11 +131,11 @@ test('SettingsStorage.setAllSettings', t => {
     'Should call the set method with correct arguments'
   )
 
+  resetLocalStorage()
   t.end()
 })
 
 test('SettingsStorage.getAllSettings', t => {
-  localStorage.clear()
   const get = sinon.spy(SettingsStorage, 'get')  
   const settings = { locale: 'ru', sound: true }
 
@@ -134,12 +147,13 @@ test('SettingsStorage.getAllSettings', t => {
   t.deepEqual(sets, {},
     'Should return an empty object if there are no settings set')
 
-  SettingsStorage.setAllSettings(settings)
+  initLocalStorage({ settings })
   sets = SettingsStorage.getAllSettings()
 
   t.deepEqual(sets, settings,
     'Should retrieve settings from the storage correctly')
 
+  resetLocalStorage()
   t.end()
 })
 
