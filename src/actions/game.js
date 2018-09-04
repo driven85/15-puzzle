@@ -19,6 +19,7 @@ import { setPuzzle } from 'actions/puzzle'
 
 // Sounds
 import { 
+  congratsSound,
   immovableTileSound,
   lidSound,
   pauseSound,
@@ -167,6 +168,8 @@ export const moveTile = tile => (dispatch, getState) => {
           dispatch(setStartDisabled(true))
           dispatch(setSolved())
           clearInterval(timer)
+
+          sound && playSound(congratsSound)
         }
       }
     } else {

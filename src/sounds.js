@@ -1,4 +1,5 @@
 import click from 'sounds/click.wav'
+import congrats from 'sounds/congrats.mp3'
 import immovableTile from 'sounds/immovable-tile.mp3'
 import lid from 'sounds/lid.mp3'
 import pause from 'sounds/pause.wav'
@@ -12,6 +13,8 @@ import warningClose from 'sounds/warningClose.wav'
 
 
 export const clickSound = new Audio(click)
+
+export const congratsSound = new Audio(congrats)
 
 export const immovableTileSound = new Audio(immovableTile)
 
