@@ -9,7 +9,7 @@ import Switch from 'components/UI/Switch'
 import { FormattedMessage } from 'react-intl'
 
 // CSS
-import './index.sass'
+import './styles.sass'
 
 // Actions
 import { toggleGameSettings } from 'actions/layout'

@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import SettingsSvg from 'icons/SettingsSvg'
 
 // CSS
-import './SettingsButton.sass'
+import './styles.sass'
 
 
 // TODO: set the width & height via props
