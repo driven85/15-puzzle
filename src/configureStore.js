@@ -7,17 +7,20 @@ import { createLogger } from 'redux-logger'
 import reducer from 'reducers'
 
 
-const loggerMiddleware = createLogger()
-
 const configureStore = preloadedState => {
+  const middleware = [thunkMiddleware]
+
+  if (process.env.NODE_ENV === 'development') {
+    const loggerMiddleware = createLogger()
+
+    middleware.push(loggerMiddleware)
+  }
+
   return createStore(
     reducer,
     preloadedState,
     composeWithDevTools(
-      applyMiddleware(
-        thunkMiddleware,
-        loggerMiddleware
-      )
+      applyMiddleware(...middleware)
     ) 
   ) 
 }
