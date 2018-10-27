@@ -31,7 +31,7 @@ export default {
     'warning.button': 'Got It!'
   },
   ru: {
-    'congrats.message': 'Поздравляем!!!<br /> Вы решили<br /> головоломку!',
+    'congrats.message': 'Поздравляем!!!<br /> Вы собрали<br /> пазл!',
 
     'lid.label': 'Игра в 15',
 
