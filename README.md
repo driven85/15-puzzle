@@ -5,4 +5,5 @@ Techonologies:
 React
 Redux
 Redux-Thunk
+React-Intl
 
