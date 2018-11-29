@@ -6,4 +6,5 @@ React
 Redux
 Redux-Thunk
 React-Intl
+Sass
 
