@@ -7,4 +7,5 @@ Redux
 Redux-Thunk
 React-Intl
 Sass
+Tape
 
