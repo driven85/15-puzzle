@@ -2,6 +2,7 @@ Another fifteen puzzle game =)
 
 Techonologies:
 
+Babel
 React
 Redux
 Redux-Thunk
