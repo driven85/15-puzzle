@@ -9,4 +9,5 @@ Redux-Thunk
 React-Intl
 Sass
 Tape
+Webpack
 
