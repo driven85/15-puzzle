@@ -4,9 +4,9 @@ Techonologies:
 
 Babel
 React
+React-Intl
 Redux
 Redux-Thunk
-React-Intl
 Sass
 Tape
 Webpack
