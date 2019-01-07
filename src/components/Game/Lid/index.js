@@ -1,5 +1,6 @@
 // Libs
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 import { Transition } from 'react-transition-group'
@@ -38,6 +39,11 @@ const Lid = ({ lid }) => (
     )}
   </Transition>
 )
+
+Lid.propTypes = {
+  lid: PropTypes.bool.isRequired,
+  locale: PropTypes.string
+}
 
 export default connect(mapStateToProps)(Lid)
 
