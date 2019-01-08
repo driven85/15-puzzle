@@ -1,19 +1,25 @@
 // Libs
-import React from 'react'
+import React, { PureComponent } from 'react'
 import classNames from 'classnames'
 
 // CSS
 import './styles.sass'
 
 
-const Tile = ({ bright, number, shake, onClick }) => (
-  <div 
-    className={classNames('tile', { bright, shake })}
-    onClick={onClick}
-  >
-    {number}
-  </div>
-)
+class Tile extends PureComponent {
+  render() {
+    const { bright, number, shake, onClick } = this.props
+
+    return (
+      <div 
+        className={classNames('tile', { bright, shake })}
+        onClick={onClick}
+      >
+        {number}
+      </div>
+    )
+  }
+}
 
 export default Tile
 

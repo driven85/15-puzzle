@@ -1,5 +1,5 @@
 // Libs
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
@@ -29,21 +29,36 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-const Box = ({ lid, puzzle, shake, onMoveTile }) => (
-  <div className="box">
-    {puzzle.map(tile => 
-      tile 
-        ? <Tile
-            key={tile}
-            bright={!lid}
-            number={tile}
-            shake={tile === shake}
-            onClick={() => onMoveTile(tile)}
-          />
-        : <EmptySpace key={tile} />
-    )}
-  </div>
-)
+class Box extends Component {
+  constructor(props) {
+    super(props)
+
+    this.onTileClick = Array.from(
+      { length: 15 }, 
+      (_, i) => () => props.onMoveTile(i + 1)
+    )
+  }
+
+  render() {
+    const { lid, puzzle, shake, onMoveTile } = this.props
+
+    return (
+      <div className="box">
+        {puzzle.map(tile => 
+          tile 
+            ? <Tile
+                key={tile}
+                bright={!lid}
+                number={tile}
+                shake={tile === shake}
+                onClick={this.onTileClick[tile - 1]}
+              />
+            : <EmptySpace key={tile} />
+        )}
+      </div>
+    )
+  }
+}
 
 Box.propTypes = {
   puzzle: PropTypes.arrayOf(PropTypes.number),

@@ -1,12 +1,15 @@
 // Libs
-import React from 'react'
+import React, { PureComponent } from 'react'
 
 // CSS
 import './styles.sass'
 
 
-const EmptySpace = () =>
-  <div className="empty-space" />
+class EmptySpace extends PureComponent {
+  render() {
+    return  <div className="empty-space" />
+  }
+}
 
 export default EmptySpace
 
