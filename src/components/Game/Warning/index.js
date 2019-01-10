@@ -1,5 +1,6 @@
 // Libs
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
 
@@ -47,6 +48,12 @@ const Warning = ({ show, styles, onClose }) => (
     </button>
   </Dialog>
 )
+
+Warning.propTypes = {
+  show: PropTypes.bool,
+  styles: PropTypes.object.isRequired,
+  onClose: PropTypes.func.isRequired
+}
 
 export default connect(
   mapStateToProps, 
