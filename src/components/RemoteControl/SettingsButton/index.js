@@ -1,5 +1,6 @@
 // Libs
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 // Icons
@@ -18,6 +19,11 @@ const SettingsButton = ({ bright, onClick }) => (
     <SettingsSvg className={classNames({ bright, drab: !bright })} />
   </div>
 )
+
+SettingsButton.propTypes = {
+  bright: PropTypes.bool,
+  onClick: PropTypes.func.isRequired
+}
 
 export default SettingsButton
 
