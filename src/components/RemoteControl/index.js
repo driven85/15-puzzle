@@ -1,5 +1,6 @@
 // Libs
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 // Components
@@ -74,6 +75,17 @@ const RemoteControl = ({
     </div>
   </Card>
 )
+
+RemoteControl.propTypes = {
+  lid: PropTypes.bool,
+  resetDisabled: PropTypes.bool,
+  startClicked: PropTypes.number,
+  startDisabled: PropTypes.bool,
+  onResetGame: PropTypes.func.isRequired,
+  onStartGame: PropTypes.func.isRequired,
+  onToggleLid: PropTypes.func.isRequired,
+  onToggleSettings: PropTypes.func.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(RemoteControl)
 
