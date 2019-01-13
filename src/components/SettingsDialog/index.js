@@ -1,5 +1,6 @@
 // Libs
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { FormattedMessage, injectIntl } from 'react-intl'
 import classNames from 'classnames'
@@ -140,6 +141,21 @@ const SettingsDialog = ({
     />
   </Dialog>
 )
+
+SettingsDialog.propTypes = {
+  intl: PropTypes.object,
+  lid: PropTypes.bool,
+  rememberSettings: PropTypes.bool,
+  show: PropTypes.bool,
+  sound: PropTypes.bool,
+  styles: PropTypes.object,
+  theme: PropTypes.string,
+  onClose: PropTypes.func.isRequired,
+  onLocaleChange: PropTypes.func.isRequired,
+  onRememberSettingsChange: PropTypes.func.isRequired,
+  onSoundChange: PropTypes.func.isRequired,
+  onThemeChange: PropTypes.func.isRequired
+}
 
 export default injectIntl(
   connect(
