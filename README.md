@@ -3,7 +3,7 @@ Another fifteen puzzle game =)
 Techonologies:
 
 Babel\
-React
+React\
 React-Intl
 Redux
 Redux-Thunk
