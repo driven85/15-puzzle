@@ -4,7 +4,7 @@ Techonologies:
 
 Babel\
 React\
-React-Intl
+React-Intl\
 Redux
 Redux-Thunk
 Sass
