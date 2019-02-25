@@ -5,7 +5,7 @@ Techonologies:
 Babel\
 React\
 React-Intl\
-Redux
+Redux\
 Redux-Thunk
 Sass
 Tape
