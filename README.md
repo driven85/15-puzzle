@@ -6,8 +6,8 @@ Babel\
 React\
 React-Intl\
 Redux\
-Redux-Thunk
-Sass
+Redux-Thunk\
+Sass\
 Tape
 Webpack
 
