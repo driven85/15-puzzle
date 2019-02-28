@@ -8,6 +8,6 @@ React-Intl\
 Redux\
 Redux-Thunk\
 Sass\
-Tape
+Tape\
 Webpack
 
