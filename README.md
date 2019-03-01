@@ -9,5 +9,5 @@ Redux\
 Redux-Thunk\
 Sass\
 Tape\
-Webpack
+Webpack\
 
